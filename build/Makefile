@@ -153,6 +153,54 @@ ChatServer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/ChatServer.cpp.s
 .PHONY : ChatServer.cpp.s
 
+HttpContext.o: HttpContext.cpp.o
+.PHONY : HttpContext.o
+
+# target to build an object file
+HttpContext.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/HttpContext.cpp.o
+.PHONY : HttpContext.cpp.o
+
+HttpContext.i: HttpContext.cpp.i
+.PHONY : HttpContext.i
+
+# target to preprocess a source file
+HttpContext.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/HttpContext.cpp.i
+.PHONY : HttpContext.cpp.i
+
+HttpContext.s: HttpContext.cpp.s
+.PHONY : HttpContext.s
+
+# target to generate assembly for a file
+HttpContext.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/HttpContext.cpp.s
+.PHONY : HttpContext.cpp.s
+
+HttpResponse.o: HttpResponse.cpp.o
+.PHONY : HttpResponse.o
+
+# target to build an object file
+HttpResponse.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/HttpResponse.cpp.o
+.PHONY : HttpResponse.cpp.o
+
+HttpResponse.i: HttpResponse.cpp.i
+.PHONY : HttpResponse.i
+
+# target to preprocess a source file
+HttpResponse.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/HttpResponse.cpp.i
+.PHONY : HttpResponse.cpp.i
+
+HttpResponse.s: HttpResponse.cpp.s
+.PHONY : HttpResponse.s
+
+# target to generate assembly for a file
+HttpResponse.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/HttpResponse.cpp.s
+.PHONY : HttpResponse.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -189,6 +237,12 @@ help:
 	@echo "... ChatServer.o"
 	@echo "... ChatServer.i"
 	@echo "... ChatServer.s"
+	@echo "... HttpContext.o"
+	@echo "... HttpContext.i"
+	@echo "... HttpContext.s"
+	@echo "... HttpResponse.o"
+	@echo "... HttpResponse.i"
+	@echo "... HttpResponse.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

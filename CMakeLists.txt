@@ -25,7 +25,9 @@ find_library(MUDUO_BASE
 # 定义生成的程序目标名和源文件
 add_executable(ai_http_server
                 main.cpp
-                ChatServer.cpp)
+                ChatServer.cpp
+                HttpContext.cpp
+                HttpResponse.cpp)
 # 给程序添加头文件搜索目录
 target_include_directories(ai_http_server PRIVATE
                             ${MUDUO_INCLUDE_DIR}

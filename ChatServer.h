@@ -1,7 +1,9 @@
 #pragma once
 
-#include <muduo/net/TcpServer.h>
+#include "HttpRequest.h"
+#include "HttpResponse.h"
 
+#include <muduo/net/TcpServer.h>
 #include <string>
 
 class ChatServer{
@@ -15,22 +17,23 @@ public:
 
 private:
 
+    void onConnection(
+        const muduo::net::TcpConnectionPtr& conn
+    );
+
     void onMessage(
         const muduo::net::TcpConnectionPtr& conn,
         muduo::net::Buffer* buffer,
         muduo::Timestamp receiveTime
     );
 
-    void handleChat(
-        const muduo::net::TcpConnectionPtr& conn,
-        const std::string& body
+    HttpResponse handleRequest(
+        const HttpRequest& request
     );
 
-    void reply(
+    void sendResponse(
         const muduo::net::TcpConnectionPtr& conn,
-        int status,
-        const std::string& reason,
-        const std::string& body
+        const HttpResponse& response
     );
 
     muduo::net::TcpServer server_;
