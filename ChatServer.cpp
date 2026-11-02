@@ -17,7 +17,7 @@ ChatServer::ChatServer(
         "AiHttp"
     ){
     //将Muduo的数据到达时间绑定成员函数
-    server_.setConnectionCallback(
+    server_.setConnectionCallback(//连接回调
         std::bind(
             &ChatServer::onConnection,//这个函数的三个参数
             this,
@@ -25,7 +25,7 @@ ChatServer::ChatServer(
         )
     );
 
-    server_.setMessageCallback(
+    server_.setMessageCallback(//消息回调
         std::bind(
             &ChatServer::onMessage,
             this,
@@ -44,7 +44,8 @@ void ChatServer::onConnection(
     const::muduo::net::TcpConnectionPtr& conn
 ){
     if(conn->connected()){
-        conn->setContext(HttpContext{});
+        //存放功能，不限定存放的类型
+        conn->setContext(HttpContext{});//给这条连接准备一个自己的 HttpContext，用来记录 HTTP 请求解析到了哪里。
     }
 }
 
@@ -57,11 +58,11 @@ void ChatServer::onMessage(
         return;
     }
 
-    auto* context = boost::any_cast<HttpContext>(
+    auto* context = boost::any_cast<HttpContext>(//取出之前保存的 HttpContext
         conn->getMutableContext()
     );
 
-    if(!context){
+    if(!context){//解析失败
         sendResponse(
             conn,
             HttpResponse(
@@ -111,7 +112,7 @@ HttpResponse ChatServer::handleRequest(
 
     boost::system::error_code ec;
 
-    const auto data =
+    const auto data =//解析请求体的json
         boost::json::parse(request.body, ec);
 
     if (ec || !data.is_object()) {
@@ -122,7 +123,7 @@ HttpResponse ChatServer::handleRequest(
         );
     }
 
-     const auto* question =
+    const auto* question =//const boost::json::value*
         data.as_object().if_contains("question");
 
     if (!question ||

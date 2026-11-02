@@ -40,17 +40,17 @@ HttpContext::Result HttpContext::fail(
 bool HttpContext::parseRequestLine(
     const std::string& line
 ){
-    std::istringstream input(line);
+    std::istringstream input(line);//把一行请求行放到输入流里
     std::string extra;
 
-    return static_cast<bool>(
+    return static_cast<bool>(//按照空行分隔请求行的三个部分，分别是 method、path、version
         input>>
         request_.method>>
         request_.path>>
         request_.version
     )&&
-    !(input>>extra)&&
-    request_.version =="HTTP/1.1";
+    !(input>>extra)&&//没用额外信息
+    request_.version =="HTTP/1.1";//只支持 HTTP/1.1
 }
 
 bool HttpContext::parseHeader(
@@ -58,7 +58,7 @@ bool HttpContext::parseHeader(
 ){
     const auto colon = line.find(':');
 
-    if(colon==std::string::npos || colon ==0){
+    if(colon==std::string::npos || colon ==0){//找不到：
         return false;
     }
 
@@ -79,10 +79,10 @@ bool HttpContext::parseHeader(
         input >> digits;
 
         // 拒绝重复长度、空值和非数字值。
-        if (hasContentLength_ ||
-            digits.empty() ||
-            (input >> extra) ||
-            digits.find_first_not_of("0123456789") !=
+        if (hasContentLength_ ||//已经读取过
+            digits.empty() ||//空值
+            (input >> extra) ||//存在额外信息
+            digits.find_first_not_of("0123456789") !=//存在非数字
                 std::string::npos) {
             return false;
         }
@@ -107,12 +107,12 @@ bool HttpContext::parseHeader(
         hasContentLength_ = true;
     }
 
-    request_.headers[name] = value;
+    request_.headers[name] = value;//解析一行请求头，并且对content-length进行特殊处理，记录正文长度和是否已经读取过content-length
 
     return true;
 }
 
-HttpContext::Result HttpContext::parse(
+HttpContext::Result HttpContext::parse(//解析缓冲区中的数据,请求行和请求头的解析
     muduo::net::Buffer* buffer
 ){
      while (true) {
@@ -130,7 +130,7 @@ HttpContext::Result HttpContext::parse(
                 return Result::NeedMore;
             }
 
-            request_.body =
+            request_.body =//存放请求体
                 buffer->retrieveAsString(contentLength_);
 
             state_ = State::Complete;
@@ -139,7 +139,7 @@ HttpContext::Result HttpContext::parse(
         }
 
         // 请求行和请求头按 CRLF 分行。
-        const char* crlf = buffer->findCRLF();//这个啥意思？
+        const char* crlf = buffer->findCRLF();//在缓冲区找\r\n
 
         if (!crlf) {
             if (headerBytes_ + buffer->readableBytes() >
@@ -155,7 +155,7 @@ HttpContext::Result HttpContext::parse(
             return Result::NeedMore;
         }
 
-        const std::size_t lineBytes =
+        const std::size_t lineBytes =//当前行的字节数
             static_cast<std::size_t>(
                 crlf - buffer->peek()
             );
@@ -177,10 +177,10 @@ HttpContext::Result HttpContext::parse(
             lineBytes
         );
 
-        buffer->retrieve(lineBytes + 2);
+        buffer->retrieve(lineBytes + 2);//消费当前行
 
         if (state_ == State::RequestLine) {
-            if (!parseRequestLine(line)) {
+            if (!parseRequestLine(line)) {//解析请求行失败
                 return fail(
                     400,
                     "Bad Request",
@@ -189,9 +189,9 @@ HttpContext::Result HttpContext::parse(
             }
 
             state_ = State::Headers;
-        } else if (line.empty()) {
+        } else if (line.empty()) {//请求头解析结束
             // 空行表示请求头结束。
-            if (request_.method == "POST" &&
+            if (request_.method == "POST" &&//没找到 Content-Length
                 !hasContentLength_) {
                 return fail(
                     411,
@@ -201,7 +201,7 @@ HttpContext::Result HttpContext::parse(
             }
 
             state_ = State::Body;
-        } else if (!parseHeader(line)) {
+        } else if (!parseHeader(line)) {//解析请求头失败
             // parseHeader 可能已记录 413 错误。
             if (state_ == State::Error) {
                 return Result::Error;

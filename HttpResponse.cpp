@@ -11,8 +11,13 @@ HttpResponse::HttpResponse(
     ,reason_(std::move(reason))
     ,body_(std::move(body)){
 }
-
-std::string HttpResponse::serialize()const{
+    // HTTP/1.1 200 OK                              ← 状态行
+    // Content-Type: application/json;charset=utf-8 ← 响应头 默认填写
+    // Content-Length: 19                           ← 响应头 默认填写
+    // Connection: close                            ← 响应头 默认填写
+    //                                              ← 空行   默认填写
+    // {"message":"hello"}                          ← 响应正文
+std::string HttpResponse::serialize()const{//把响应转化为http报文
     std::string response;
     //状态行
     response +=
