@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/root/Ai_http_cpp/AIClient.cpp" "CMakeFiles/ai_http_server.dir/AIClient.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIClient.cpp.o.d"
   "/root/Ai_http_cpp/ChatHandler.cpp" "CMakeFiles/ai_http_server.dir/ChatHandler.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/ChatHandler.cpp.o.d"
   "/root/Ai_http_cpp/ChatServer.cpp" "CMakeFiles/ai_http_server.dir/ChatServer.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/ChatServer.cpp.o.d"
   "/root/Ai_http_cpp/HttpContext.cpp" "CMakeFiles/ai_http_server.dir/HttpContext.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/HttpContext.cpp.o.d"

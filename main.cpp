@@ -1,10 +1,16 @@
 #include "ChatServer.h"
 
 #include <muduo/net/EventLoop.h>
+#include <curl/curl.h>
 #include <iostream>
 
 int main(){
-    muduo::net::EventLoop loop;
+    if(curl_global_init(CURL_GLOBAL_DEFAULT)!=CURLE_OK){
+        std::cerr<<"Failed to initialize libcurl\n";
+        return 1;
+    }
+    {
+        muduo::net::EventLoop loop;
 
     ChatServer server(&loop,8080);
 
@@ -13,4 +19,7 @@ int main(){
     std::cout<<"Listening on http://127.0.0.1:8080\n";
 
     loop.loop();
+    }
+    curl_global_cleanup();
+    return 0;
 }

@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # 查找依赖包
 find_package(Threads REQUIRED)
 find_package(Boost 1.75 REQUIRED)
+find_package(CURL REQUIRED)
 
 find_path(MUDUO_INCLUDE_DIR
         muduo/net/TcpServer.h
@@ -30,7 +31,8 @@ add_executable(ai_http_server
             HttpResponse.cpp
             Router.cpp
             HttpServer.cpp
-            ChatHandler.cpp)
+            ChatHandler.cpp
+            AIClient.cpp)
 # 给程序添加头文件搜索目录
 target_include_directories(ai_http_server PRIVATE
                             ${MUDUO_INCLUDE_DIR}
@@ -41,4 +43,5 @@ target_link_libraries(ai_http_server PRIVATE
                     ${MUDUO_NET}
                     ${MUDUO_BASE}
                     Threads::Threads
+                    CURL::libcurl
 )   

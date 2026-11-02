@@ -129,6 +129,30 @@ ai_http_server/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/build
 .PHONY : ai_http_server/fast
 
+AIClient.o: AIClient.cpp.o
+.PHONY : AIClient.o
+
+# target to build an object file
+AIClient.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIClient.cpp.o
+.PHONY : AIClient.cpp.o
+
+AIClient.i: AIClient.cpp.i
+.PHONY : AIClient.i
+
+# target to preprocess a source file
+AIClient.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIClient.cpp.i
+.PHONY : AIClient.cpp.i
+
+AIClient.s: AIClient.cpp.s
+.PHONY : AIClient.s
+
+# target to generate assembly for a file
+AIClient.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIClient.cpp.s
+.PHONY : AIClient.cpp.s
+
 ChatHandler.o: ChatHandler.cpp.o
 .PHONY : ChatHandler.o
 
@@ -306,6 +330,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ai_http_server"
+	@echo "... AIClient.o"
+	@echo "... AIClient.i"
+	@echo "... AIClient.s"
 	@echo "... ChatHandler.o"
 	@echo "... ChatHandler.i"
 	@echo "... ChatHandler.s"

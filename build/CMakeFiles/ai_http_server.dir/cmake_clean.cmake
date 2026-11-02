@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/ai_http_server.dir/AIClient.cpp.o"
+  "CMakeFiles/ai_http_server.dir/AIClient.cpp.o.d"
   "CMakeFiles/ai_http_server.dir/ChatHandler.cpp.o"
   "CMakeFiles/ai_http_server.dir/ChatHandler.cpp.o.d"
   "CMakeFiles/ai_http_server.dir/ChatServer.cpp.o"
