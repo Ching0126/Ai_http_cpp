@@ -17,7 +17,7 @@ void Router::addRoute(
       std::move(handler)  
     );
 
-    if(!result.second){
+    if(!result.second){// // emplace 的 second 表示是否成功插入
         throw std::invalid_argument(
             "duplicate route"
         );

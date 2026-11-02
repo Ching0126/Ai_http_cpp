@@ -18,13 +18,12 @@ public:
         const std::string& path,
         Handler handler
     );
-    //根据请求查找并执行处理函数
+    //根据请求查找并执行处理函数,接收request，返回response
     HttpResponse route(
         const HttpRequest& request
     )const;
 
 private:
-
     std::map<
         std::pair<std::string,std::string>,
         Handler
