@@ -1,5 +1,6 @@
 CMakeFiles/ai_http_server.dir/main.cpp.o: /root/Ai_http_cpp/main.cpp \
  /usr/include/stdc-predef.h /root/Ai_http_cpp/ChatServer.h \
+ /root/Ai_http_cpp/HttpServer.h /root/Ai_http_cpp/Router.h \
  /root/Ai_http_cpp/HttpRequest.h /usr/include/c++/13/string \
  /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -123,8 +124,21 @@ CMakeFiles/ai_http_server.dir/main.cpp.o: /root/Ai_http_cpp/main.cpp \
  /usr/include/c++/13/bits/enable_special_members.h \
  /usr/include/c++/13/bits/node_handle.h \
  /usr/include/c++/13/bits/erase_if.h /root/Ai_http_cpp/HttpResponse.h \
- /usr/include/muduo/net/TcpServer.h /usr/include/muduo/base/Atomic.h \
- /usr/include/muduo/base/noncopyable.h \
+ /usr/include/c++/13/functional /usr/include/c++/13/bits/std_function.h \
+ /usr/include/c++/13/typeinfo /usr/include/c++/13/vector \
+ /usr/include/c++/13/bits/stl_uninitialized.h \
+ /usr/include/c++/13/bits/stl_vector.h \
+ /usr/include/c++/13/bits/stl_bvector.h \
+ /usr/include/c++/13/bits/vector.tcc /usr/include/c++/13/array \
+ /usr/include/c++/13/compare /usr/include/c++/13/bits/stl_algo.h \
+ /usr/include/c++/13/bits/algorithmfwd.h \
+ /usr/include/c++/13/bits/stl_heap.h \
+ /usr/include/c++/13/bits/uniform_int_dist.h \
+ /usr/include/c++/13/bits/stl_tempbuf.h /usr/include/c++/13/map \
+ /usr/include/c++/13/bits/stl_tree.h /usr/include/c++/13/bits/stl_map.h \
+ /usr/include/c++/13/bits/stl_multimap.h /usr/include/c++/13/utility \
+ /usr/include/c++/13/bits/stl_relops.h /usr/include/muduo/net/TcpServer.h \
+ /usr/include/muduo/base/Atomic.h /usr/include/muduo/base/noncopyable.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
@@ -160,7 +174,7 @@ CMakeFiles/ai_http_server.dir/main.cpp.o: /root/Ai_http_cpp/main.cpp \
  /usr/include/c++/13/stdexcept /usr/include/c++/13/exception \
  /usr/include/c++/13/bits/exception_ptr.h \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
- /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
+ /usr/include/c++/13/bits/nested_exception.h \
  /usr/include/c++/13/bits/streambuf.tcc /usr/include/boost/config.hpp \
  /usr/include/boost/config/user.hpp \
  /usr/include/boost/config/detail/select_compiler_config.hpp \
@@ -183,17 +197,7 @@ CMakeFiles/ai_http_server.dir/main.cpp.o: /root/Ai_http_cpp/main.cpp \
  /usr/include/boost/config/detail/cxx_composite.hpp \
  /usr/include/boost/detail/workaround.hpp \
  /usr/include/boost/config/workaround.hpp \
- /usr/include/boost/core/addressof.hpp /usr/include/c++/13/functional \
- /usr/include/c++/13/bits/std_function.h /usr/include/c++/13/vector \
- /usr/include/c++/13/bits/stl_uninitialized.h \
- /usr/include/c++/13/bits/stl_vector.h \
- /usr/include/c++/13/bits/stl_bvector.h \
- /usr/include/c++/13/bits/vector.tcc /usr/include/c++/13/array \
- /usr/include/c++/13/compare /usr/include/c++/13/bits/stl_algo.h \
- /usr/include/c++/13/bits/algorithmfwd.h \
- /usr/include/c++/13/bits/stl_heap.h \
- /usr/include/c++/13/bits/uniform_int_dist.h \
- /usr/include/c++/13/bits/stl_tempbuf.h /usr/include/c++/13/memory \
+ /usr/include/boost/core/addressof.hpp /usr/include/c++/13/memory \
  /usr/include/c++/13/bits/stl_raw_storage_iter.h \
  /usr/include/c++/13/bits/align.h /usr/include/c++/13/bits/unique_ptr.h \
  /usr/include/c++/13/bits/shared_ptr.h \
@@ -244,7 +248,6 @@ CMakeFiles/ai_http_server.dir/main.cpp.o: /root/Ai_http_cpp/main.cpp \
  /usr/include/boost/exception/exception.hpp \
  /usr/include/boost/assert/source_location.hpp \
  /usr/include/boost/current_function.hpp /usr/include/boost/cstdint.hpp \
- /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h \
  /usr/include/boost/core/demangle.hpp /usr/include/c++/13/cxxabi.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/cxxabi_tweaks.h \
  /usr/include/boost/type_traits/conditional.hpp \
@@ -264,9 +267,7 @@ CMakeFiles/ai_http_server.dir/main.cpp.o: /root/Ai_http_cpp/main.cpp \
  /usr/include/boost/type_traits/add_pointer.hpp \
  /usr/include/boost/type_traits/add_reference.hpp \
  /usr/include/boost/core/enable_if.hpp \
- /usr/include/boost/type_traits/is_same.hpp /usr/include/c++/13/map \
- /usr/include/c++/13/bits/stl_tree.h /usr/include/c++/13/bits/stl_map.h \
- /usr/include/c++/13/bits/stl_multimap.h \
+ /usr/include/boost/type_traits/is_same.hpp \
  /usr/include/muduo/net/EventLoop.h /usr/include/c++/13/atomic \
  /usr/include/muduo/base/Mutex.h /usr/include/muduo/base/CurrentThread.h \
  /usr/include/muduo/net/TimerId.h /usr/include/c++/13/iostream \

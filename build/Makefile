@@ -129,6 +129,30 @@ ai_http_server/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/build
 .PHONY : ai_http_server/fast
 
+ChatHandler.o: ChatHandler.cpp.o
+.PHONY : ChatHandler.o
+
+# target to build an object file
+ChatHandler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/ChatHandler.cpp.o
+.PHONY : ChatHandler.cpp.o
+
+ChatHandler.i: ChatHandler.cpp.i
+.PHONY : ChatHandler.i
+
+# target to preprocess a source file
+ChatHandler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/ChatHandler.cpp.i
+.PHONY : ChatHandler.cpp.i
+
+ChatHandler.s: ChatHandler.cpp.s
+.PHONY : ChatHandler.s
+
+# target to generate assembly for a file
+ChatHandler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/ChatHandler.cpp.s
+.PHONY : ChatHandler.cpp.s
+
 ChatServer.o: ChatServer.cpp.o
 .PHONY : ChatServer.o
 
@@ -201,6 +225,54 @@ HttpResponse.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/HttpResponse.cpp.s
 .PHONY : HttpResponse.cpp.s
 
+HttpServer.o: HttpServer.cpp.o
+.PHONY : HttpServer.o
+
+# target to build an object file
+HttpServer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/HttpServer.cpp.o
+.PHONY : HttpServer.cpp.o
+
+HttpServer.i: HttpServer.cpp.i
+.PHONY : HttpServer.i
+
+# target to preprocess a source file
+HttpServer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/HttpServer.cpp.i
+.PHONY : HttpServer.cpp.i
+
+HttpServer.s: HttpServer.cpp.s
+.PHONY : HttpServer.s
+
+# target to generate assembly for a file
+HttpServer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/HttpServer.cpp.s
+.PHONY : HttpServer.cpp.s
+
+Router.o: Router.cpp.o
+.PHONY : Router.o
+
+# target to build an object file
+Router.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/Router.cpp.o
+.PHONY : Router.cpp.o
+
+Router.i: Router.cpp.i
+.PHONY : Router.i
+
+# target to preprocess a source file
+Router.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/Router.cpp.i
+.PHONY : Router.cpp.i
+
+Router.s: Router.cpp.s
+.PHONY : Router.s
+
+# target to generate assembly for a file
+Router.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/Router.cpp.s
+.PHONY : Router.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -234,6 +306,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ai_http_server"
+	@echo "... ChatHandler.o"
+	@echo "... ChatHandler.i"
+	@echo "... ChatHandler.s"
 	@echo "... ChatServer.o"
 	@echo "... ChatServer.i"
 	@echo "... ChatServer.s"
@@ -243,6 +318,12 @@ help:
 	@echo "... HttpResponse.o"
 	@echo "... HttpResponse.i"
 	@echo "... HttpResponse.s"
+	@echo "... HttpServer.o"
+	@echo "... HttpServer.i"
+	@echo "... HttpServer.s"
+	@echo "... Router.o"
+	@echo "... Router.i"
+	@echo "... Router.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
