@@ -2,8 +2,8 @@
 
 #include <stdexcept>
 
-std::string ChatSessionManager::create(){
-    if(nextId_ == 0){
+std::string ChatSessionManager::create(){//创建新会话
+    if(nextId_ == 0){//一个循环了，会话够多了。
         throw std::overflow_error("session IDs exhausted");
     }
 

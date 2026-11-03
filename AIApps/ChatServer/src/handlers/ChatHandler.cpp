@@ -15,7 +15,14 @@ std::string envOr(const char*name,const char* fallback){
 
     return value && *value ? value : fallback;
 }
-
+/**
+ * 从 JSON 对象中读取一个非空字符串字段。
+ *
+ * @param object JSON 对象。
+ * @param name 字段名称。
+ * @param result 成功时写入读取到的字符串。
+ * @return 字段存在且为非空字符串时返回 true。
+ */
 bool stringField(
     const boost::json::object& object,
     const char* name,
@@ -35,7 +42,11 @@ bool stringField(
 
     return true;
 }
-
+/**
+ * 从请求正文读取 sessionId。
+ *
+ * 正文不是合法 JSON 对象，或 sessionId 不合法时返回 false。
+ */
 bool readSessionId(
     const HttpRequest& request,
     std::string& sessionId
@@ -68,7 +79,7 @@ HttpResponse missingSession() {
 //   -H 'Content-Type: application/json' \
 //   -d '{"question":"什么是 HTTP？"}'
 
-HttpResponse ChatHandler::createSession(const HttpRequest& request){
+HttpResponse ChatHandler::createSession(const HttpRequest& request){//创建会话
     try{
         const auto id = sessions_.create();
 
@@ -108,7 +119,6 @@ HttpResponse ChatHandler::listSessions(const HttpRequest& request)const{
         boost::json::serialize(result)
     );
 }
-
 
 HttpResponse ChatHandler::handle(
     const HttpRequest& request
