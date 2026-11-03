@@ -69,146 +69,83 @@ include CMakeFiles/ai_http_server.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/ai_http_server.dir/flags.make
 
-CMakeFiles/ai_http_server.dir/main.cpp.o: CMakeFiles/ai_http_server.dir/flags.make
-CMakeFiles/ai_http_server.dir/main.cpp.o: /root/Ai_http_cpp/main.cpp
-CMakeFiles/ai_http_server.dir/main.cpp.o: CMakeFiles/ai_http_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ai_http_server.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ai_http_server.dir/main.cpp.o -MF CMakeFiles/ai_http_server.dir/main.cpp.o.d -o CMakeFiles/ai_http_server.dir/main.cpp.o -c /root/Ai_http_cpp/main.cpp
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o: CMakeFiles/ai_http_server.dir/flags.make
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o: /root/Ai_http_cpp/AIApps/ChatServer/src/main.cpp
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o: CMakeFiles/ai_http_server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o -MF CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o.d -o CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o -c /root/Ai_http_cpp/AIApps/ChatServer/src/main.cpp
 
-CMakeFiles/ai_http_server.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ai_http_server.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/Ai_http_cpp/main.cpp > CMakeFiles/ai_http_server.dir/main.cpp.i
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/Ai_http_cpp/AIApps/ChatServer/src/main.cpp > CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.i
 
-CMakeFiles/ai_http_server.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ai_http_server.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/Ai_http_cpp/main.cpp -o CMakeFiles/ai_http_server.dir/main.cpp.s
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/Ai_http_cpp/AIApps/ChatServer/src/main.cpp -o CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.s
 
-CMakeFiles/ai_http_server.dir/ChatServer.cpp.o: CMakeFiles/ai_http_server.dir/flags.make
-CMakeFiles/ai_http_server.dir/ChatServer.cpp.o: /root/Ai_http_cpp/ChatServer.cpp
-CMakeFiles/ai_http_server.dir/ChatServer.cpp.o: CMakeFiles/ai_http_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ai_http_server.dir/ChatServer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ai_http_server.dir/ChatServer.cpp.o -MF CMakeFiles/ai_http_server.dir/ChatServer.cpp.o.d -o CMakeFiles/ai_http_server.dir/ChatServer.cpp.o -c /root/Ai_http_cpp/ChatServer.cpp
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o: CMakeFiles/ai_http_server.dir/flags.make
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o: /root/Ai_http_cpp/AIApps/ChatServer/src/ChatServer.cpp
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o: CMakeFiles/ai_http_server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o -MF CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o.d -o CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o -c /root/Ai_http_cpp/AIApps/ChatServer/src/ChatServer.cpp
 
-CMakeFiles/ai_http_server.dir/ChatServer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ai_http_server.dir/ChatServer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/Ai_http_cpp/ChatServer.cpp > CMakeFiles/ai_http_server.dir/ChatServer.cpp.i
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/Ai_http_cpp/AIApps/ChatServer/src/ChatServer.cpp > CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.i
 
-CMakeFiles/ai_http_server.dir/ChatServer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ai_http_server.dir/ChatServer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/Ai_http_cpp/ChatServer.cpp -o CMakeFiles/ai_http_server.dir/ChatServer.cpp.s
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/Ai_http_cpp/AIApps/ChatServer/src/ChatServer.cpp -o CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.s
 
-CMakeFiles/ai_http_server.dir/HttpContext.cpp.o: CMakeFiles/ai_http_server.dir/flags.make
-CMakeFiles/ai_http_server.dir/HttpContext.cpp.o: /root/Ai_http_cpp/HttpContext.cpp
-CMakeFiles/ai_http_server.dir/HttpContext.cpp.o: CMakeFiles/ai_http_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ai_http_server.dir/HttpContext.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ai_http_server.dir/HttpContext.cpp.o -MF CMakeFiles/ai_http_server.dir/HttpContext.cpp.o.d -o CMakeFiles/ai_http_server.dir/HttpContext.cpp.o -c /root/Ai_http_cpp/HttpContext.cpp
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o: CMakeFiles/ai_http_server.dir/flags.make
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o: /root/Ai_http_cpp/AIApps/ChatServer/src/handlers/ChatHandler.cpp
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o: CMakeFiles/ai_http_server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o -MF CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o.d -o CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o -c /root/Ai_http_cpp/AIApps/ChatServer/src/handlers/ChatHandler.cpp
 
-CMakeFiles/ai_http_server.dir/HttpContext.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ai_http_server.dir/HttpContext.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/Ai_http_cpp/HttpContext.cpp > CMakeFiles/ai_http_server.dir/HttpContext.cpp.i
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/Ai_http_cpp/AIApps/ChatServer/src/handlers/ChatHandler.cpp > CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.i
 
-CMakeFiles/ai_http_server.dir/HttpContext.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ai_http_server.dir/HttpContext.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/Ai_http_cpp/HttpContext.cpp -o CMakeFiles/ai_http_server.dir/HttpContext.cpp.s
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/Ai_http_cpp/AIApps/ChatServer/src/handlers/ChatHandler.cpp -o CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.s
 
-CMakeFiles/ai_http_server.dir/HttpResponse.cpp.o: CMakeFiles/ai_http_server.dir/flags.make
-CMakeFiles/ai_http_server.dir/HttpResponse.cpp.o: /root/Ai_http_cpp/HttpResponse.cpp
-CMakeFiles/ai_http_server.dir/HttpResponse.cpp.o: CMakeFiles/ai_http_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ai_http_server.dir/HttpResponse.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ai_http_server.dir/HttpResponse.cpp.o -MF CMakeFiles/ai_http_server.dir/HttpResponse.cpp.o.d -o CMakeFiles/ai_http_server.dir/HttpResponse.cpp.o -c /root/Ai_http_cpp/HttpResponse.cpp
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.o: CMakeFiles/ai_http_server.dir/flags.make
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.o: /root/Ai_http_cpp/AIApps/ChatServer/src/ai/AIClient.cpp
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.o: CMakeFiles/ai_http_server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.o -MF CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.o.d -o CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.o -c /root/Ai_http_cpp/AIApps/ChatServer/src/ai/AIClient.cpp
 
-CMakeFiles/ai_http_server.dir/HttpResponse.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ai_http_server.dir/HttpResponse.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/Ai_http_cpp/HttpResponse.cpp > CMakeFiles/ai_http_server.dir/HttpResponse.cpp.i
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/Ai_http_cpp/AIApps/ChatServer/src/ai/AIClient.cpp > CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.i
 
-CMakeFiles/ai_http_server.dir/HttpResponse.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ai_http_server.dir/HttpResponse.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/Ai_http_cpp/HttpResponse.cpp -o CMakeFiles/ai_http_server.dir/HttpResponse.cpp.s
-
-CMakeFiles/ai_http_server.dir/Router.cpp.o: CMakeFiles/ai_http_server.dir/flags.make
-CMakeFiles/ai_http_server.dir/Router.cpp.o: /root/Ai_http_cpp/Router.cpp
-CMakeFiles/ai_http_server.dir/Router.cpp.o: CMakeFiles/ai_http_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ai_http_server.dir/Router.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ai_http_server.dir/Router.cpp.o -MF CMakeFiles/ai_http_server.dir/Router.cpp.o.d -o CMakeFiles/ai_http_server.dir/Router.cpp.o -c /root/Ai_http_cpp/Router.cpp
-
-CMakeFiles/ai_http_server.dir/Router.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ai_http_server.dir/Router.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/Ai_http_cpp/Router.cpp > CMakeFiles/ai_http_server.dir/Router.cpp.i
-
-CMakeFiles/ai_http_server.dir/Router.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ai_http_server.dir/Router.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/Ai_http_cpp/Router.cpp -o CMakeFiles/ai_http_server.dir/Router.cpp.s
-
-CMakeFiles/ai_http_server.dir/HttpServer.cpp.o: CMakeFiles/ai_http_server.dir/flags.make
-CMakeFiles/ai_http_server.dir/HttpServer.cpp.o: /root/Ai_http_cpp/HttpServer.cpp
-CMakeFiles/ai_http_server.dir/HttpServer.cpp.o: CMakeFiles/ai_http_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ai_http_server.dir/HttpServer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ai_http_server.dir/HttpServer.cpp.o -MF CMakeFiles/ai_http_server.dir/HttpServer.cpp.o.d -o CMakeFiles/ai_http_server.dir/HttpServer.cpp.o -c /root/Ai_http_cpp/HttpServer.cpp
-
-CMakeFiles/ai_http_server.dir/HttpServer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ai_http_server.dir/HttpServer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/Ai_http_cpp/HttpServer.cpp > CMakeFiles/ai_http_server.dir/HttpServer.cpp.i
-
-CMakeFiles/ai_http_server.dir/HttpServer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ai_http_server.dir/HttpServer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/Ai_http_cpp/HttpServer.cpp -o CMakeFiles/ai_http_server.dir/HttpServer.cpp.s
-
-CMakeFiles/ai_http_server.dir/ChatHandler.cpp.o: CMakeFiles/ai_http_server.dir/flags.make
-CMakeFiles/ai_http_server.dir/ChatHandler.cpp.o: /root/Ai_http_cpp/ChatHandler.cpp
-CMakeFiles/ai_http_server.dir/ChatHandler.cpp.o: CMakeFiles/ai_http_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ai_http_server.dir/ChatHandler.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ai_http_server.dir/ChatHandler.cpp.o -MF CMakeFiles/ai_http_server.dir/ChatHandler.cpp.o.d -o CMakeFiles/ai_http_server.dir/ChatHandler.cpp.o -c /root/Ai_http_cpp/ChatHandler.cpp
-
-CMakeFiles/ai_http_server.dir/ChatHandler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ai_http_server.dir/ChatHandler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/Ai_http_cpp/ChatHandler.cpp > CMakeFiles/ai_http_server.dir/ChatHandler.cpp.i
-
-CMakeFiles/ai_http_server.dir/ChatHandler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ai_http_server.dir/ChatHandler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/Ai_http_cpp/ChatHandler.cpp -o CMakeFiles/ai_http_server.dir/ChatHandler.cpp.s
-
-CMakeFiles/ai_http_server.dir/AIClient.cpp.o: CMakeFiles/ai_http_server.dir/flags.make
-CMakeFiles/ai_http_server.dir/AIClient.cpp.o: /root/Ai_http_cpp/AIClient.cpp
-CMakeFiles/ai_http_server.dir/AIClient.cpp.o: CMakeFiles/ai_http_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ai_http_server.dir/AIClient.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ai_http_server.dir/AIClient.cpp.o -MF CMakeFiles/ai_http_server.dir/AIClient.cpp.o.d -o CMakeFiles/ai_http_server.dir/AIClient.cpp.o -c /root/Ai_http_cpp/AIClient.cpp
-
-CMakeFiles/ai_http_server.dir/AIClient.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ai_http_server.dir/AIClient.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/Ai_http_cpp/AIClient.cpp > CMakeFiles/ai_http_server.dir/AIClient.cpp.i
-
-CMakeFiles/ai_http_server.dir/AIClient.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ai_http_server.dir/AIClient.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/Ai_http_cpp/AIClient.cpp -o CMakeFiles/ai_http_server.dir/AIClient.cpp.s
+CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/Ai_http_cpp/AIApps/ChatServer/src/ai/AIClient.cpp -o CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.s
 
 # Object files for target ai_http_server
 ai_http_server_OBJECTS = \
-"CMakeFiles/ai_http_server.dir/main.cpp.o" \
-"CMakeFiles/ai_http_server.dir/ChatServer.cpp.o" \
-"CMakeFiles/ai_http_server.dir/HttpContext.cpp.o" \
-"CMakeFiles/ai_http_server.dir/HttpResponse.cpp.o" \
-"CMakeFiles/ai_http_server.dir/Router.cpp.o" \
-"CMakeFiles/ai_http_server.dir/HttpServer.cpp.o" \
-"CMakeFiles/ai_http_server.dir/ChatHandler.cpp.o" \
-"CMakeFiles/ai_http_server.dir/AIClient.cpp.o"
+"CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o" \
+"CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o" \
+"CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o" \
+"CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.o"
 
 # External object files for target ai_http_server
 ai_http_server_EXTERNAL_OBJECTS =
 
-ai_http_server: CMakeFiles/ai_http_server.dir/main.cpp.o
-ai_http_server: CMakeFiles/ai_http_server.dir/ChatServer.cpp.o
-ai_http_server: CMakeFiles/ai_http_server.dir/HttpContext.cpp.o
-ai_http_server: CMakeFiles/ai_http_server.dir/HttpResponse.cpp.o
-ai_http_server: CMakeFiles/ai_http_server.dir/Router.cpp.o
-ai_http_server: CMakeFiles/ai_http_server.dir/HttpServer.cpp.o
-ai_http_server: CMakeFiles/ai_http_server.dir/ChatHandler.cpp.o
-ai_http_server: CMakeFiles/ai_http_server.dir/AIClient.cpp.o
+ai_http_server: CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o
+ai_http_server: CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o
+ai_http_server: CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o
+ai_http_server: CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.o
 ai_http_server: CMakeFiles/ai_http_server.dir/build.make
+ai_http_server: libhttp_framework.a
+ai_http_server: /usr/lib/x86_64-linux-gnu/libcurl.so
 ai_http_server: /usr/local/lib/libmuduo_net.a
 ai_http_server: /usr/local/lib/libmuduo_base.a
-ai_http_server: /usr/lib/x86_64-linux-gnu/libcurl.so
 ai_http_server: CMakeFiles/ai_http_server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable ai_http_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ai_http_server"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ai_http_server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

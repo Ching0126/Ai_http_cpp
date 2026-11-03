@@ -1,11 +1,12 @@
-#include "ChatHandler.h"
-#include "AIClient.h"
+#include "handlers/ChatHandler.h"
+#include "ai/AIClient.h"
+
 #include <boost/json/src.hpp>
 
 #include <cstdlib>
 #include <exception>
 #include <string>
-
+#include <utility>
 
 namespace {
     //读取环境变量
@@ -45,8 +46,7 @@ HttpResponse ChatHandler::handle(
         );
     }
 
-    const auto* question =
-        data.as_object().if_contains("question");
+    const auto* question = data.as_object().if_contains("question");
 
     if (!question ||
         !question->is_string() ||
@@ -63,12 +63,17 @@ HttpResponse ChatHandler::handle(
         question->as_string().size()
     );
 
+    auto pending = messages_;
+
+    pending.push_back({"user",text});
+
     const auto mode = envOr("AI_MODE","mock");
 
     std::string answer;
 
     if(mode == "mock"){
-        answer = "[模拟ai]收到你的信息"+text;
+        answer = "[模拟ai]收到你的信息"+text
+                +"此前消息数："+std::to_string(messages_.size());
     }else if (mode == "deepseek"){
         const auto key = envOr("DEEPSEEK_API_KEY","");
 
@@ -87,7 +92,7 @@ HttpResponse ChatHandler::handle(
     try{
         AIClient client(key,url,model);
 
-        answer = client.ask(text);
+        answer = client.ask(pending);
     }catch(const std::exception&){
         return HttpResponse(
             502,
@@ -102,13 +107,54 @@ HttpResponse ChatHandler::handle(
             R"({"error":"invalid AI_MODE"})"
         );
     }
+
+    pending.push_back({"assistant",answer});
+
     boost::json::object result;
 
     result["success"] = true;
     result["answer"] = answer;
+    HttpResponse response(
+        200,
+        "OK",
+        boost::json::serialize(result)
+    );
+
+    messages_ = std::move(pending);
+    return response;
+}
+
+HttpResponse ChatHandler::history(const HttpRequest& request)const{
+    boost::json::array entries;
+
+    for(const auto& item:messages_){
+        boost::json::object entry;
+
+        entry["role"] = item.role;
+        entry["content"] = item.content;
+
+        entries.push_back(entry);
+    }
+
+    boost::json::object result;
+
+    result["messages"]=entries;
+
     return HttpResponse(
         200,
         "OK",
         boost::json::serialize(result)
+    );
+}
+
+HttpResponse ChatHandler::clear(
+    const HttpRequest&
+) {
+    messages_.clear();
+
+    return HttpResponse(
+        200,
+        "OK",
+        R"({"success":true})"
     );
 }

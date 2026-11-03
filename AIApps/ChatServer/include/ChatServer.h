@@ -1,6 +1,7 @@
 #pragma once
 
-#include "HttpServer.h"
+#include "handlers/ChatHandler.h"
+#include "http/HttpServer.h"
 
 class ChatServer{
 public:
@@ -12,5 +13,6 @@ public:
     void start();
 
 private:
+    ChatHandler chatHandler_;
     HttpServer httpServer_;
 };

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/root/Ai_http_cpp/AIApps/ChatServer/include -I/root/Ai_http_cpp/HttpServer/include
 
 CXX_FLAGS = -std=gnu++17
 

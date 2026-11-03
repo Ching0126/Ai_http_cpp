@@ -1,5 +1,5 @@
 #include "ChatServer.h"
-#include "ChatHandler.h"
+#include "handlers/ChatHandler.h"
 
 
 ChatServer::ChatServer(
@@ -11,9 +11,27 @@ ChatServer::ChatServer(
     httpServer_.addRoute(
         "POST",
         "/chat/send",
-        ChatHandler::handle
+        [this](const HttpRequest& request) {
+            return chatHandler_.handle(request);
+        }
+    );
+     // 查询当前聊天历史。
+    httpServer_.addRoute(
+        "GET",
+        "/chat/history",
+        [this](const HttpRequest& request) {
+            return chatHandler_.history(request);
+        }
     );
 
+    // 清空当前聊天历史。
+    httpServer_.addRoute(
+        "POST",
+        "/chat/clear",
+        [this](const HttpRequest& request) {
+            return chatHandler_.clear(request);
+        }
+    );
     // 注册健康检查接口。没有请求正文，默认是get请求
     httpServer_.addRoute(
         "GET",

@@ -1,4 +1,4 @@
-#include "AIClient.h"
+#include "ai/AIClient.h"
 
 #include <boost/json.hpp>
 #include <curl/curl.h>
@@ -116,16 +116,19 @@ AIClient::AIClient(
 //   }
 // }
 std::string AIClient::ask(
-    const std::string& question
+    const std::vector<ChatMessage>& history
 )const {
     // 1. 构造发送给 DeepSeek 的 JSON。
-    boost::json::object message;
-
-    message["role"] = "user";
-    message["content"] = question;
-
     boost::json::array messages;
-    messages.push_back(message);
+
+    for(const auto& item :history){
+        boost::json::object message;
+
+        message["role"] = item.role;
+        message["content"] = item.content;
+
+        messages.push_back(message);
+    }
 
     boost::json::object payload;
 

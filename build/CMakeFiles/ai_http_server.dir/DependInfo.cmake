@@ -8,14 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/root/Ai_http_cpp/AIClient.cpp" "CMakeFiles/ai_http_server.dir/AIClient.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIClient.cpp.o.d"
-  "/root/Ai_http_cpp/ChatHandler.cpp" "CMakeFiles/ai_http_server.dir/ChatHandler.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/ChatHandler.cpp.o.d"
-  "/root/Ai_http_cpp/ChatServer.cpp" "CMakeFiles/ai_http_server.dir/ChatServer.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/ChatServer.cpp.o.d"
-  "/root/Ai_http_cpp/HttpContext.cpp" "CMakeFiles/ai_http_server.dir/HttpContext.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/HttpContext.cpp.o.d"
-  "/root/Ai_http_cpp/HttpResponse.cpp" "CMakeFiles/ai_http_server.dir/HttpResponse.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/HttpResponse.cpp.o.d"
-  "/root/Ai_http_cpp/HttpServer.cpp" "CMakeFiles/ai_http_server.dir/HttpServer.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/HttpServer.cpp.o.d"
-  "/root/Ai_http_cpp/Router.cpp" "CMakeFiles/ai_http_server.dir/Router.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/Router.cpp.o.d"
-  "/root/Ai_http_cpp/main.cpp" "CMakeFiles/ai_http_server.dir/main.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/main.cpp.o.d"
+  "/root/Ai_http_cpp/AIApps/ChatServer/src/ChatServer.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o.d"
+  "/root/Ai_http_cpp/AIApps/ChatServer/src/ai/AIClient.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.o.d"
+  "/root/Ai_http_cpp/AIApps/ChatServer/src/handlers/ChatHandler.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o.d"
+  "/root/Ai_http_cpp/AIApps/ChatServer/src/main.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

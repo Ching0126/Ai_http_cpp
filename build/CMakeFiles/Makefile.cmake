@@ -55,5 +55,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/http_framework.dir/DependInfo.cmake"
   "CMakeFiles/ai_http_server.dir/DependInfo.cmake"
   )

@@ -1,4 +1,8 @@
 #pragma once
+
+#include "ai/ChatMessage.h"
+
+#include <vector>
 #include <string>
 //：向 DeepSeek 发出一个问题并取得回答。
 class AIClient{
@@ -9,7 +13,7 @@ public:
         std::string model
     );
 
-    std::string ask(const std::string& question) const;
+    std::string ask(const std::vector<ChatMessage>& history) const;
 private:
     std::string key_;
     std::string url_;
