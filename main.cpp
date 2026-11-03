@@ -5,6 +5,7 @@
 #include <iostream>
 
 int main(){
+    //curl为ai接口做准备
     if(curl_global_init(CURL_GLOBAL_DEFAULT)!=CURLE_OK){
         std::cerr<<"Failed to initialize libcurl\n";
         return 1;
@@ -20,6 +21,6 @@ int main(){
 
     loop.loop();
     }
-    curl_global_cleanup();
+    curl_global_cleanup();//清理全局资源
     return 0;
 }

@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-
+//：向 DeepSeek 发出一个问题并取得回答。
 class AIClient{
 public:
     AIClient(

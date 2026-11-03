@@ -7,18 +7,31 @@
 #include <stdexcept>
 #include <utility>
 
+// 1. 构造请求 JSON。
+// 2. 配置并执行 libcurl 请求。
+// 3. 判断网络和 HTTP 状态。
+// 4. 解析返回 JSON 中的 choices[0].message.content。
 namespace{
-
+//
+// 限制上游响应大小，防止无限累积。
 constexpr std::size_t maxResponseBytes = 1024*1024;
-
+/**
+ * libcurl 接收到响应数据时调用。
+ *
+ * @param data 本次收到的数据。
+ * @param size 每个数据项的字节数。
+ * @param count 数据项数量。
+ * @param userData 指向用于保存响应正文的 string。
+ *
+ * 返回实际接收的字节数；返回 0 表示写入失败。
+ */
 std::size_t writeBody(
     char* data,
     std::size_t size,
     std::size_t count,
     void* userData
 ){
-    auto* output = 
-        static_cast<std::string*>(userData);
+    auto* output = static_cast<std::string*>(userData);
 
     if(size!=0 && count>maxResponseBytes/size){
         return 0;
@@ -26,7 +39,7 @@ std::size_t writeBody(
 
     const std::size_t bytes = size * count;
 
-    if(output->size()>maxResponseBytes-bytes){
+    if(output->size()>maxResponseBytes-bytes){//如果把本次收到的数据追加进去，响应内容会不会超过允许的最大大小。
         return 0;
     }
 
@@ -37,15 +50,19 @@ std::size_t writeBody(
     }
     return bytes;
 }
-
+/**
+ * 管理 libcurl 请求头链表。
+ *
+ * 对象销毁时自动释放链表。
+ */
 class Headers{
 public:
     ~Headers(){
         curl_slist_free_all(list_);
     }
-
+    //添加一个请求头
     void add(const std::string& value){
-        auto* next = curl_slist_append(
+        auto* next = curl_slist_append(//添加后返回的是整个链表的头指针
             list_,
             value.c_str()
         );
@@ -74,15 +91,34 @@ AIClient::AIClient(
     ,model_(std::move(model)){
     if(key_.empty()||
         model_.empty()||
-        url_.rfind("https://", 0) != 0 ||
-        key_.find_first_of("\r\n")!=std::string::npos){
+        url_.rfind("https://", 0) != 0 ||//https://在第0位置
+        key_.find_first_of("\r\n")!=std::string::npos){//找到\r\n
         throw std::invalid_argument("invalid AI configuration");
     }
 }
+// POST /chat/completions HTTP/1.1
+// Host: api.deepseek.com
+// Content-Type: application/json
+// Authorization: Bearer 你的API密钥
+// Content-Length: 正文的字节数
 
+// {
+//   "model": "deepseek-flash",
+//   "messages": [
+//     {
+//       "role": "user",
+//       "content": "什么是 HTTP？"
+//     }
+//   ],
+//   "stream": false,
+//   "thinking": {
+//     "type": "disabled"
+//   }
+// }
 std::string AIClient::ask(
     const std::string& question
 )const {
+    // 1. 构造发送给 DeepSeek 的 JSON。
     boost::json::object message;
 
     message["role"] = "user";
@@ -105,6 +141,7 @@ std::string AIClient::ask(
     const std::string requestBody = 
         boost::json::serialize(payload);
 
+    // 2. 创建 curl 句柄，离开作用域时自动释放。
     using CurlPtr = std::unique_ptr<CURL,decltype(&curl_easy_cleanup)>;
 
     CurlPtr curl(curl_easy_init(),&curl_easy_cleanup);
@@ -113,37 +150,42 @@ std::string AIClient::ask(
         throw std::runtime_error("curl initialization failed");
     }
     
-    Headers headers;
+    Headers headers;//自定义类
 
     headers.add("Content-Type: application/json");
     headers.add("Authorization: Bearer "+key_);
 
     std::string responseBody;
 
-    curl_easy_setopt(curl.get(),CURLOPT_URL,url_.c_str());
+    //3. 配置请求地址、请求头和请求正文。
+    //curl_easy_setopt(curl.get(), 选项, 选项对应的值);
+    //3.1 请求格式
+    curl_easy_setopt(curl.get(),CURLOPT_URL,url_.c_str());//设置请求地址
 
-    curl_easy_setopt(curl.get(),CURLOPT_HTTPHEADER,headers.get());
+    curl_easy_setopt(curl.get(),CURLOPT_HTTPHEADER,headers.get());//设置请求头
 
-    curl_easy_setopt(curl.get(),CURLOPT_POSTFIELDS,requestBody.c_str());
+    curl_easy_setopt(curl.get(),CURLOPT_POSTFIELDS,requestBody.c_str());//设置post请求正文
 
-    curl_easy_setopt(curl.get(),CURLOPT_POSTFIELDSIZE,static_cast<long>(requestBody.size()));
+    curl_easy_setopt(curl.get(),CURLOPT_POSTFIELDSIZE,static_cast<long>(requestBody.size()));//设置正文字节
 
-    curl_easy_setopt(curl.get(), CURLOPT_WRITEFUNCTION,writeBody);
+    //3.2收到回复之后
+    curl_easy_setopt(curl.get(), CURLOPT_WRITEFUNCTION,writeBody);//收到响应正文时，调用 writeBody 函数处理。
 
-    curl_easy_setopt(curl.get(),CURLOPT_WRITEDATA,&responseBody);
+    curl_easy_setopt(curl.get(),CURLOPT_WRITEDATA,&responseBody);//调用 writeBody 时，把 responseBody 的地址作为 userData 传进去。
 
-    curl_easy_setopt(curl.get(),CURLOPT_CONNECTTIMEOUT,5L);
+    //3.3超时等待
+    curl_easy_setopt(curl.get(),CURLOPT_CONNECTTIMEOUT,5L);//连接超时5s
 
-    curl_easy_setopt(curl.get(),CURLOPT_TIMEOUT,45L);
+    curl_easy_setopt(curl.get(),CURLOPT_TIMEOUT,45L);//整个请求过程超时
 
-    curl_easy_setopt(curl.get(),CURLOPT_NOSIGNAL,1L);
+    curl_easy_setopt(curl.get(),CURLOPT_NOSIGNAL,1L);//信号设置
 
-    const CURLcode code = curl_easy_perform(curl.get());
+    const CURLcode code = curl_easy_perform(curl.get());//发送
 
     if(code != CURLE_OK){
         throw std::runtime_error("AI netwwork request failed");
     }
-
+    // 4. 网络请求完成不代表上游一定返回成功。
     long status = 0;
 
     if(curl_easy_getinfo(curl.get(),CURLINFO_RESPONSE_CODE,&status)!= CURLE_OK||
@@ -151,6 +193,18 @@ std::string AIClient::ask(
         status >=300){
         throw std::runtime_error("AI provider returned an error");
     }
+     // 5. 解析 DeepSeek 的 JSON 响应。
+
+    // {
+    // "choices": [
+    //     {
+    //     "message": {
+    //         "role": "assistant",
+    //         "content": "这里是模型的回答"
+    //     }
+    //     }
+    // ]
+    // }
 
     boost::system::error_code ec;
 

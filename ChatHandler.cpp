@@ -8,20 +8,34 @@
 
 
 namespace {
+    //读取环境变量
 std::string envOr(const char*name,const char* fallback){
     const char* value = std::getenv(name);
 
     return value && *value ? value : fallback;
 }
 }//namespace
+// curl --noproxy '*' -i http://127.0.0.1:8080/chat/send \
+//   -H 'Content-Type: application/json' \
+//   -d '{"question":"什么是 HTTP？"}'
 
 HttpResponse ChatHandler::handle(
     const HttpRequest& request
+//request.method  = "POST";
+// request.path    = "/chat/send";
+// request.version = "HTTP/1.1";
+
+// request.headers = {
+//     {"content-type",   " application/json"},
+//     {"content-length", " 正文的字节数"}
+//     // 还可能有 Host 等其他请求头
+// };
+
+// request.body = R"({"question":"你好"})";
 ){
      boost::system::error_code ec;
 
-    const auto data =
-        boost::json::parse(request.body, ec);
+    const auto data =boost::json::parse(request.body, ec);//请求解析为json
 
     if (ec || !data.is_object()) {
         return HttpResponse(
@@ -58,12 +72,12 @@ HttpResponse ChatHandler::handle(
     }else if (mode == "deepseek"){
         const auto key = envOr("DEEPSEEK_API_KEY","");
 
-    if(key.empty()){
-        return HttpResponse(
-            503,
-            "Service Unavailable",
-            R"({"error":"API key is not configured"})"
-        );
+        if(key.empty()){
+            return HttpResponse(
+                503,
+                "Service Unavailable",
+                R"({"error":"API key is not configured"})"
+            );
     }
 
     const auto url = envOr("DEEPSEEK_API_URL","https://api.deepseek.com/chat/completions");
@@ -81,7 +95,7 @@ HttpResponse ChatHandler::handle(
             R"({"error":"AI request failed"})"
         );
     }
-    }else{
+    }else{//mode什么都不是
         return HttpResponse(
             503,
             "Service Unavailable",
