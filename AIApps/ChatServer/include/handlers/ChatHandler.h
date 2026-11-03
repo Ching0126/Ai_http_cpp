@@ -1,20 +1,23 @@
 #pragma once
 
-#include "ai/ChatMessage.h"
 #include "http/HttpRequest.h"
 #include "http/HttpResponse.h"
+#include "session/ChatSessionManager.h"
 
 #include <vector>
 
 class ChatHandler{
 public:
-    HttpResponse handle(
-        const HttpRequest& request
-    );
 
-    HttpResponse history(const HttpRequest& request) const;
+    HttpResponse createSession(const HttpRequest& request);
+
+    HttpResponse listSessions(const HttpRequest& request) const;
+
+    HttpResponse handle(const HttpRequest& request);
+
+    HttpResponse history(const HttpRequest& request);
 
     HttpResponse clear(const HttpRequest& request);
 private:
-    std::vector<ChatMessage> messages_;
+    ChatSessionManager sessions_;
 };

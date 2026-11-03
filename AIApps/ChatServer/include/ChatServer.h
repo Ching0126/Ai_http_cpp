@@ -13,6 +13,6 @@ public:
     void start();
 
 private:
-    ChatHandler chatHandler_;
+    ChatHandler chatHandler_;//确保多次请求可以访问同一份历史数据。
     HttpServer httpServer_;
 };

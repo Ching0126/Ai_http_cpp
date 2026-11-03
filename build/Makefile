@@ -238,6 +238,30 @@ AIApps/ChatServer/src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.s
 .PHONY : AIApps/ChatServer/src/main.cpp.s
 
+AIApps/ChatServer/src/session/ChatSessionManager.o: AIApps/ChatServer/src/session/ChatSessionManager.cpp.o
+.PHONY : AIApps/ChatServer/src/session/ChatSessionManager.o
+
+# target to build an object file
+AIApps/ChatServer/src/session/ChatSessionManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/session/ChatSessionManager.cpp.o
+.PHONY : AIApps/ChatServer/src/session/ChatSessionManager.cpp.o
+
+AIApps/ChatServer/src/session/ChatSessionManager.i: AIApps/ChatServer/src/session/ChatSessionManager.cpp.i
+.PHONY : AIApps/ChatServer/src/session/ChatSessionManager.i
+
+# target to preprocess a source file
+AIApps/ChatServer/src/session/ChatSessionManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/session/ChatSessionManager.cpp.i
+.PHONY : AIApps/ChatServer/src/session/ChatSessionManager.cpp.i
+
+AIApps/ChatServer/src/session/ChatSessionManager.s: AIApps/ChatServer/src/session/ChatSessionManager.cpp.s
+.PHONY : AIApps/ChatServer/src/session/ChatSessionManager.s
+
+# target to generate assembly for a file
+AIApps/ChatServer/src/session/ChatSessionManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/session/ChatSessionManager.cpp.s
+.PHONY : AIApps/ChatServer/src/session/ChatSessionManager.cpp.s
+
 HttpServer/src/http/HttpContext.o: HttpServer/src/http/HttpContext.cpp.o
 .PHONY : HttpServer/src/http/HttpContext.o
 
@@ -356,6 +380,9 @@ help:
 	@echo "... AIApps/ChatServer/src/main.o"
 	@echo "... AIApps/ChatServer/src/main.i"
 	@echo "... AIApps/ChatServer/src/main.s"
+	@echo "... AIApps/ChatServer/src/session/ChatSessionManager.o"
+	@echo "... AIApps/ChatServer/src/session/ChatSessionManager.i"
+	@echo "... AIApps/ChatServer/src/session/ChatSessionManager.s"
 	@echo "... HttpServer/src/http/HttpContext.o"
 	@echo "... HttpServer/src/http/HttpContext.i"
 	@echo "... HttpServer/src/http/HttpContext.s"

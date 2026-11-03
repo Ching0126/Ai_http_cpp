@@ -15,10 +15,100 @@ std::string envOr(const char*name,const char* fallback){
 
     return value && *value ? value : fallback;
 }
+
+bool stringField(
+    const boost::json::object& object,
+    const char* name,
+    std::string& result
+){
+    const auto* value = object.if_contains(name);
+
+    if(!value||
+        !value->is_string()||
+        value->as_string().empty()){
+        return false;
+    }
+
+    const auto& text = value->as_string();
+
+    result.assign(text.c_str(),text.size());
+
+    return true;
+}
+
+bool readSessionId(
+    const HttpRequest& request,
+    std::string& sessionId
+){
+    boost::system::error_code ec;
+
+    const auto data = boost::json::parse(request.body,ec);
+
+    return !ec&&data.is_object()&&
+            stringField(data.as_object(),"sessionId",sessionId);
+}
+
+HttpResponse invalidBody(){
+    return HttpResponse(
+        400,
+        "Bad Request",
+        R"({"error":"invalid request body"})"
+    );
+}
+
+HttpResponse missingSession() {
+    return HttpResponse(
+        404,
+        "Not Found",
+        R"({"error":"session not found"})"
+    );
+}
 }//namespace
 // curl --noproxy '*' -i http://127.0.0.1:8080/chat/send \
 //   -H 'Content-Type: application/json' \
 //   -d '{"question":"什么是 HTTP？"}'
+
+HttpResponse ChatHandler::createSession(const HttpRequest& request){
+    try{
+        const auto id = sessions_.create();
+
+        boost::json::object result;
+
+        result["success"] = true;
+        result["sessionId"]=id;
+
+        return HttpResponse(
+            200,
+            "OK",
+            boost::json::serialize(result)
+        );
+    }catch(const std::exception&){
+        return HttpResponse(
+            500,
+            "Internal Server Error",
+            R"({"error":"cannot create session"})"
+        );
+    }
+}
+
+HttpResponse ChatHandler::listSessions(const HttpRequest& request)const{
+    boost::json::array ids;
+
+    for(const auto& id : sessions_.list()){
+        ids.emplace_back(id);
+    }
+
+    boost::json::object result;
+
+    result["sessionIds"]=ids;
+
+    return HttpResponse(
+        200,
+        "OK",
+        boost::json::serialize(result)
+    );
+}
+
 
 HttpResponse ChatHandler::handle(
     const HttpRequest& request
@@ -38,32 +128,22 @@ HttpResponse ChatHandler::handle(
 
     const auto data =boost::json::parse(request.body, ec);//请求解析为json
 
-    if (ec || !data.is_object()) {
-        return HttpResponse(
-            400,
-            "Bad Request",
-            R"({"error":"body must be a JSON object"})"
-        );
+    std::string sessionId;
+    std::string text;
+
+    if (ec || !data.is_object()||
+        !stringField(data.as_object(),"sessionId",sessionId)||
+        !stringField(data.as_object(),"question",text)) {
+        return invalidBody();
     }
 
-    const auto* question = data.as_object().if_contains("question");
+    auto* session = sessions_.find(sessionId);
 
-    if (!question ||
-        !question->is_string() ||
-        question->as_string().empty()) {
-        return HttpResponse(
-            400,
-            "Bad Request",
-            R"({"error":"question must be a non-empty string"})"
-        );
+    if(!session){
+        return missingSession();
     }
 
-    const std::string text(
-        question->as_string().c_str(),
-        question->as_string().size()
-    );
-
-    auto pending = messages_;
+    auto pending = session->messages;
 
     pending.push_back({"user",text});
 
@@ -73,7 +153,7 @@ HttpResponse ChatHandler::handle(
 
     if(mode == "mock"){
         answer = "[模拟ai]收到你的信息"+text
-                +"此前消息数："+std::to_string(messages_.size());
+                +"此前消息数："+std::to_string(session->messages.size());
     }else if (mode == "deepseek"){
         const auto key = envOr("DEEPSEEK_API_KEY","");
 
@@ -113,6 +193,7 @@ HttpResponse ChatHandler::handle(
     boost::json::object result;
 
     result["success"] = true;
+    result["sessionId"] = sessionId;
     result["answer"] = answer;
     HttpResponse response(
         200,
@@ -120,14 +201,26 @@ HttpResponse ChatHandler::handle(
         boost::json::serialize(result)
     );
 
-    messages_ = std::move(pending);
+    session->messages = std::move(pending);
     return response;
 }
 
-HttpResponse ChatHandler::history(const HttpRequest& request)const{
+HttpResponse ChatHandler::history(const HttpRequest& request){
+    std::string sessionId;
+
+    if(!readSessionId(request,sessionId)){
+        return invalidBody();
+    }
+
+    const auto* session = sessions_.find(sessionId);
+
+    if(!session){
+        return missingSession();
+    }
+    
     boost::json::array entries;
 
-    for(const auto& item:messages_){
+    for(const auto& item:session->messages){
         boost::json::object entry;
 
         entry["role"] = item.role;
@@ -138,6 +231,7 @@ HttpResponse ChatHandler::history(const HttpRequest& request)const{
 
     boost::json::object result;
 
+    result["sessionId"]=sessionId;
     result["messages"]=entries;
 
     return HttpResponse(
@@ -148,9 +242,22 @@ HttpResponse ChatHandler::history(const HttpRequest& request)const{
 }
 
 HttpResponse ChatHandler::clear(
-    const HttpRequest&
+    const HttpRequest& request
 ) {
-    messages_.clear();
+
+     std::string sessionId;
+
+    if (!readSessionId(request, sessionId)) {
+        return invalidBody();
+    }
+
+    auto* session = sessions_.find(sessionId);
+
+     if (!session) {
+        return missingSession();
+    }
+
+    session->messages.clear();
 
     return HttpResponse(
         200,

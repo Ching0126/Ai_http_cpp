@@ -1,5 +1,4 @@
 #include "ChatServer.h"
-#include "handlers/ChatHandler.h"
 
 
 ChatServer::ChatServer(
@@ -7,6 +6,24 @@ ChatServer::ChatServer(
     unsigned short port
 )
     :httpServer_(loop,port){
+     // 创建会话。
+    httpServer_.addRoute(
+        "POST",
+        "/chat/sessions",
+        [this](const HttpRequest& request) {
+            return chatHandler_.createSession(request);
+        }
+    );
+
+    // 查询会话列表。
+    httpServer_.addRoute(
+        "GET",
+        "/chat/sessions",
+        [this](const HttpRequest& request) {
+            return chatHandler_.listSessions(request);
+        }
+    );
+
     //注册聊天接口，含有请求正文，默认post请求
     httpServer_.addRoute(
         "POST",
@@ -15,16 +32,16 @@ ChatServer::ChatServer(
             return chatHandler_.handle(request);
         }
     );
-     // 查询当前聊天历史。
+     // 查询指定会话聊天历史。
     httpServer_.addRoute(
-        "GET",
+        "POST",
         "/chat/history",
         [this](const HttpRequest& request) {
             return chatHandler_.history(request);
         }
     );
 
-    // 清空当前聊天历史。
+    // 清空指定聊天历史。
     httpServer_.addRoute(
         "POST",
         "/chat/clear",

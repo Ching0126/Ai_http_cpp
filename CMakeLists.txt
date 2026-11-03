@@ -34,6 +34,7 @@ add_executable(ai_http_server
     AIApps/ChatServer/src/ChatServer.cpp
     AIApps/ChatServer/src/handlers/ChatHandler.cpp
     AIApps/ChatServer/src/ai/AIClient.cpp
+    AIApps/ChatServer/src/session/ChatSessionManager.cpp
 )
 target_include_directories(ai_http_server PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/AIApps/ChatServer/include
