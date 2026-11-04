@@ -79,9 +79,9 @@ HttpResponse missingSession() {
 //   -H 'Content-Type: application/json' \
 //   -d '{"question":"什么是 HTTP？"}'
 
-HttpResponse ChatHandler::createSession(const HttpRequest& request){//创建会话
+HttpResponse ChatHandler::createSession(const HttpRequest& request,const std::string& username){//创建会话
     try{
-        const auto id = sessions_.create();
+        const auto id = sessions_.create(username);
 
         boost::json::object result;
 
@@ -102,10 +102,10 @@ HttpResponse ChatHandler::createSession(const HttpRequest& request){//创建会�
     }
 }
 
-HttpResponse ChatHandler::listSessions(const HttpRequest& request)const{
+HttpResponse ChatHandler::listSessions(const HttpRequest& request,const std::string& username){
     boost::json::array ids;
 
-    for(const auto& id : sessions_.list()){
+    for(const auto& id : sessions_.list(username)){
         ids.emplace_back(id);
     }
 
@@ -121,7 +121,7 @@ HttpResponse ChatHandler::listSessions(const HttpRequest& request)const{
 }
 
 HttpResponse ChatHandler::handle(
-    const HttpRequest& request
+    const HttpRequest& request,const std::string& username
 //request.method  = "POST";
 // request.path    = "/chat/send";
 // request.version = "HTTP/1.1";
@@ -147,7 +147,7 @@ HttpResponse ChatHandler::handle(
         return invalidBody();
     }
 
-    auto* session = sessions_.find(sessionId);
+    auto* session = sessions_.find(sessionId,username);
 
     if(!session){
         return missingSession();
@@ -215,14 +215,14 @@ HttpResponse ChatHandler::handle(
     return response;
 }
 
-HttpResponse ChatHandler::history(const HttpRequest& request){
+HttpResponse ChatHandler::history(const HttpRequest& request,const std::string& username){
     std::string sessionId;
 
     if(!readSessionId(request,sessionId)){
         return invalidBody();
     }
 
-    const auto* session = sessions_.find(sessionId);
+    const auto* session = sessions_.find(sessionId,username);
 
     if(!session){
         return missingSession();
@@ -251,9 +251,7 @@ HttpResponse ChatHandler::history(const HttpRequest& request){
     );
 }
 
-HttpResponse ChatHandler::clear(
-    const HttpRequest& request
-) {
+HttpResponse ChatHandler::clear(const HttpRequest& request,const std::string& username) {
 
      std::string sessionId;
 
@@ -261,7 +259,7 @@ HttpResponse ChatHandler::clear(
         return invalidBody();
     }
 
-    auto* session = sessions_.find(sessionId);
+    auto* session = sessions_.find(sessionId,username);
 
      if (!session) {
         return missingSession();

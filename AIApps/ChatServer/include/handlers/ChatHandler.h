@@ -4,20 +4,18 @@
 #include "http/HttpResponse.h"
 #include "session/ChatSessionManager.h"
 
-#include <vector>
-
 class ChatHandler{
 public:
 
-    HttpResponse createSession(const HttpRequest& request);
+    HttpResponse createSession(const HttpRequest& request,const std::string& username);
 
-    HttpResponse listSessions(const HttpRequest& request) const;
+    HttpResponse listSessions(const HttpRequest& request,const std::string& username);
 
-    HttpResponse handle(const HttpRequest& request);
+    HttpResponse handle(const HttpRequest& request,const std::string& username);
 
-    HttpResponse history(const HttpRequest& request);
+    HttpResponse history(const HttpRequest& request,const std::string& username);
 
-    HttpResponse clear(const HttpRequest& request);
+    HttpResponse clear(const HttpRequest& request,const std::string& username);
 private:
     ChatSessionManager sessions_;
 };

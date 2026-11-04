@@ -6,12 +6,49 @@ ChatServer::ChatServer(
     unsigned short port
 )
     :httpServer_(loop,port){
+
+    // 注册用户。
+    httpServer_.addRoute(
+        "POST",
+        "/register",
+        [this](const HttpRequest& request) {
+            return authHandler_.registerUser(request);
+        }
+    );
+
+    // 登录。
+    httpServer_.addRoute(
+        "POST",
+        "/login",
+        [this](const HttpRequest& request) {
+            return authHandler_.login(request);
+        }
+    );
+
+    // 退出登录。
+    httpServer_.addRoute(
+        "POST",
+        "/logout",
+        [this](const HttpRequest& request) {
+            return authHandler_.logout(request);
+        }
+    );
+
+    // 查询当前登录身份。
+    httpServer_.addRoute(
+        "GET",
+        "/auth/me",
+        [this](const HttpRequest& request) {
+            return authHandler_.me(request);
+        }
+    );
+
      // 创建会话。
     httpServer_.addRoute(
         "POST",
         "/chat/sessions",
         [this](const HttpRequest& request) {
-            return chatHandler_.createSession(request);
+            return guarded(request,&ChatHandler::createSession);
         }
     );
 
@@ -20,7 +57,8 @@ ChatServer::ChatServer(
         "GET",
         "/chat/sessions",
         [this](const HttpRequest& request) {
-            return chatHandler_.listSessions(request);
+            //return chatHandler_.listSessions(request);
+            return guarded(request,&ChatHandler::listSessions);
         }
     );
 
@@ -29,7 +67,8 @@ ChatServer::ChatServer(
         "POST",
         "/chat/send",
         [this](const HttpRequest& request) {
-            return chatHandler_.handle(request);
+            // return chatHandler_.handle(request);
+            return guarded(request,&ChatHandler::handle);
         }
     );
      // 查询指定会话聊天历史。
@@ -37,7 +76,8 @@ ChatServer::ChatServer(
         "POST",
         "/chat/history",
         [this](const HttpRequest& request) {
-            return chatHandler_.history(request);
+            // return chatHandler_.history(request);
+            return guarded(request,&ChatHandler::history);
         }
     );
 
@@ -46,7 +86,8 @@ ChatServer::ChatServer(
         "POST",
         "/chat/clear",
         [this](const HttpRequest& request) {
-            return chatHandler_.clear(request);
+            // return chatHandler_.clear(request);
+            return guarded(request,&ChatHandler::clear);
         }
     );
     // 注册健康检查接口。没有请求正文，默认是get请求
@@ -65,4 +106,21 @@ ChatServer::ChatServer(
 
 void ChatServer::start(){
     httpServer_.start();
+}
+
+HttpResponse ChatServer::guarded(
+    const HttpRequest& request,
+    ChatAction action
+){
+    std::string username;
+
+    if(!authHandler_.authenticatedUser(request,username)){
+        return HttpResponse{
+            401,
+            "Unauthorized",
+            R"({"error":"unauthorized"})"
+        };
+    }
+
+    return (chatHandler_.*action)(request,username);
 }

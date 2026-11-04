@@ -10,11 +10,15 @@ public:
         std::string body
     );
 
+    void setCookie(const std::string& cookie);
+
     std::string serialize()const;
 private:
     int status_;
     std::string reason_;
     std::string body_;
+
+    std::string cookie_;
     // HTTP/1.1 200 OK                              ← 状态行
     // Content-Type: application/json;charset=utf-8 ← 响应头 默认填写
     // Content-Length: 19                           ← 响应头 默认填写

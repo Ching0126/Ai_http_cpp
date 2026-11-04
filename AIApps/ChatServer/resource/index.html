@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 聊天</title>
+  <style>
+    body { font-family: sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; }
+    form, section { margin: 1rem 0; }
+    input, button, select { padding: .5rem; margin: .25rem; }
+    #messages { border: 1px solid #ccc; padding: 1rem; min-height: 8rem; white-space: pre-wrap; }
+    #notice { color: #a22; }
+  </style>
+</head>
+<body>
+  <h1>AI 聊天</h1>
+  <p id="notice" role="status"></p>
+  <section id="auth">
+    <h2>注册与登录</h2>
+    <form id="authForm">
+      <input id="username" placeholder="用户名" minlength="3" maxlength="32" required>
+      <input id="password" type="password" placeholder="密码（至少 8 字节）" required>
+      <button type="submit">登录</button>
+      <button id="register" type="button">注册</button>
+    </form>
+  </section>
+  <section id="chat" hidden>
+    <p>当前用户：<strong id="currentUser"></strong> <button id="logout">退出</button></p>
+    <button id="createSession">新建会话</button>
+    <label>当前会话 <select id="sessions"><option value="">请选择会话</option></select></label>
+    <div id="messages" aria-live="polite"></div>
+    <form id="chatForm">
+      <input id="question" placeholder="输入问题" required>
+      <button type="submit">发送</button>
+    </form>
+  </section>
+<script>
+// 统一发送同源请求，登录 Cookie 由浏览器自动管理。
+async function api(path, body) {
+  const options = body === undefined ? {} : {
+    method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)
+  };
+  const response = await fetch(path, options);
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.error || `请求失败：${response.status}`);
+  return data;
+}
+const $ = id => document.getElementById(id);
+const notice = message => { $('notice').textContent = message; };
+function showUser(username) {
+  $('auth').hidden = true; $('chat').hidden = false; $('currentUser').textContent = username;
+}
+function showLogin() {
+  $('auth').hidden = false; $('chat').hidden = true; $('password').value = '';
+  $('sessions').replaceChildren(new Option('请选择会话', '')); $('messages').replaceChildren();
+}
+// 用户内容使用 textContent，防止被当作 HTML 执行。
+async function loadHistory() {
+  const id = $('sessions').value;
+  $('messages').replaceChildren();
+  if (!id) return;
+  const result = await api('/chat/history', {sessionId: id});
+  for (const message of result.messages) {
+    const line = document.createElement('p');
+    line.textContent = (message.role === 'user' ? '我：' : 'AI：') + message.content;
+    $('messages').append(line);
+  }
+}
+async function loadSessions(selected = '') {
+  const result = await api('/chat/sessions');
+  $('sessions').replaceChildren(new Option('请选择会话', ''));
+  for (const id of result.sessionIds) $('sessions').add(new Option('会话 ' + id, id));
+  $('sessions').value = selected;
+  await loadHistory();
+}
+$('register').onclick = async () => {
+  try { await api('/register', {username: $('username').value, password: $('password').value}); notice('注册成功，请登录'); }
+  catch (error) { notice(error.message); }
+};
+$('authForm').onsubmit = async event => {
+  event.preventDefault();
+  try {
+    await api('/login', {username: $('username').value, password: $('password').value});
+    const user = await api('/auth/me'); showUser(user.username); $('password').value = '';
+    await loadSessions(); notice('登录成功');
+  } catch (error) { notice(error.message); }
+};
+$('logout').onclick = async () => {
+  try { await api('/logout', {}); showLogin(); notice('已退出'); }
+  catch (error) { notice(error.message); }
+};
+$('createSession').onclick = async () => {
+  try { const result = await api('/chat/sessions', {}); await loadSessions(result.sessionId); notice('会话已创建'); }
+  catch (error) { notice(error.message); }
+};
+$('sessions').onchange = async () => {
+  try { await loadHistory(); notice(''); } catch (error) { notice(error.message); }
+};
+$('chatForm').onsubmit = async event => {
+  event.preventDefault();
+  const sessionId = $('sessions').value;
+  if (!sessionId) { notice('请先创建或选择会话'); return; }
+  const button = $('chatForm').querySelector('button');
+  button.disabled = true;
+  try {
+    await api('/chat/send', {sessionId, question: $('question').value});
+    $('question').value = ''; await loadHistory(); notice('');
+  } catch (error) { notice(error.message); }
+  finally { button.disabled = false; }
+};
+// 刷新页面时尝试恢复浏览器中仍有效的登录状态。
+(async () => {
+  try { const user = await api('/auth/me'); showUser(user.username); await loadSessions(); }
+  catch { showLogin(); }
+})();
+</script>
+</body>
+</html>

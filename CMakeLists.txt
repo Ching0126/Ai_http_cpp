@@ -9,7 +9,7 @@ find_package(CURL REQUIRED)
 find_path(MUDUO_INCLUDE_DIR muduo/net/TcpServer.h REQUIRED)
 find_library(MUDUO_NET muduo_net REQUIRED)
 find_library(MUDUO_BASE muduo_base REQUIRED)
-
+find_package(OpenSSL REQUIRED)
 # 框架单独编译成库；PUBLIC 表示使用该库的目标也需要这些依赖。
 add_library(http_framework STATIC
     HttpServer/src/http/HttpContext.cpp
@@ -35,6 +35,7 @@ add_executable(ai_http_server
     AIApps/ChatServer/src/handlers/ChatHandler.cpp
     AIApps/ChatServer/src/ai/AIClient.cpp
     AIApps/ChatServer/src/session/ChatSessionManager.cpp
+    AIApps/ChatServer/src/auth/AuthHandler.cpp
 )
 target_include_directories(ai_http_server PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/AIApps/ChatServer/include
@@ -42,4 +43,5 @@ target_include_directories(ai_http_server PRIVATE
 target_link_libraries(ai_http_server PRIVATE
     http_framework
     CURL::libcurl
+    OpenSSL::Crypto
 )

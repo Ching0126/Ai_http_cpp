@@ -190,6 +190,30 @@ AIApps/ChatServer/src/ai/AIClient.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.s
 .PHONY : AIApps/ChatServer/src/ai/AIClient.cpp.s
 
+AIApps/ChatServer/src/auth/AuthHandler.o: AIApps/ChatServer/src/auth/AuthHandler.cpp.o
+.PHONY : AIApps/ChatServer/src/auth/AuthHandler.o
+
+# target to build an object file
+AIApps/ChatServer/src/auth/AuthHandler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/auth/AuthHandler.cpp.o
+.PHONY : AIApps/ChatServer/src/auth/AuthHandler.cpp.o
+
+AIApps/ChatServer/src/auth/AuthHandler.i: AIApps/ChatServer/src/auth/AuthHandler.cpp.i
+.PHONY : AIApps/ChatServer/src/auth/AuthHandler.i
+
+# target to preprocess a source file
+AIApps/ChatServer/src/auth/AuthHandler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/auth/AuthHandler.cpp.i
+.PHONY : AIApps/ChatServer/src/auth/AuthHandler.cpp.i
+
+AIApps/ChatServer/src/auth/AuthHandler.s: AIApps/ChatServer/src/auth/AuthHandler.cpp.s
+.PHONY : AIApps/ChatServer/src/auth/AuthHandler.s
+
+# target to generate assembly for a file
+AIApps/ChatServer/src/auth/AuthHandler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/auth/AuthHandler.cpp.s
+.PHONY : AIApps/ChatServer/src/auth/AuthHandler.cpp.s
+
 AIApps/ChatServer/src/handlers/ChatHandler.o: AIApps/ChatServer/src/handlers/ChatHandler.cpp.o
 .PHONY : AIApps/ChatServer/src/handlers/ChatHandler.o
 
@@ -374,6 +398,9 @@ help:
 	@echo "... AIApps/ChatServer/src/ai/AIClient.o"
 	@echo "... AIApps/ChatServer/src/ai/AIClient.i"
 	@echo "... AIApps/ChatServer/src/ai/AIClient.s"
+	@echo "... AIApps/ChatServer/src/auth/AuthHandler.o"
+	@echo "... AIApps/ChatServer/src/auth/AuthHandler.i"
+	@echo "... AIApps/ChatServer/src/auth/AuthHandler.s"
 	@echo "... AIApps/ChatServer/src/handlers/ChatHandler.o"
 	@echo "... AIApps/ChatServer/src/handlers/ChatHandler.i"
 	@echo "... AIApps/ChatServer/src/handlers/ChatHandler.s"

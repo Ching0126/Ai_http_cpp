@@ -1,5 +1,6 @@
 #include "http/HttpResponse.h"
 
+#include <stdexcept>
 #include <utility>
 
 HttpResponse::HttpResponse(
@@ -11,6 +12,15 @@ HttpResponse::HttpResponse(
     ,reason_(std::move(reason))
     ,body_(std::move(body)){
 }
+
+void HttpResponse::setCookie(const std::string& cookie){//若存在换行符，说明可能吧其他行的信息带进来了
+    if(cookie.find_first_of("\r\n")!=std::string::npos){
+        throw std::invalid_argument("invalid cookie");
+    }
+    cookie_ = cookie;
+}
+
+
     // HTTP/1.1 200 OK                              ← 状态行
     // Content-Type: application/json;charset=utf-8 ← 响应头 默认填写
     // Content-Length: 19                           ← 响应头 默认填写
@@ -37,6 +47,10 @@ std::string HttpResponse::serialize()const{//把响应转化为http报文
         "\r\n";
     
     response += "Connection: close\r\n";
+
+    if(!cookie_.empty()){
+        response += "Set-Cookie: "+cookie_ +"\r\n";
+    }
 
     response +="\r\n";
 
