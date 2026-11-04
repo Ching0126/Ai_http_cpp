@@ -45,3 +45,8 @@ target_link_libraries(ai_http_server PRIVATE
     CURL::libcurl
     OpenSSL::Crypto
 )
+
+target_compile_definitions(ai_http_server PRIVATE
+    CHAT_RESOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/AIApps/ChatServer/resource"
+)
+

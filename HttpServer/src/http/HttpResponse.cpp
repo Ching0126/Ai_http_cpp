@@ -39,7 +39,7 @@ std::string HttpResponse::serialize()const{//把响应转化为http报文
 
     //响应头
     response +=
-    "Content-Type: application/json;charset=utf-8\r\n";
+    "Content-Type: "+contentType_+"\r\n";
 
     response +=
         "Content-Length: "+
@@ -57,4 +57,12 @@ std::string HttpResponse::serialize()const{//把响应转化为http报文
     response += body_;
 
     return response;
+}
+
+void HttpResponse::setContentType(const std::string& contentType){
+    if(contentType.empty()||contentType.find_first_of("\r\n")!=std::string::npos){
+        throw std::invalid_argument("invalid content type");
+    }
+
+    contentType_ = contentType;
 }

@@ -1,12 +1,47 @@
 #include "ChatServer.h"
 
+#include <fstream>
+#include <iterator>
+static const std::string CHAT_RESOURCE_DIR= "${CMAKE_CURRENT_SOURCE_DIR}/AIApps/ChatServer/resource";
 
 ChatServer::ChatServer(
     muduo::net::EventLoop* loop,
     unsigned short port
 )
     :httpServer_(loop,port){
+    httpServer_.addRoute(
+        "GET",
+        "/",
+        [](const HttpRequest& ){
+            const std::string path = std::string(CHAT_RESOURCE_DIR)+"/index.html";
 
+            std::ifstream file(path,std::ios::binary);
+
+            if(!file){
+                return HttpResponse(
+                    500,
+                    "Internal Server Error",
+                    R"({"error":"page unvailable"})"
+                );
+            }
+
+            const std::string body(
+                (std::istreambuf_iterator<char>(file)),
+                std::istreambuf_iterator<char>()
+            );
+
+            HttpResponse response(
+                200,
+                "OK",
+                body
+            );
+
+            response.setContentType( "text/html; charset=utf-8");
+
+            return response;
+        }
+    );
+    
     // 注册用户。
     httpServer_.addRoute(
         "POST",

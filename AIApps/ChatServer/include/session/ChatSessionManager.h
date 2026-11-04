@@ -22,5 +22,6 @@ public:
     std::vector<std::string> list(const std::string& owner)const;
 private:
     std::uint64_t nextId_ = 1;
+    
     std::map<std::string,ChatSession> sessions_;
 };
