@@ -35,28 +35,40 @@
 
 <script>
 // 统一发送同源请求，登录 Cookie 由浏览器自动管理。
+//path:发送路径 body:发送数据
+//async 有需要等待的异步操作
+//undefined：表示无参数
 async function api(path, body) {
   const options = body === undefined ? {} : {
-    method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)
+    method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)//javascript转json
   };
+  //真正发送请求，fetch就是发送请求函数
   const response = await fetch(path, options);
+  //解析后端返回的json
   const data = await response.json();
   if (!response.ok) throw new Error(data.error || `请求失败：${response.status}`);
   return data;
 }
 
-
+//根据 ID 找到页面元素 $('username')
 const $ = id => document.getElementById(id);
 
+//把提示文字显示到页面上
 const notice = message => { $('notice').textContent = message; };
-
+//notice('登录成功');在页面上显示提示
 function showUser(username) {
   $('auth').hidden = true; $('chat').hidden = false; $('currentUser').textContent = username;
 }
 
+//显示登陆后的界面
 function showLogin() {
-  $('auth').hidden = false; $('chat').hidden = true; $('password').value = '';
-  $('sessions').replaceChildren(new Option('请选择会话', '')); $('messages').replaceChildren();
+  //显示登录区域
+  $('auth').hidden = false; 
+  $('chat').hidden = true; 
+  $('password').value = '';
+  //重置会话选择框
+  $('sessions').replaceChildren(new Option('请选择会话', ''));
+   $('messages').replaceChildren();//清空聊天信息
 }
 
 // 用户内容使用 textContent，防止被当作 HTML 执行。
@@ -71,24 +83,31 @@ async function loadHistory() {
     $('messages').append(line);
   }
 }
-
+//从后端获取会话列表，更新页面上的下拉框，然后显示选中会话的聊天历史。
 async function loadSessions(selected = '') {
   const result = await api('/chat/sessions');
   $('sessions').replaceChildren(new Option('请选择会话', ''));
-  for (const id of result.sessionIds) $('sessions').add(new Option('会话 ' + id, id));
+  for (const id of result.sessionIds) 
+    $('sessions').add(new Option('会话 ' + id, id));
   $('sessions').value = selected;
   await loadHistory();
 }
+
 $('register').onclick = async () => {
-  try { await api('/register', {username: $('username').value, password: $('password').value}); notice('注册成功，请登录'); }
+  try { await api('/register', {username: $('username').value, password: $('password').value}); 
+    notice('注册成功，请登录'); 
+  }
   catch (error) { notice(error.message); }
 };
-
+//用户点击“登录”后，读取用户名和密码，向后端登录，登录成功后显示聊天界面和会话列表。
 $('authForm').onsubmit = async event => {
-  event.preventDefault();
+  event.preventDefault();//表单默认会由浏览器提交，并可能导致页面跳转或刷新。
   try {
     await api('/login', {username: $('username').value, password: $('password').value});
-    const user = await api('/auth/me'); showUser(user.username); $('password').value = '';
+    const user = await api('/auth/me'); 
+    showUser(user.username);
+    $('password').value = '';//在此查询当前用户
+
     await loadSessions(); notice('登录成功');
   } catch (error) { notice(error.message); }
 };
@@ -99,20 +118,23 @@ $('logout').onclick = async () => {
 };
 
 $('createSession').onclick = async () => {
-  try { const result = await api('/chat/sessions', {}); await loadSessions(result.sessionId); notice('会话已创建'); }
+  try { const result = await api('/chat/sessions', {}); //返回会话id
+        await loadSessions(result.sessionId); notice('会话已创建'); }//前端函数
   catch (error) { notice(error.message); }
 };
 
 $('sessions').onchange = async () => {
   try { await loadHistory(); notice(''); } catch (error) { notice(error.message); }
 };
-
+//户点击“发送”按钮后的操作：取出当前会话和输入的问题，发给后端，成功后刷新聊天记录。
 $('chatForm').onsubmit = async event => {
   event.preventDefault();
   const sessionId = $('sessions').value;
   if (!sessionId) { notice('请先创建或选择会话'); return; }
+
   const button = $('chatForm').querySelector('button');
-  button.disabled = true;
+  button.disabled = true;//暂时禁用button
+
   try {
     await api('/chat/send', {sessionId, question: $('question').value});
     $('question').value = ''; await loadHistory(); notice('');
@@ -122,7 +144,10 @@ $('chatForm').onsubmit = async event => {
 
 // 刷新页面时尝试恢复浏览器中仍有效的登录状态。
 (async () => {
-  try { const user = await api('/auth/me'); showUser(user.username); await loadSessions(); }
+  try { const user = await api('/auth/me'); 
+  showUser(user.username); 
+  await loadSessions(); 
+  }
   catch { showLogin(); }
 })();
 </script>

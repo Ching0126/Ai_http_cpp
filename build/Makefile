@@ -238,6 +238,30 @@ AIApps/ChatServer/src/handlers/ChatHandler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.s
 .PHONY : AIApps/ChatServer/src/handlers/ChatHandler.cpp.s
 
+AIApps/ChatServer/src/handlers/StaticFileHandler.o: AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.o
+.PHONY : AIApps/ChatServer/src/handlers/StaticFileHandler.o
+
+# target to build an object file
+AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.o
+.PHONY : AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.o
+
+AIApps/ChatServer/src/handlers/StaticFileHandler.i: AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.i
+.PHONY : AIApps/ChatServer/src/handlers/StaticFileHandler.i
+
+# target to preprocess a source file
+AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.i
+.PHONY : AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.i
+
+AIApps/ChatServer/src/handlers/StaticFileHandler.s: AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.s
+.PHONY : AIApps/ChatServer/src/handlers/StaticFileHandler.s
+
+# target to generate assembly for a file
+AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.s
+.PHONY : AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.s
+
 AIApps/ChatServer/src/main.o: AIApps/ChatServer/src/main.cpp.o
 .PHONY : AIApps/ChatServer/src/main.o
 
@@ -404,6 +428,9 @@ help:
 	@echo "... AIApps/ChatServer/src/handlers/ChatHandler.o"
 	@echo "... AIApps/ChatServer/src/handlers/ChatHandler.i"
 	@echo "... AIApps/ChatServer/src/handlers/ChatHandler.s"
+	@echo "... AIApps/ChatServer/src/handlers/StaticFileHandler.o"
+	@echo "... AIApps/ChatServer/src/handlers/StaticFileHandler.i"
+	@echo "... AIApps/ChatServer/src/handlers/StaticFileHandler.s"
 	@echo "... AIApps/ChatServer/src/main.o"
 	@echo "... AIApps/ChatServer/src/main.i"
 	@echo "... AIApps/ChatServer/src/main.s"

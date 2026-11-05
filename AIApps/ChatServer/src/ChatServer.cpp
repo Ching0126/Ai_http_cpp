@@ -1,46 +1,40 @@
 #include "ChatServer.h"
+#include "handlers/StaticFileHandler.h"
 
-#include <fstream>
-#include <iterator>
-static const std::string CHAT_RESOURCE_DIR= "${CMAKE_CURRENT_SOURCE_DIR}/AIApps/ChatServer/resource";
+//static const std::string CHAT_RESOURCE_DIR= "${CMAKE_CURRENT_SOURCE_DIR}/AIApps/ChatServer/resource";
 
 ChatServer::ChatServer(
     muduo::net::EventLoop* loop,
     unsigned short port
 )
     :httpServer_(loop,port){
+
+    const std::string resources = CHAT_RESOURCE_DIR;
+
+            const StaticFileHandler page(
+                resources + "/index.html",
+                "text/html; charset=utf-8"
+            );
+
+            const StaticFileHandler stylesheet(
+                resources + "/style.css",
+                "text/css; charset=utf-8"
+            );
     httpServer_.addRoute(
         "GET",
         "/",
-        [](const HttpRequest& ){
-            const std::string path = std::string(CHAT_RESOURCE_DIR)+"/index.html";
-
-            std::ifstream file(path,std::ios::binary);
-
-            if(!file){
-                return HttpResponse(
-                    500,
-                    "Internal Server Error",
-                    R"({"error":"page unvailable"})"
-                );
-            }
-
-            const std::string body(
-                (std::istreambuf_iterator<char>(file)),
-                std::istreambuf_iterator<char>()
-            );
-
-            HttpResponse response(
-                200,
-                "OK",
-                body
-            );
-
-            response.setContentType( "text/html; charset=utf-8");
-
-            return response;
-        }
+        [page](const HttpRequest& request) {
+            return page.handle(request);
+        }         
     );
+
+    httpServer_.addRoute(
+    "GET",
+    "/style.css",
+    [stylesheet](const HttpRequest& request) {
+        return stylesheet.handle(request);
+    }
+);
     
     // 注册用户。
     httpServer_.addRoute(

@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/auth/AuthHandler.cpp.o.d"
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o"
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o.d"
+  "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.o"
+  "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.o.d"
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o"
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o.d"
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/session/ChatSessionManager.cpp.o"

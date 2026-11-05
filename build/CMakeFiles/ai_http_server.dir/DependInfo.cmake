@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/root/Ai_http_cpp/AIApps/ChatServer/src/ai/AIClient.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.o.d"
   "/root/Ai_http_cpp/AIApps/ChatServer/src/auth/AuthHandler.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/auth/AuthHandler.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/auth/AuthHandler.cpp.o.d"
   "/root/Ai_http_cpp/AIApps/ChatServer/src/handlers/ChatHandler.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o.d"
+  "/root/Ai_http_cpp/AIApps/ChatServer/src/handlers/StaticFileHandler.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.o.d"
   "/root/Ai_http_cpp/AIApps/ChatServer/src/main.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o.d"
   "/root/Ai_http_cpp/AIApps/ChatServer/src/session/ChatSessionManager.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/session/ChatSessionManager.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/session/ChatSessionManager.cpp.o.d"
   )
