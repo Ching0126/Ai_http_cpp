@@ -1,5 +1,8 @@
 #include "ChatServer.h"
 #include "handlers/StaticFileHandler.h"
+#include "middleware/RequestLogMiddleware.h"
+
+#include <memory>
 
 //static const std::string CHAT_RESOURCE_DIR= "${CMAKE_CURRENT_SOURCE_DIR}/AIApps/ChatServer/resource";
 
@@ -8,6 +11,10 @@ ChatServer::ChatServer(
     unsigned short port
 )
     :httpServer_(loop,port){
+    
+     httpServer_.addMiddleware(
+        std::make_shared<RequestLogMiddleware>()
+    );
 
     const std::string resources = CHAT_RESOURCE_DIR;
 

@@ -11,6 +11,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/root/Ai_http_cpp/HttpServer/src/http/HttpContext.cpp" "CMakeFiles/http_framework.dir/HttpServer/src/http/HttpContext.cpp.o" "gcc" "CMakeFiles/http_framework.dir/HttpServer/src/http/HttpContext.cpp.o.d"
   "/root/Ai_http_cpp/HttpServer/src/http/HttpResponse.cpp" "CMakeFiles/http_framework.dir/HttpServer/src/http/HttpResponse.cpp.o" "gcc" "CMakeFiles/http_framework.dir/HttpServer/src/http/HttpResponse.cpp.o.d"
   "/root/Ai_http_cpp/HttpServer/src/http/HttpServer.cpp" "CMakeFiles/http_framework.dir/HttpServer/src/http/HttpServer.cpp.o" "gcc" "CMakeFiles/http_framework.dir/HttpServer/src/http/HttpServer.cpp.o.d"
+  "/root/Ai_http_cpp/HttpServer/src/middleware/MiddlewareChain.cpp" "CMakeFiles/http_framework.dir/HttpServer/src/middleware/MiddlewareChain.cpp.o" "gcc" "CMakeFiles/http_framework.dir/HttpServer/src/middleware/MiddlewareChain.cpp.o.d"
+  "/root/Ai_http_cpp/HttpServer/src/middleware/RequestLogMiddleware.cpp" "CMakeFiles/http_framework.dir/HttpServer/src/middleware/RequestLogMiddleware.cpp.o" "gcc" "CMakeFiles/http_framework.dir/HttpServer/src/middleware/RequestLogMiddleware.cpp.o.d"
   "/root/Ai_http_cpp/HttpServer/src/router/Router.cpp" "CMakeFiles/http_framework.dir/HttpServer/src/router/Router.cpp.o" "gcc" "CMakeFiles/http_framework.dir/HttpServer/src/router/Router.cpp.o.d"
   )
 

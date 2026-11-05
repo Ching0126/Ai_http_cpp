@@ -46,6 +46,10 @@ void HttpServer::addRoute(
     );
 }
 
+void HttpServer::addMiddleware(std::shared_ptr<Middleware> middleware){
+    middlewareChain_.add(std::move(middleware));
+}
+
 void HttpServer::start() {
     server_.start();
 }
@@ -104,8 +108,13 @@ void HttpServer::onMessage(
     }
 
     // 请求解析完成后交给路由器。
-    const HttpResponse response =
-        router_.route(context->request());
+    //const HttpResponse response = router_.route(context->request());
+
+    const HttpResponse response =middlewareChain_.process(context->request(),
+                                        [this](const HttpRequest& request) {
+                                            return router_.route(request);
+                                        }
+                                    );
 
     sendResponse(conn, response);
 }

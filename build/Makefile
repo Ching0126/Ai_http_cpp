@@ -382,6 +382,54 @@ HttpServer/src/http/HttpServer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/http_framework.dir/build.make CMakeFiles/http_framework.dir/HttpServer/src/http/HttpServer.cpp.s
 .PHONY : HttpServer/src/http/HttpServer.cpp.s
 
+HttpServer/src/middleware/MiddlewareChain.o: HttpServer/src/middleware/MiddlewareChain.cpp.o
+.PHONY : HttpServer/src/middleware/MiddlewareChain.o
+
+# target to build an object file
+HttpServer/src/middleware/MiddlewareChain.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/http_framework.dir/build.make CMakeFiles/http_framework.dir/HttpServer/src/middleware/MiddlewareChain.cpp.o
+.PHONY : HttpServer/src/middleware/MiddlewareChain.cpp.o
+
+HttpServer/src/middleware/MiddlewareChain.i: HttpServer/src/middleware/MiddlewareChain.cpp.i
+.PHONY : HttpServer/src/middleware/MiddlewareChain.i
+
+# target to preprocess a source file
+HttpServer/src/middleware/MiddlewareChain.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/http_framework.dir/build.make CMakeFiles/http_framework.dir/HttpServer/src/middleware/MiddlewareChain.cpp.i
+.PHONY : HttpServer/src/middleware/MiddlewareChain.cpp.i
+
+HttpServer/src/middleware/MiddlewareChain.s: HttpServer/src/middleware/MiddlewareChain.cpp.s
+.PHONY : HttpServer/src/middleware/MiddlewareChain.s
+
+# target to generate assembly for a file
+HttpServer/src/middleware/MiddlewareChain.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/http_framework.dir/build.make CMakeFiles/http_framework.dir/HttpServer/src/middleware/MiddlewareChain.cpp.s
+.PHONY : HttpServer/src/middleware/MiddlewareChain.cpp.s
+
+HttpServer/src/middleware/RequestLogMiddleware.o: HttpServer/src/middleware/RequestLogMiddleware.cpp.o
+.PHONY : HttpServer/src/middleware/RequestLogMiddleware.o
+
+# target to build an object file
+HttpServer/src/middleware/RequestLogMiddleware.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/http_framework.dir/build.make CMakeFiles/http_framework.dir/HttpServer/src/middleware/RequestLogMiddleware.cpp.o
+.PHONY : HttpServer/src/middleware/RequestLogMiddleware.cpp.o
+
+HttpServer/src/middleware/RequestLogMiddleware.i: HttpServer/src/middleware/RequestLogMiddleware.cpp.i
+.PHONY : HttpServer/src/middleware/RequestLogMiddleware.i
+
+# target to preprocess a source file
+HttpServer/src/middleware/RequestLogMiddleware.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/http_framework.dir/build.make CMakeFiles/http_framework.dir/HttpServer/src/middleware/RequestLogMiddleware.cpp.i
+.PHONY : HttpServer/src/middleware/RequestLogMiddleware.cpp.i
+
+HttpServer/src/middleware/RequestLogMiddleware.s: HttpServer/src/middleware/RequestLogMiddleware.cpp.s
+.PHONY : HttpServer/src/middleware/RequestLogMiddleware.s
+
+# target to generate assembly for a file
+HttpServer/src/middleware/RequestLogMiddleware.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/http_framework.dir/build.make CMakeFiles/http_framework.dir/HttpServer/src/middleware/RequestLogMiddleware.cpp.s
+.PHONY : HttpServer/src/middleware/RequestLogMiddleware.cpp.s
+
 HttpServer/src/router/Router.o: HttpServer/src/router/Router.cpp.o
 .PHONY : HttpServer/src/router/Router.o
 
@@ -446,6 +494,12 @@ help:
 	@echo "... HttpServer/src/http/HttpServer.o"
 	@echo "... HttpServer/src/http/HttpServer.i"
 	@echo "... HttpServer/src/http/HttpServer.s"
+	@echo "... HttpServer/src/middleware/MiddlewareChain.o"
+	@echo "... HttpServer/src/middleware/MiddlewareChain.i"
+	@echo "... HttpServer/src/middleware/MiddlewareChain.s"
+	@echo "... HttpServer/src/middleware/RequestLogMiddleware.o"
+	@echo "... HttpServer/src/middleware/RequestLogMiddleware.i"
+	@echo "... HttpServer/src/middleware/RequestLogMiddleware.s"
 	@echo "... HttpServer/src/router/Router.o"
 	@echo "... HttpServer/src/router/Router.i"
 	@echo "... HttpServer/src/router/Router.s"

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <middleware/MiddlewareChain.h>
 #include "router/Router.h"
 #include <muduo/net/TcpServer.h>
 
@@ -15,6 +16,8 @@ public:
         const std::string& path,
         Router::Handler handler
     );
+    
+    void addMiddleware(std::shared_ptr<Middleware> middleware);
 
     void start();
 
@@ -37,4 +40,5 @@ private:
 
     muduo::net::TcpServer server_;
     Router router_;
+    MiddlewareChain middlewareChain_;
 };

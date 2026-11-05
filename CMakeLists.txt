@@ -16,6 +16,8 @@ add_library(http_framework STATIC
     HttpServer/src/http/HttpResponse.cpp
     HttpServer/src/http/HttpServer.cpp
     HttpServer/src/router/Router.cpp
+    HttpServer/src/middleware/MiddlewareChain.cpp
+    HttpServer/src/middleware/RequestLogMiddleware.cpp
 )
 target_include_directories(http_framework PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/HttpServer/include
