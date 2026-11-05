@@ -1,7 +1,45 @@
 #include "http/HttpResponse.h"
 
+#include <algorithm>
+#include <cctype>
 #include <stdexcept>
 #include <utility>
+
+void HttpResponse::addHeader(
+    const std::string& name,
+    const std::string& value
+){
+    const bool validName = !name.empty() && 
+        std::all_of(name.begin(),name.end(),[](unsigned char c){
+             return
+                    (c >= 'a' && c <= 'z') ||
+                    (c >= 'A' && c <= 'Z') ||
+                    (c >= '0' && c <= '9') ||
+                    c == '-';
+        });
+
+    if(!validName || value.find_first_of("\r\n")!=std::string::npos){
+        throw std::invalid_argument("invalid header");
+    }
+
+    std::string lower = name;
+
+    std::transform(lower.begin(),lower.end(),lower.begin(),[](unsigned char c){
+        return static_cast<char>(std::tolower(c));
+    });
+
+     // 避免和现有响应生成逻辑产生重复头。
+    if (lower == "content-length" ||
+        lower == "content-type" ||
+        lower == "connection" ||
+        lower == "set-cookie") {
+        throw std::invalid_argument(
+            "reserved header"
+        );
+    }
+
+    extraHeaders_[lower] = value;
+}
 
 HttpResponse::HttpResponse(
     int status,
@@ -51,6 +89,14 @@ std::string HttpResponse::serialize()const{//把响应转化为http报文
     if(!cookie_.empty()){
         response += "Set-Cookie: "+cookie_ +"\r\n";
     }
+
+    for (const auto& entry : extraHeaders_) {
+    response +=
+        entry.first +
+        ": " +
+        entry.second +
+        "\r\n";
+}
 
     response +="\r\n";
 

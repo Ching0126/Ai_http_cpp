@@ -1,6 +1,7 @@
 #pragma once 
 
-#include<string>
+#include <string>
+#include <map>
 //负责描述响应，并把它转化为http报文
 class HttpResponse{
 public:
@@ -8,6 +9,11 @@ public:
         int status,
         std::string reason,
         std::string body
+    );
+
+    void addHeader(
+        const std::string& name,
+        const std::string& value
     );
 
     void setCookie(const std::string& cookie);
@@ -24,6 +30,9 @@ private:
     std::string cookie_;
 
     std::string contentType_ = "application/json;charset=utf-8";
+
+    std::map<std::string, std::string> extraHeaders_;
+
     // HTTP/1.1 200 OK                              ← 状态行
     // Content-Type: application/json;charset=utf-8 ← 响应头 默认填写
     // Content-Length: 19                           ← 响应头 默认填写

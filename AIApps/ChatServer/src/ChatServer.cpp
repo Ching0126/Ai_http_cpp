@@ -1,7 +1,9 @@
 #include "ChatServer.h"
 #include "handlers/StaticFileHandler.h"
 #include "middleware/RequestLogMiddleware.h"
+#include "middleware/CorsMiddleware.h"
 
+#include <cstdlib>
 #include <memory>
 
 //static const std::string CHAT_RESOURCE_DIR= "${CMAKE_CURRENT_SOURCE_DIR}/AIApps/ChatServer/resource";
@@ -12,9 +14,11 @@ ChatServer::ChatServer(
 )
     :httpServer_(loop,port){
     
-     httpServer_.addMiddleware(
-        std::make_shared<RequestLogMiddleware>()
-    );
+    httpServer_.addMiddleware(std::make_shared<RequestLogMiddleware>());//每一次请求都要经过它
+    
+    const char* corsOrigin =std::getenv("CORS_ALLOWED_ORIGIN");
+
+    httpServer_.addMiddleware(std::make_shared<CorsMiddleware>(corsOrigin ? corsOrigin : ""));
 
     const std::string resources = CHAT_RESOURCE_DIR;
 

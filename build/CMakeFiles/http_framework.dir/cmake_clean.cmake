@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/http_framework.dir/HttpServer/src/http/HttpResponse.cpp.o.d"
   "CMakeFiles/http_framework.dir/HttpServer/src/http/HttpServer.cpp.o"
   "CMakeFiles/http_framework.dir/HttpServer/src/http/HttpServer.cpp.o.d"
+  "CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.o"
+  "CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.o.d"
   "CMakeFiles/http_framework.dir/HttpServer/src/middleware/MiddlewareChain.cpp.o"
   "CMakeFiles/http_framework.dir/HttpServer/src/middleware/MiddlewareChain.cpp.o.d"
   "CMakeFiles/http_framework.dir/HttpServer/src/middleware/RequestLogMiddleware.cpp.o"

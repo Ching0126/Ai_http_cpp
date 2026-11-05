@@ -18,6 +18,7 @@ add_library(http_framework STATIC
     HttpServer/src/router/Router.cpp
     HttpServer/src/middleware/MiddlewareChain.cpp
     HttpServer/src/middleware/RequestLogMiddleware.cpp
+    HttpServer/src/middleware/CorsMiddleware.cpp
 )
 target_include_directories(http_framework PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/HttpServer/include

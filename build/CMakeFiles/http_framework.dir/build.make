@@ -153,6 +153,20 @@ CMakeFiles/http_framework.dir/HttpServer/src/middleware/RequestLogMiddleware.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/http_framework.dir/HttpServer/src/middleware/RequestLogMiddleware.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/Ai_http_cpp/HttpServer/src/middleware/RequestLogMiddleware.cpp -o CMakeFiles/http_framework.dir/HttpServer/src/middleware/RequestLogMiddleware.cpp.s
 
+CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.o: CMakeFiles/http_framework.dir/flags.make
+CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.o: /root/Ai_http_cpp/HttpServer/src/middleware/CorsMiddleware.cpp
+CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.o: CMakeFiles/http_framework.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.o -MF CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.o.d -o CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.o -c /root/Ai_http_cpp/HttpServer/src/middleware/CorsMiddleware.cpp
+
+CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/Ai_http_cpp/HttpServer/src/middleware/CorsMiddleware.cpp > CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.i
+
+CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/Ai_http_cpp/HttpServer/src/middleware/CorsMiddleware.cpp -o CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.s
+
 # Object files for target http_framework
 http_framework_OBJECTS = \
 "CMakeFiles/http_framework.dir/HttpServer/src/http/HttpContext.cpp.o" \
@@ -160,7 +174,8 @@ http_framework_OBJECTS = \
 "CMakeFiles/http_framework.dir/HttpServer/src/http/HttpServer.cpp.o" \
 "CMakeFiles/http_framework.dir/HttpServer/src/router/Router.cpp.o" \
 "CMakeFiles/http_framework.dir/HttpServer/src/middleware/MiddlewareChain.cpp.o" \
-"CMakeFiles/http_framework.dir/HttpServer/src/middleware/RequestLogMiddleware.cpp.o"
+"CMakeFiles/http_framework.dir/HttpServer/src/middleware/RequestLogMiddleware.cpp.o" \
+"CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.o"
 
 # External object files for target http_framework
 http_framework_EXTERNAL_OBJECTS =
@@ -171,9 +186,10 @@ libhttp_framework.a: CMakeFiles/http_framework.dir/HttpServer/src/http/HttpServe
 libhttp_framework.a: CMakeFiles/http_framework.dir/HttpServer/src/router/Router.cpp.o
 libhttp_framework.a: CMakeFiles/http_framework.dir/HttpServer/src/middleware/MiddlewareChain.cpp.o
 libhttp_framework.a: CMakeFiles/http_framework.dir/HttpServer/src/middleware/RequestLogMiddleware.cpp.o
+libhttp_framework.a: CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.o
 libhttp_framework.a: CMakeFiles/http_framework.dir/build.make
 libhttp_framework.a: CMakeFiles/http_framework.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library libhttp_framework.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library libhttp_framework.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/http_framework.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/http_framework.dir/link.txt --verbose=$(VERBOSE)
 

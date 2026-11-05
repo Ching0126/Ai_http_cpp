@@ -382,6 +382,30 @@ HttpServer/src/http/HttpServer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/http_framework.dir/build.make CMakeFiles/http_framework.dir/HttpServer/src/http/HttpServer.cpp.s
 .PHONY : HttpServer/src/http/HttpServer.cpp.s
 
+HttpServer/src/middleware/CorsMiddleware.o: HttpServer/src/middleware/CorsMiddleware.cpp.o
+.PHONY : HttpServer/src/middleware/CorsMiddleware.o
+
+# target to build an object file
+HttpServer/src/middleware/CorsMiddleware.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/http_framework.dir/build.make CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.o
+.PHONY : HttpServer/src/middleware/CorsMiddleware.cpp.o
+
+HttpServer/src/middleware/CorsMiddleware.i: HttpServer/src/middleware/CorsMiddleware.cpp.i
+.PHONY : HttpServer/src/middleware/CorsMiddleware.i
+
+# target to preprocess a source file
+HttpServer/src/middleware/CorsMiddleware.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/http_framework.dir/build.make CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.i
+.PHONY : HttpServer/src/middleware/CorsMiddleware.cpp.i
+
+HttpServer/src/middleware/CorsMiddleware.s: HttpServer/src/middleware/CorsMiddleware.cpp.s
+.PHONY : HttpServer/src/middleware/CorsMiddleware.s
+
+# target to generate assembly for a file
+HttpServer/src/middleware/CorsMiddleware.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/http_framework.dir/build.make CMakeFiles/http_framework.dir/HttpServer/src/middleware/CorsMiddleware.cpp.s
+.PHONY : HttpServer/src/middleware/CorsMiddleware.cpp.s
+
 HttpServer/src/middleware/MiddlewareChain.o: HttpServer/src/middleware/MiddlewareChain.cpp.o
 .PHONY : HttpServer/src/middleware/MiddlewareChain.o
 
@@ -494,6 +518,9 @@ help:
 	@echo "... HttpServer/src/http/HttpServer.o"
 	@echo "... HttpServer/src/http/HttpServer.i"
 	@echo "... HttpServer/src/http/HttpServer.s"
+	@echo "... HttpServer/src/middleware/CorsMiddleware.o"
+	@echo "... HttpServer/src/middleware/CorsMiddleware.i"
+	@echo "... HttpServer/src/middleware/CorsMiddleware.s"
 	@echo "... HttpServer/src/middleware/MiddlewareChain.o"
 	@echo "... HttpServer/src/middleware/MiddlewareChain.i"
 	@echo "... HttpServer/src/middleware/MiddlewareChain.s"
