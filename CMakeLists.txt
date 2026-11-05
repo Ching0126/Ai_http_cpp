@@ -10,6 +10,19 @@ find_path(MUDUO_INCLUDE_DIR muduo/net/TcpServer.h REQUIRED)
 find_library(MUDUO_NET muduo_net REQUIRED)
 find_library(MUDUO_BASE muduo_base REQUIRED)
 find_package(OpenSSL REQUIRED)
+
+find_path(
+    MYSQLCPP_INCLUDE_DIR
+    mysql_driver.h
+    REQUIRED
+)
+
+find_library(
+    MYSQLCPP_LIBRARY
+    mysqlcppconn
+    REQUIRED
+)
+
 # 框架单独编译成库；PUBLIC 表示使用该库的目标也需要这些依赖。
 add_library(http_framework STATIC
     HttpServer/src/http/HttpContext.cpp
@@ -40,14 +53,17 @@ add_executable(ai_http_server
     AIApps/ChatServer/src/session/ChatSessionManager.cpp
     AIApps/ChatServer/src/auth/AuthHandler.cpp
     AIApps/ChatServer/src/handlers/StaticFileHandler.cpp
+    AIApps/ChatServer/src/storage/UserRepository.cpp
 )
 target_include_directories(ai_http_server PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/AIApps/ChatServer/include
+    ${MYSQLCPP_INCLUDE_DIR}
 )
 target_link_libraries(ai_http_server PRIVATE
     http_framework
     CURL::libcurl
     OpenSSL::Crypto
+    ${MYSQLCPP_LIBRARY}
 )
 
 target_compile_definitions(ai_http_server PRIVATE

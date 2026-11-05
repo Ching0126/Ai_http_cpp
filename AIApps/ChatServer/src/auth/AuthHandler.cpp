@@ -136,22 +136,29 @@ HttpResponse AuthHandler::registerUser(const HttpRequest& request){
         return invalid();
     }
 
-    if(users_.find(username)!=users_.end()){//用户存在
-        return HttpResponse(
-            409,
-            "Conflict",
-            R"({"error":"username already exists"})" 
-        );
-    }
+    UserRecord user{};
 
-    User user{};
-    //为用户产生独立随即盐
-    if(RAND_bytes(user.salt.data(),static_cast<int>(user.salt.size()))!=1 ||
-        !derive(password,user.salt,user.hash)){
+    // 为用户生成随机盐，并计算密码摘要。
+    if (RAND_bytes(user.salt.data(),static_cast<int>(user.salt.size())) != 1 ||
+        !derive(password,user.salt,user.hash)) {
         return internalError();
     }
 
-    users_.emplace(username,user);
+    try {
+        if (!users_.create(username, user)) {
+            return HttpResponse(
+                409,
+                "Conflict",
+                R"({"error":"username already exists"})"
+            );
+        }
+    } catch (const std::exception&) {
+        return HttpResponse(
+            503,
+            "Service Unavailable",
+            R"({"error":"user storage unavailable"})"
+        );
+    }
 
     return HttpResponse(
         201,
@@ -168,19 +175,37 @@ HttpResponse AuthHandler::login(const HttpRequest& request){
         return invalid();
     }
 
-    const auto it = users_.find(username);
+    UserRecord user{};
 
-    if(it==users_.end()){//找不到
-        return unauth();
+    try {
+        if (!users_.find(username, user)) {
+            return unauth();
+        }
+    } catch (const std::exception&) {
+        return HttpResponse(
+            503,
+            "Service Unavailable",
+            R"({"error":"user storage unavailable"})"
+        );
     }
 
-    std::array<unsigned char,32>hash{};
+    std::array<unsigned char, 32> hash{};
 
-    if(!derive(password,it->second.salt,hash)){//利用注册保存的盐，重新计算摘要
+    // 使用数据库或内存中保存的盐重新计算摘要。
+    if (!derive(
+            password,
+            user.salt,
+            hash
+        )) {
         return internalError();
     }
-    //比较注册时的摘要和当前你的摘要
-    if(CRYPTO_memcmp(hash.data(),it->second.hash.data(),hash.size())!=0){
+
+    // 比较本次计算的摘要与保存的摘要。
+    if (CRYPTO_memcmp(
+            hash.data(),
+            user.hash.data(),
+            hash.size()
+        ) != 0) {
         return unauth();
     }
 

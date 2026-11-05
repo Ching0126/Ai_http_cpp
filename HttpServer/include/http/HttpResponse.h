@@ -11,6 +11,7 @@ public:
         std::string body
     );
 
+    //添加响应头
     void addHeader(
         const std::string& name,
         const std::string& value

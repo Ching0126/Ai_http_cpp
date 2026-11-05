@@ -18,7 +18,7 @@ ChatServer::ChatServer(
     
     const char* corsOrigin =std::getenv("CORS_ALLOWED_ORIGIN");
 
-    httpServer_.addMiddleware(std::make_shared<CorsMiddleware>(corsOrigin ? corsOrigin : ""));
+    httpServer_.addMiddleware(std::make_shared<CorsMiddleware>(corsOrigin ? corsOrigin : ""));//不配置，默认不启动跨域
 
     const std::string resources = CHAT_RESOURCE_DIR;
 

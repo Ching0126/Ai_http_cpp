@@ -5,11 +5,12 @@
 #include <stdexcept>
 #include <utility>
 
-void HttpResponse::addHeader(
+void HttpResponse::addHeader(//添加额外响应头
+    //access-control-allow-origin: http://localhost:3000
     const std::string& name,
     const std::string& value
 ){
-    const bool validName = !name.empty() && 
+    const bool validName = !name.empty() && //判断响应头是否合法
         std::all_of(name.begin(),name.end(),[](unsigned char c){
              return
                     (c >= 'a' && c <= 'z') ||
@@ -18,11 +19,11 @@ void HttpResponse::addHeader(
                     c == '-';
         });
 
-    if(!validName || value.find_first_of("\r\n")!=std::string::npos){
+    if(!validName || value.find_first_of("\r\n")!=std::string::npos){//不合法直接返回
         throw std::invalid_argument("invalid header");
     }
 
-    std::string lower = name;
+    std::string lower = name;//小写
 
     std::transform(lower.begin(),lower.end(),lower.begin(),[](unsigned char c){
         return static_cast<char>(std::tolower(c));
@@ -90,7 +91,7 @@ std::string HttpResponse::serialize()const{//把响应转化为http报文
         response += "Set-Cookie: "+cookie_ +"\r\n";
     }
 
-    for (const auto& entry : extraHeaders_) {
+    for (const auto& entry : extraHeaders_) {//添加额外响应头
     response +=
         entry.first +
         ": " +

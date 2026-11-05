@@ -216,6 +216,12 @@ MUDUO_INCLUDE_DIR:PATH=/usr/include
 //Path to a library.
 MUDUO_NET:FILEPATH=/usr/local/lib/libmuduo_net.a
 
+//Path to a file.
+MYSQLCPP_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+MYSQLCPP_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libmysqlcppconn.so
+
 //Path to a library.
 OPENSSL_CRYPTO_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libcrypto.so
 

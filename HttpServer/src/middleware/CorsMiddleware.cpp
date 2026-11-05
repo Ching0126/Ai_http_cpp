@@ -7,7 +7,7 @@
 #include <utility>
 
 namespace{
-
+//读取请求头
 std::string header(const HttpRequest& request,const char* name){
     const auto it = request.headers.find(name);
 
@@ -22,23 +22,23 @@ std::string header(const HttpRequest& request,const char* name){
     }
 
     const auto end = it->second.find_last_not_of(" \t");
+    //去掉首位空格
 
     return it->second.substr(start,end-start+1);
-
 }
-
+//检查预检请求要求使用的请求头
 bool allowedHeaders(std::string value){
-    if(value.empty()){
+    if(value.empty()){//为空，直接返回
         return true;
     }
 
     std::size_t start = 0;
 
     while(start<value.size()){
-        const auto end = value.find(',',start);
+        const auto end = value.find(',',start);//找逗号
 
         std::string part = value.substr(start,end==std::string::npos?end:end-start);
-
+        //去掉首位符号
         const auto first = part.find_first_not_of(" \t");
 
         const auto last = part.find_last_not_of(" \t");
@@ -49,7 +49,7 @@ bool allowedHeaders(std::string value){
 
         part = part.substr(first,last-first+1);
 
-        std::transform(part.begin(),part.end(),part.begin(),[](unsigned char c){
+        std::transform(part.begin(),part.end(),part.begin(),[](unsigned char c){//转小写
             return static_cast<char>(std::tolower(c));
         });
 
@@ -61,9 +61,9 @@ bool allowedHeaders(std::string value){
             return true;
         }
 
-        start = end+1;
+        start = end+1;//开始下一轮
 
-        if(start == value.size()){
+        if(start == value.size()){//已经到了末尾
             return false;
         }
     }
@@ -80,7 +80,8 @@ CorsMiddleware::CorsMiddleware(std::string allowOrigin)
 }
 
 bool CorsMiddleware::before(const HttpRequest& request,HttpResponse& response){
-    const auto origin = header(request,"origin");
+    
+    const auto origin = header(request,"origin");//读取请求头
 
     const auto method = header(request,"access-control-request-method");
 
@@ -117,7 +118,7 @@ bool CorsMiddleware::before(const HttpRequest& request,HttpResponse& response){
         "Access-Control-Allow-Headers",
         "Content-Type"
     );
-
+    //表示数据格式
     // 预检已经处理，不再进入路由。
     return false;
 }
@@ -127,13 +128,12 @@ void CorsMiddleware::after(const HttpRequest& request,HttpResponse& response){
         return ;
     }
 
-    response.addHeader("Vary","Origin");
+    response.addHeader("Vary","Origin");//读取来源
 
     const auto origin = header(request,"origin");
 
     if(origin==allowOrigin_){
         response.addHeader("Access-Control-Allow-Origin",allowOrigin_);
-
         response.addHeader("Access-Control-Allow-Credentials","true");
     }
 
