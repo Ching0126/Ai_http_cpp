@@ -12,7 +12,7 @@
 #include <stdexcept>
 
 namespace{
-
+//读取环境变量
 std::string envOr(
     const char* name,
     const char* fallback
@@ -21,7 +21,7 @@ std::string envOr(
 
     return value && *value ? value : fallback;
 }
-
+// 将字节数组编码为十六进制字符串
 template<std::size_t N>
 std::string hexEnCode(const std::array<unsigned char,N>& bytes){
     constexpr char digits[]="0123456789abcdef";
@@ -35,7 +35,7 @@ std::string hexEnCode(const std::array<unsigned char,N>& bytes){
     }
     return output;
 }
-
+//16进制转为数值，非法返回-1
 int hexValue(char c) {
     if (c >= '0' && c <= '9') {
         return c - '0';
@@ -51,12 +51,9 @@ int hexValue(char c) {
 
     return -1;
 }
-
+//16进制字符串解码为字节数组
 template<std::size_t N>
-void hexDecode(
-    const std::string& text,
-    std::array<unsigned char,N>& result
-){
+void hexDecode(const std::string& text,std::array<unsigned char,N>& result){
     if(text.size()!=N*2){
         throw std::runtime_error("invalid stored hash");
     }
@@ -73,25 +70,25 @@ void hexDecode(
         result[i]=static_cast<unsigned char>((high<<4)|low);
     }
 }
-
+//创建数据库并选择数据库
 std::unique_ptr<sql::Connection> connectDb(
     const std::string& host,
     const std::string& user,
     const std::string& password,
     const std::string& database
 ){
-    auto* driver = sql::mysql::get_mysql_driver_instance();
+    auto* driver = sql::mysql::get_mysql_driver_instance();//获取实例
 
-    std::unique_ptr<sql::Connection> conn(driver->connect(host,user,password));
+    std::unique_ptr<sql::Connection> conn(driver->connect(host,user,password));//登录
 
-    conn->setSchema(database);
+    conn->setSchema(database);//指定数据库
 
     return conn;
 }
 }
 
-UserRepository::UserRepository(){
-    const auto mode = envOr("AI_USER_STORE","memory");
+UserRepository::UserRepository(){//初始化数据库配置
+    const auto mode = envOr("AI_USER_STORE","memory");//内存
 
     if(mode != "memory"&&mode != "mysql"){
         throw std::invalid_argument("invalid AI_USER_STORE");
@@ -112,11 +109,11 @@ bool UserRepository::create(
     const std::string& username,
     const UserRecord& user
 ){
-    if(!mysqlMode_){
-        return users_.emplace(username,user).second;
+    if(!mysqlMode_){//存在内存
+        return users_.emplace(username,user).second;//看看是否成功
     }
 
-    auto conn = connectDb(host_,user_,password_,database_);
+    auto conn = connectDb(host_,user_,password_,database_);//登录链接数据库
 
     try{
         std::unique_ptr<sql::PreparedStatement>

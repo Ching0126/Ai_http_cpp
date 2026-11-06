@@ -93,6 +93,9 @@ HttpResponse ChatHandler::createSession(const HttpRequest& request,const std::st
             "OK",
             boost::json::serialize(result)
         );
+    }catch (const ChatStorageError&) {
+        // 交给 ChatServer 统一返回 503。
+        throw;
     }catch(const std::exception&){
         return HttpResponse(
             500,
@@ -211,7 +214,10 @@ HttpResponse ChatHandler::handle(
         boost::json::serialize(result)
     );
 
-    session->messages = std::move(pending);
+     if (!sessions_.save(sessionId, username, pending)) {
+        return missingSession();
+    }
+
     return response;
 }
 
@@ -265,7 +271,9 @@ HttpResponse ChatHandler::clear(const HttpRequest& request,const std::string& us
         return missingSession();
     }
 
-    session->messages.clear();
+    if (!sessions_.save(sessionId, username, {})) {
+        return missingSession();
+    }
 
     return HttpResponse(
         200,

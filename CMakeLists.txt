@@ -6,10 +6,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Threads REQUIRED)
 find_package(Boost 1.75 REQUIRED)
 find_package(CURL REQUIRED)
+find_package(OpenSSL REQUIRED)
+
+
 find_path(MUDUO_INCLUDE_DIR muduo/net/TcpServer.h REQUIRED)
+
 find_library(MUDUO_NET muduo_net REQUIRED)
 find_library(MUDUO_BASE muduo_base REQUIRED)
-find_package(OpenSSL REQUIRED)
+
 
 find_path(
     MYSQLCPP_INCLUDE_DIR
@@ -33,11 +37,14 @@ add_library(http_framework STATIC
     HttpServer/src/middleware/RequestLogMiddleware.cpp
     HttpServer/src/middleware/CorsMiddleware.cpp
 )
+
 target_include_directories(http_framework PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/HttpServer/include
     ${MUDUO_INCLUDE_DIR}
     ${Boost_INCLUDE_DIRS}
 )
+
+
 target_link_libraries(http_framework PUBLIC
     ${MUDUO_NET}
     ${MUDUO_BASE}
@@ -55,10 +62,13 @@ add_executable(ai_http_server
     AIApps/ChatServer/src/handlers/StaticFileHandler.cpp
     AIApps/ChatServer/src/storage/UserRepository.cpp
 )
+
+
 target_include_directories(ai_http_server PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/AIApps/ChatServer/include
     ${MYSQLCPP_INCLUDE_DIR}
 )
+# 链接库文件
 target_link_libraries(ai_http_server PRIVATE
     http_framework
     CURL::libcurl

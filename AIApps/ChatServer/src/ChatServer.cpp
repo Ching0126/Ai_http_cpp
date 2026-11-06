@@ -162,5 +162,13 @@ HttpResponse ChatServer::guarded(
         };
     }
 
-    return (chatHandler_.*action)(request,username);
+    try {
+        return (chatHandler_.*action)(request, username);
+    } catch (const ChatStorageError&) {
+        return HttpResponse(
+            503,
+            "Service Unavailable",
+            R"({"error":"chat storage unavailable"})"
+        );
+    }
 }
