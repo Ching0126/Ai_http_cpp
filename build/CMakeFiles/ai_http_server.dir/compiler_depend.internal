@@ -2598,33 +2598,10 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/session/ChatSessionManager.c
  /root/Ai_http_cpp/AIApps/ChatServer/src/session/ChatSessionManager.cpp
  /root/Ai_http_cpp/AIApps/ChatServer/include/ai/ChatMessage.h
  /root/Ai_http_cpp/AIApps/ChatServer/include/session/ChatSessionManager.h
+ /root/Ai_http_cpp/AIApps/ChatServer/include/storage/DbConnectionPool.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
  /usr/include/asm-generic/errno.h
- /usr/include/assert.h
- /usr/include/boost/assert.hpp
- /usr/include/boost/config.hpp
- /usr/include/boost/config/compiler/gcc.hpp
- /usr/include/boost/config/detail/cxx_composite.hpp
- /usr/include/boost/config/detail/posix_features.hpp
- /usr/include/boost/config/detail/select_compiler_config.hpp
- /usr/include/boost/config/detail/select_platform_config.hpp
- /usr/include/boost/config/detail/select_stdlib_config.hpp
- /usr/include/boost/config/detail/suffix.hpp
- /usr/include/boost/config/helper_macros.hpp
- /usr/include/boost/config/platform/linux.hpp
- /usr/include/boost/config/pragma_message.hpp
- /usr/include/boost/config/stdlib/libstdcpp3.hpp
- /usr/include/boost/config/user.hpp
- /usr/include/boost/config/workaround.hpp
- /usr/include/boost/core/checked_delete.hpp
- /usr/include/boost/scoped_ptr.hpp
- /usr/include/boost/smart_ptr/detail/operator_bool.hpp
- /usr/include/boost/smart_ptr/detail/requires_cxx11.hpp
- /usr/include/boost/smart_ptr/detail/sp_disable_deprecated.hpp
- /usr/include/boost/smart_ptr/detail/sp_noexcept.hpp
- /usr/include/boost/smart_ptr/detail/sp_nullptr_t.hpp
- /usr/include/boost/smart_ptr/scoped_ptr.hpp
  /usr/include/c++/13/algorithm
  /usr/include/c++/13/backward/auto_ptr.h
  /usr/include/c++/13/backward/binders.h
@@ -2753,12 +2730,10 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/session/ChatSessionManager.c
  /usr/include/c++/13/typeinfo
  /usr/include/c++/13/utility
  /usr/include/c++/13/vector
- /usr/include/c++/13/version
  /usr/include/cppconn/build_config.h
  /usr/include/cppconn/config.h
  /usr/include/cppconn/connection.h
  /usr/include/cppconn/datatype.h
- /usr/include/cppconn/driver.h
  /usr/include/cppconn/exception.h
  /usr/include/cppconn/prepared_statement.h
  /usr/include/cppconn/resultset.h
@@ -2773,10 +2748,8 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/session/ChatSessionManager.c
  /usr/include/features-time64.h
  /usr/include/features.h
  /usr/include/inttypes.h
- /usr/include/linux/close_range.h
  /usr/include/linux/errno.h
  /usr/include/locale.h
- /usr/include/mysql_driver.h
  /usr/include/pthread.h
  /usr/include/sched.h
  /usr/include/stdc-predef.h
@@ -2784,26 +2757,20 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/session/ChatSessionManager.c
  /usr/include/stdio.h
  /usr/include/stdlib.h
  /usr/include/time.h
- /usr/include/unistd.h
  /usr/include/wchar.h
  /usr/include/wctype.h
  /usr/include/x86_64-linux-gnu/asm/errno.h
  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h
  /usr/include/x86_64-linux-gnu/bits/byteswap.h
- /usr/include/x86_64-linux-gnu/bits/confname.h
  /usr/include/x86_64-linux-gnu/bits/cpu-set.h
  /usr/include/x86_64-linux-gnu/bits/endian.h
  /usr/include/x86_64-linux-gnu/bits/endianness.h
- /usr/include/x86_64-linux-gnu/bits/environments.h
  /usr/include/x86_64-linux-gnu/bits/errno.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
- /usr/include/x86_64-linux-gnu/bits/getopt_core.h
- /usr/include/x86_64-linux-gnu/bits/getopt_posix.h
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h
  /usr/include/x86_64-linux-gnu/bits/locale.h
  /usr/include/x86_64-linux-gnu/bits/long-double.h
- /usr/include/x86_64-linux-gnu/bits/posix_opt.h
  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h
@@ -2849,7 +2816,6 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/session/ChatSessionManager.c
  /usr/include/x86_64-linux-gnu/bits/types/wint_t.h
  /usr/include/x86_64-linux-gnu/bits/typesizes.h
  /usr/include/x86_64-linux-gnu/bits/uintn-identity.h
- /usr/include/x86_64-linux-gnu/bits/unistd_ext.h
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/x86_64-linux-gnu/bits/wchar.h
@@ -2878,6 +2844,7 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/session/ChatSessionManager.c
 
 CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
  /root/Ai_http_cpp/AIApps/ChatServer/src/storage/UserRepository.cpp
+ /root/Ai_http_cpp/AIApps/ChatServer/include/storage/DbConnectionPool.h
  /root/Ai_http_cpp/AIApps/ChatServer/include/storage/UserRepository.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h

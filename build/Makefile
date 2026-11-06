@@ -310,6 +310,30 @@ AIApps/ChatServer/src/session/ChatSessionManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/session/ChatSessionManager.cpp.s
 .PHONY : AIApps/ChatServer/src/session/ChatSessionManager.cpp.s
 
+AIApps/ChatServer/src/storage/DbConnectionPool.o: AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o
+.PHONY : AIApps/ChatServer/src/storage/DbConnectionPool.o
+
+# target to build an object file
+AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o
+.PHONY : AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o
+
+AIApps/ChatServer/src/storage/DbConnectionPool.i: AIApps/ChatServer/src/storage/DbConnectionPool.cpp.i
+.PHONY : AIApps/ChatServer/src/storage/DbConnectionPool.i
+
+# target to preprocess a source file
+AIApps/ChatServer/src/storage/DbConnectionPool.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.i
+.PHONY : AIApps/ChatServer/src/storage/DbConnectionPool.cpp.i
+
+AIApps/ChatServer/src/storage/DbConnectionPool.s: AIApps/ChatServer/src/storage/DbConnectionPool.cpp.s
+.PHONY : AIApps/ChatServer/src/storage/DbConnectionPool.s
+
+# target to generate assembly for a file
+AIApps/ChatServer/src/storage/DbConnectionPool.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.s
+.PHONY : AIApps/ChatServer/src/storage/DbConnectionPool.cpp.s
+
 AIApps/ChatServer/src/storage/UserRepository.o: AIApps/ChatServer/src/storage/UserRepository.cpp.o
 .PHONY : AIApps/ChatServer/src/storage/UserRepository.o
 
@@ -533,6 +557,9 @@ help:
 	@echo "... AIApps/ChatServer/src/session/ChatSessionManager.o"
 	@echo "... AIApps/ChatServer/src/session/ChatSessionManager.i"
 	@echo "... AIApps/ChatServer/src/session/ChatSessionManager.s"
+	@echo "... AIApps/ChatServer/src/storage/DbConnectionPool.o"
+	@echo "... AIApps/ChatServer/src/storage/DbConnectionPool.i"
+	@echo "... AIApps/ChatServer/src/storage/DbConnectionPool.s"
 	@echo "... AIApps/ChatServer/src/storage/UserRepository.o"
 	@echo "... AIApps/ChatServer/src/storage/UserRepository.i"
 	@echo "... AIApps/ChatServer/src/storage/UserRepository.s"

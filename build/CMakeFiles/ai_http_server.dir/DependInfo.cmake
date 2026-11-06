@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/root/Ai_http_cpp/AIApps/ChatServer/src/handlers/StaticFileHandler.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.o.d"
   "/root/Ai_http_cpp/AIApps/ChatServer/src/main.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o.d"
   "/root/Ai_http_cpp/AIApps/ChatServer/src/session/ChatSessionManager.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/session/ChatSessionManager.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/session/ChatSessionManager.cpp.o.d"
+  "/root/Ai_http_cpp/AIApps/ChatServer/src/storage/DbConnectionPool.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o.d"
   "/root/Ai_http_cpp/AIApps/ChatServer/src/storage/UserRepository.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o.d"
   )
 

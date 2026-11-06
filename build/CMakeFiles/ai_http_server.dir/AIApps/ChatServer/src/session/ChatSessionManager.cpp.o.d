@@ -134,36 +134,8 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/session/ChatSessionManager.c
  /usr/include/c++/13/exception /usr/include/c++/13/bits/exception_ptr.h \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
  /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
- /usr/include/mysql_driver.h /usr/include/boost/scoped_ptr.hpp \
- /usr/include/boost/smart_ptr/scoped_ptr.hpp \
- /usr/include/boost/smart_ptr/detail/requires_cxx11.hpp \
- /usr/include/boost/config.hpp /usr/include/boost/config/user.hpp \
- /usr/include/boost/config/detail/select_compiler_config.hpp \
- /usr/include/boost/config/compiler/gcc.hpp \
- /usr/include/boost/config/detail/select_stdlib_config.hpp \
- /usr/include/c++/13/version \
- /usr/include/boost/config/stdlib/libstdcpp3.hpp /usr/include/unistd.h \
- /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
- /usr/include/x86_64-linux-gnu/bits/environments.h \
- /usr/include/x86_64-linux-gnu/bits/confname.h \
- /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
- /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
- /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
- /usr/include/linux/close_range.h \
- /usr/include/boost/config/detail/select_platform_config.hpp \
- /usr/include/boost/config/platform/linux.hpp \
- /usr/include/boost/config/detail/posix_features.hpp \
- /usr/include/boost/config/detail/suffix.hpp \
- /usr/include/boost/config/helper_macros.hpp \
- /usr/include/boost/config/detail/cxx_composite.hpp \
- /usr/include/boost/config/pragma_message.hpp \
- /usr/include/boost/assert.hpp /usr/include/assert.h \
- /usr/include/boost/core/checked_delete.hpp \
- /usr/include/boost/smart_ptr/detail/sp_nullptr_t.hpp \
- /usr/include/boost/smart_ptr/detail/sp_disable_deprecated.hpp \
- /usr/include/boost/smart_ptr/detail/sp_noexcept.hpp \
- /usr/include/boost/config/workaround.hpp /usr/include/c++/13/memory \
- /usr/include/c++/13/bits/stl_tempbuf.h \
+ /root/Ai_http_cpp/AIApps/ChatServer/include/storage/DbConnectionPool.h \
+ /usr/include/c++/13/memory /usr/include/c++/13/bits/stl_tempbuf.h \
  /usr/include/c++/13/bits/stl_raw_storage_iter.h \
  /usr/include/c++/13/bits/align.h /usr/include/c++/13/bits/unique_ptr.h \
  /usr/include/c++/13/bits/shared_ptr.h \
@@ -192,11 +164,9 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/session/ChatSessionManager.c
  /usr/include/c++/13/backward/auto_ptr.h \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
  /usr/include/c++/13/pstl/execution_defs.h \
- /usr/include/boost/smart_ptr/detail/operator_bool.hpp \
- /usr/include/cppconn/driver.h /usr/include/cppconn/connection.h \
- /usr/include/cppconn/build_config.h /usr/include/cppconn/warning.h \
- /usr/include/cppconn/sqlstring.h /usr/include/c++/13/algorithm \
- /usr/include/c++/13/bits/stl_algo.h \
+ /usr/include/cppconn/connection.h /usr/include/cppconn/build_config.h \
+ /usr/include/cppconn/warning.h /usr/include/cppconn/sqlstring.h \
+ /usr/include/c++/13/algorithm /usr/include/c++/13/bits/stl_algo.h \
  /usr/include/c++/13/bits/algorithmfwd.h \
  /usr/include/c++/13/bits/stl_heap.h \
  /usr/include/c++/13/bits/uniform_int_dist.h \
@@ -220,7 +190,7 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/session/ChatSessionManager.c
  /usr/include/c++/13/bits/istream.tcc /usr/include/cppconn/variant.h \
  /usr/include/c++/13/list /usr/include/c++/13/bits/stl_list.h \
  /usr/include/c++/13/bits/list.tcc /usr/include/cppconn/exception.h \
- /usr/include/cppconn/connection.h /usr/include/cppconn/exception.h \
+ /usr/include/cppconn/exception.h \
  /usr/include/cppconn/prepared_statement.h \
  /usr/include/cppconn/statement.h /usr/include/cppconn/config.h \
  /usr/include/inttypes.h /usr/include/cppconn/resultset.h \

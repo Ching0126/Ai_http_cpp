@@ -1,4 +1,5 @@
 #include "storage/UserRepository.h"
+#include "storage/DbConnectionPool.h"
 
 #include <mysql_driver.h>
 
@@ -70,21 +71,6 @@ void hexDecode(const std::string& text,std::array<unsigned char,N>& result){
         result[i]=static_cast<unsigned char>((high<<4)|low);
     }
 }
-//创建数据库并选择数据库
-std::unique_ptr<sql::Connection> connectDb(
-    const std::string& host,
-    const std::string& user,
-    const std::string& password,
-    const std::string& database
-){
-    auto* driver = sql::mysql::get_mysql_driver_instance();//获取实例
-
-    std::unique_ptr<sql::Connection> conn(driver->connect(host,user,password));//登录
-
-    conn->setSchema(database);//指定数据库
-
-    return conn;
-}
 }
 
 UserRepository::UserRepository(){//初始化数据库配置
@@ -96,13 +82,6 @@ UserRepository::UserRepository(){//初始化数据库配置
 
     mysqlMode_ = mode =="mysql";
 
-    host_ = envOr("AI_DB_HOST","tcp://127.0.0.1:3306");
-
-    user_ = envOr("AI_DB_USER","ai_http_user");
-
-    password_ = envOr("AI_DB_PASSWORD","");
-
-    database_ = envOr("AI_DB_NAME","ai_http_learning");
 }
 
 bool UserRepository::create(
@@ -113,7 +92,7 @@ bool UserRepository::create(
         return users_.emplace(username,user).second;//看看是否成功
     }
 
-    auto conn = connectDb(host_,user_,password_,database_);//登录链接数据库
+     auto conn = DbConnectionPool::instance().acquire();//登录链接数据库
 
     try{
         std::unique_ptr<sql::PreparedStatement>
@@ -156,7 +135,7 @@ bool UserRepository::find(
         return true;
     }
 
-    auto conn = connectDb(host_,user_,password_,database_);
+    auto conn = DbConnectionPool::instance().acquire();
 
     std::unique_ptr<sql::PreparedStatement>
     stmt(

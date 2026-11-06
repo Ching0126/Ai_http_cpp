@@ -20,11 +20,6 @@ public:
 
 private:
     bool mysqlMode_ = false;
-
-    std::string host_;
-    std::string user_;
-    std::string password_;
-    std::string database_;
-
+    
     std::map<std::string,UserRecord> users_;
 };

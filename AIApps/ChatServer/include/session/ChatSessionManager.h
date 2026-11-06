@@ -36,11 +36,6 @@ private:
 
     bool mysqlMode_ =false;
 
-    std::string host_;
-    std::string user_;
-    std::string password_;
-    std::string database_;
-
     std::uint64_t nextId_ = 1;
     
     std::map<std::string,ChatSession> sessions_;

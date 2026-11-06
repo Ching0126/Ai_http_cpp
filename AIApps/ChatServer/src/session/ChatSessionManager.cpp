@@ -1,6 +1,7 @@
 #include "session/ChatSessionManager.h"
+#include "storage/DbConnectionPool.h"
 
-#include  <mysql_driver.h>
+#include <exception>
 
 #include <cppconn/connection.h>
 #include <cppconn/exception.h>
@@ -20,21 +21,6 @@ std::string envOr(
 ) {
     const char* value = std::getenv(name);
     return value && *value ? value : fallback;
-}
-
-std::unique_ptr<sql::Connection> connectDb(
-    const std::string& host,
-    const std::string& user,
-    const std::string& password,
-    const std::string& database
-){
-    auto* driver = sql::mysql::get_driver_instance();
-
-    std::unique_ptr<sql::Connection> conn(driver->connect(host,user,password));
-
-    conn->setSchema(database);
-
-    return conn;
 }
 
 bool validId(const std::string& id){
@@ -75,7 +61,7 @@ bool owned (
         )
     );
 
-     stmt->setString(1, id);
+    stmt->setString(1, id);
     stmt->setString(2, owner);
 
     std::unique_ptr<sql::ResultSet> rows(
@@ -104,17 +90,9 @@ ChatSessionManager::ChatSessionManager() {
             "mysql chat storage requires mysql user storage"
         );
     }
-
-    host_ = envOr("AI_DB_HOST","tcp://127.0.0.1:3306");
-
-    user_ = envOr("AI_DB_USER","ai_http_user");
-
-    password_ = envOr("AI_DB_PASSWORD", "");
-
-    database_ = envOr("AI_DB_NAME","ai_http_learning");
 }
 
-std::string ChatSessionManager::create(const std::string& owner) {
+std::string ChatSessionManager::create(const std::string& owner) {//创建一个会话
     if (!mysqlMode_) {
         if (nextId_ == 0) {
             throw std::overflow_error(
@@ -124,16 +102,13 @@ std::string ChatSessionManager::create(const std::string& owner) {
 
         const auto id = std::to_string(nextId_++);
 
-        sessions_.emplace(
-            id,
-            ChatSession{id, owner, {}}
-        );
+        sessions_.emplace(id,ChatSession{id, owner, {}});
 
         return id;
     }
 
     try {
-        auto conn = connectDb(host_,user_,password_,database_);
+        auto conn = DbConnectionPool::instance().acquire();
 
         std::unique_ptr<sql::PreparedStatement> stmt(
             conn->prepareStatement(
@@ -142,8 +117,8 @@ std::string ChatSessionManager::create(const std::string& owner) {
             )
         );
 
-        stmt->setString(1, owner);
-        stmt->executeUpdate();
+        stmt->setString(1, owner);//把owner的值赋给？
+        stmt->executeUpdate();//执行
 
         // LAST_INSERT_ID() 获取当前连接刚生成的自增 ID。
         std::unique_ptr<sql::PreparedStatement> query(
@@ -165,17 +140,14 @@ std::string ChatSessionManager::create(const std::string& owner) {
         return std::string(
             row->getString("id")
         );
-    } catch (const sql::SQLException&) {
+    } catch (const std::exception&) {
         throw ChatStorageError(
             "chat storage unavailable"
         );
     }
 }
 
-ChatSession* ChatSessionManager::find(
-    const std::string& id,
-    const std::string& owner
-) {
+ChatSession* ChatSessionManager::find(const std::string& id,const std::string& owner) {
     if (!validId(id)) {
         return nullptr;
     }
@@ -183,10 +155,7 @@ ChatSession* ChatSessionManager::find(
     if (!mysqlMode_) {
         auto it = sessions_.find(id);
 
-        if (
-            it == sessions_.end() ||
-            it->second.owner != owner
-        ) {
+        if (it == sessions_.end() ||it->second.owner != owner) {
             return nullptr;
         }
 
@@ -194,12 +163,7 @@ ChatSession* ChatSessionManager::find(
     }
 
     try {
-        auto conn = connectDb(
-            host_,
-            user_,
-            password_,
-            database_
-        );
+        auto conn = DbConnectionPool::instance().acquire();
 
         if (!owned(*conn, id, owner)) {
             return nullptr;
@@ -223,27 +187,21 @@ ChatSession* ChatSessionManager::find(
         ChatSession session{id, owner, {}};
 
         while (rows->next()) {
-            session.messages.push_back({
-                std::string(rows->getString("role")),
-                std::string(rows->getString("content"))
-            });
+            session.messages.push_back({std::string(rows->getString("role")),std::string(rows->getString("content"))});
         }
 
         // 找到则替换，找不到则插入。
-        auto it = sessions_.insert_or_assign(
-            id,
-            std::move(session)
-        ).first;
+        auto it = sessions_.insert_or_assign(id,std::move(session)).first;
 
         return &it->second;
-    } catch (const sql::SQLException&) {
+    } catch (const std::exception&) {
         throw ChatStorageError(
             "chat storage unavailable"
         );
     }
 }
 
-std::vector<std::string> ChatSessionManager::list(
+std::vector<std::string> ChatSessionManager::list(//查找会话
     const std::string& owner
 ) const {
     std::vector<std::string> ids;
@@ -259,7 +217,7 @@ std::vector<std::string> ChatSessionManager::list(
     }
 
     try {
-        auto conn = connectDb(host_,user_,password_,database_);
+        auto conn = DbConnectionPool::instance().acquire();
 
         std::unique_ptr<sql::PreparedStatement> stmt(
             conn->prepareStatement(
@@ -281,7 +239,7 @@ std::vector<std::string> ChatSessionManager::list(
         }
 
         return ids;
-    } catch (const sql::SQLException&) {
+    } catch (const std::exception&) {
         throw ChatStorageError("chat storage unavailable");
     }
 }
@@ -307,12 +265,7 @@ bool ChatSessionManager::save(
     }
 
     try {
-        auto conn = connectDb(
-            host_,
-            user_,
-            password_,
-            database_
-        );
+        auto conn = DbConnectionPool::instance().acquire();
 
         // 关闭自动提交，开始将以下操作作为一个事务。
         conn->setAutoCommit(false);
@@ -352,8 +305,8 @@ bool ChatSessionManager::save(
         conn->commit();
 
         return true;
-    } catch (const sql::SQLException&) {
-        // 连接关闭时，尚未提交的事务会回滚。
+    } catch (const std::exception&) {
+        // 连接关闭时，连接池会回滚尚未提交的事务。
         throw ChatStorageError(
             "chat storage unavailable"
         );

@@ -61,6 +61,7 @@ add_executable(ai_http_server
     AIApps/ChatServer/src/auth/AuthHandler.cpp
     AIApps/ChatServer/src/handlers/StaticFileHandler.cpp
     AIApps/ChatServer/src/storage/UserRepository.cpp
+    AIApps/ChatServer/src/storage/DbConnectionPool.cpp
 )
 
 
