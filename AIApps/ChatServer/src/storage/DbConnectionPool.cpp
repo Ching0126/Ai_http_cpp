@@ -19,6 +19,43 @@ std::string envOr(const char* name,const char* fallback) {
     return value && *value ? value : fallback;
 }
 
+
+/**
+ * 管理当前线程的 MySQL 驱动状态。
+ *
+ * 每个使用数据库连接的线程，在第一次使用前初始化；
+ * 线程退出时执行清理。
+ */
+class MysqlThreadScope {
+public:
+    explicit MysqlThreadScope(sql::mysql::MySQL_Driver* driver)
+        : driver_(driver) {
+        driver_->threadInit();
+    }
+
+    ~MysqlThreadScope() {
+        try {
+            driver_->threadEnd();
+        } catch (...) {
+            // 析构函数不向外抛出异常。
+        }
+    }
+
+    MysqlThreadScope(const MysqlThreadScope&) = delete;
+
+    MysqlThreadScope& operator=(const MysqlThreadScope&) = delete;
+
+private:
+    sql::mysql::MySQL_Driver* driver_;
+};
+
+void ensureMysqlThread(
+    sql::mysql::MySQL_Driver* driver
+) {
+    thread_local MysqlThreadScope scope(driver);
+}
+
+
 std::size_t readPoolSize() {
     const auto text = envOr("AI_DB_POOL_SIZE","3");//这是string 
 
@@ -136,6 +173,7 @@ DbConnectionPool& DbConnectionPool::instance() {
 std::shared_ptr<sql::Connection>
 DbConnectionPool::acquire() {
     auto state = state_;
+    ensureMysqlThread(state->driver);
 
     const auto deadline = std::chrono::steady_clock::now()+ std::chrono::seconds(1);//超时等待1s
 

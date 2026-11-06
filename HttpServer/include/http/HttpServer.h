@@ -3,6 +3,7 @@
 #include <middleware/MiddlewareChain.h>
 #include "router/Router.h"
 #include <muduo/net/TcpServer.h>
+#include <mutex>
 
 class HttpServer{
 public:
@@ -38,7 +39,13 @@ private:
         const HttpResponse& response
     );
 
-    muduo::net::TcpServer server_;
+    // 暂时用一把锁保护共享业务状态。
+    std::mutex businessMutex_;
+
     Router router_;
     MiddlewareChain middlewareChain_;
+
+    // 最后声明，使 server_ 在析构时先于上面几个成员销毁。
+    muduo::net::TcpServer server_;
+
 };

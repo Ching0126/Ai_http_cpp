@@ -6,6 +6,8 @@
 #include <muduo/net/TcpConnection.h>
 #include <functional>
 #include <utility>
+#include <exception>
+#include <mutex>
 
 HttpServer::HttpServer(
     muduo::net::EventLoop* loop,
@@ -15,6 +17,7 @@ HttpServer::HttpServer(
     muduo::net::InetAddress("127.0.0.1",port),
     "AiHttp"
 ){
+     server_.setThreadNum(2);
      server_.setConnectionCallback(
         std::bind(
             &HttpServer::onConnection,
@@ -110,12 +113,29 @@ void HttpServer::onMessage(
     // 请求解析完成后交给路由器。
     //const HttpResponse response = router_.route(context->request());
 
-    const HttpResponse response =middlewareChain_.process(context->request(),
-                                        [this](const HttpRequest& request) {
-                                            return router_.route(request);
-                                        }
-                                    );
+    
+    // 如果业务处理抛出未处理的标准异常，默认返回 500。
+    HttpResponse response(
+        500,
+        "Internal Server Error",
+        R"({"error":"request failed"})"
+    );
 
+    try {
+        // 暂时将整个中间件和路由处理放在同一把锁内。
+        std::lock_guard<std::mutex> lock(businessMutex_);
+
+        response = middlewareChain_.process(
+            context->request(),
+            [this](const HttpRequest& request) {
+                return router_.route(request);
+            }
+        );
+    } catch (const std::exception&) {
+        // 保留上面构造的 500 响应。
+    }
+
+    // 离开 try 作用域时已经释放业务锁。
     sendResponse(conn, response);
 }
 
