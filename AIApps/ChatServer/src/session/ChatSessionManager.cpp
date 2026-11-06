@@ -259,7 +259,7 @@ std::vector<std::string> ChatSessionManager::list(
     }
 
     try {
-        auto conn = connectDb(host_,user_,password_,database);
+        auto conn = connectDb(host_,user_,password_,database_);
 
         std::unique_ptr<sql::PreparedStatement> stmt(
             conn->prepareStatement(

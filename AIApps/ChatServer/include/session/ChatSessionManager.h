@@ -6,6 +6,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <stdexcept>
 //一个连天对话的id和消息列表
 struct ChatSession{
     std::string id;
