@@ -5,6 +5,7 @@
 
 #include <cstdlib>
 #include <memory>
+#include <mutex>
 
 //static const std::string CHAT_RESOURCE_DIR= "${CMAKE_CURRENT_SOURCE_DIR}/AIApps/ChatServer/resource";
 
@@ -52,6 +53,7 @@ ChatServer::ChatServer(
         "POST",
         "/register",
         [this](const HttpRequest& request) {
+            std::lock_guard<std::mutex> lock(authMutex_);
             return authHandler_.registerUser(request);
         }
     );
@@ -61,6 +63,7 @@ ChatServer::ChatServer(
         "POST",
         "/login",
         [this](const HttpRequest& request) {
+            std::lock_guard<std::mutex> lock(authMutex_);
             return authHandler_.login(request);
         }
     );
@@ -70,6 +73,7 @@ ChatServer::ChatServer(
         "POST",
         "/logout",
         [this](const HttpRequest& request) {
+            std::lock_guard<std::mutex> lock(authMutex_);
             return authHandler_.logout(request);
         }
     );
@@ -79,6 +83,7 @@ ChatServer::ChatServer(
         "GET",
         "/auth/me",
         [this](const HttpRequest& request) {
+            std::lock_guard<std::mutex> lock(authMutex_);
             return authHandler_.me(request);
         }
     );
@@ -153,15 +158,17 @@ HttpResponse ChatServer::guarded(
     ChatAction action
 ){
     std::string username;
-
-    if(!authHandler_.authenticatedUser(request,username)){
-        return HttpResponse{
-            401,
-            "Unauthorized",
-            R"({"error":"unauthorized"})"
-        };
+    {
+        std::lock_guard<std::mutex> lock(authMutex_);
+        if(!authHandler_.authenticatedUser(request,username)){
+            return HttpResponse{
+                401,
+                "Unauthorized",
+                R"({"error":"unauthorized"})"
+            };
+        }
     }
-
+    std::lock_guard<std::mutex> lock(chatMutex_);
     try {
         return (chatHandler_.*action)(request, username);
     } catch (const ChatStorageError&) {

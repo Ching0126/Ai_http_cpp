@@ -7,7 +7,6 @@
 #include <functional>
 #include <utility>
 #include <exception>
-#include <mutex>
 
 HttpServer::HttpServer(
     muduo::net::EventLoop* loop,
@@ -122,8 +121,6 @@ void HttpServer::onMessage(
     );
 
     try {
-        // 暂时将整个中间件和路由处理放在同一把锁内。
-        std::lock_guard<std::mutex> lock(businessMutex_);
 
         response = middlewareChain_.process(
             context->request(),
@@ -135,7 +132,6 @@ void HttpServer::onMessage(
         // 保留上面构造的 500 响应。
     }
 
-    // 离开 try 作用域时已经释放业务锁。
     sendResponse(conn, response);
 }
 

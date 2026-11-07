@@ -39,9 +39,6 @@ private:
         const HttpResponse& response
     );
 
-    // 暂时用一把锁保护共享业务状态。
-    std::mutex businessMutex_;
-
     Router router_;
     MiddlewareChain middlewareChain_;
 
