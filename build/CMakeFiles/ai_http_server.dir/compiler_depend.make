@@ -9,6 +9,7 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o: /root/Ai_h
   /root/Ai_http_cpp/AIApps/ChatServer/include/handlers/StaticFileHandler.h \
   /root/Ai_http_cpp/AIApps/ChatServer/include/session/ChatSessionManager.h \
   /root/Ai_http_cpp/AIApps/ChatServer/include/storage/UserRepository.h \
+  /root/Ai_http_cpp/HttpServer/include/concurrency/TaskExecutor.h \
   /root/Ai_http_cpp/HttpServer/include/http/HttpRequest.h \
   /root/Ai_http_cpp/HttpServer/include/http/HttpResponse.h \
   /root/Ai_http_cpp/HttpServer/include/http/HttpServer.h \
@@ -101,6 +102,7 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o: /root/Ai_h
   /usr/include/c++/13/bits/cpp_type_traits.h \
   /usr/include/c++/13/bits/cxxabi_forced.h \
   /usr/include/c++/13/bits/cxxabi_init_exception.h \
+  /usr/include/c++/13/bits/deque.tcc \
   /usr/include/c++/13/bits/enable_special_members.h \
   /usr/include/c++/13/bits/erase_if.h \
   /usr/include/c++/13/bits/exception.h \
@@ -136,10 +138,12 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o: /root/Ai_h
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
   /usr/include/c++/13/bits/std_mutex.h \
+  /usr/include/c++/13/bits/std_thread.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
   /usr/include/c++/13/bits/stl_construct.h \
+  /usr/include/c++/13/bits/stl_deque.h \
   /usr/include/c++/13/bits/stl_function.h \
   /usr/include/c++/13/bits/stl_heap.h \
   /usr/include/c++/13/bits/stl_iterator.h \
@@ -148,6 +152,7 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o: /root/Ai_h
   /usr/include/c++/13/bits/stl_map.h \
   /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
+  /usr/include/c++/13/bits/stl_queue.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_relops.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
@@ -159,6 +164,7 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o: /root/Ai_h
   /usr/include/c++/13/bits/streambuf_iterator.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
+  /usr/include/c++/13/bits/this_thread_sleep.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
   /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
@@ -172,6 +178,7 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o: /root/Ai_h
   /usr/include/c++/13/chrono \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/condition_variable \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -182,6 +189,7 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o: /root/Ai_h
   /usr/include/c++/13/cxxabi.h \
   /usr/include/c++/13/debug/assertions.h \
   /usr/include/c++/13/debug/debug.h \
+  /usr/include/c++/13/deque \
   /usr/include/c++/13/exception \
   /usr/include/c++/13/ext/aligned_buffer.h \
   /usr/include/c++/13/ext/alloc_traits.h \
@@ -203,12 +211,14 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o: /root/Ai_h
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/queue \
   /usr/include/c++/13/ratio \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
   /usr/include/c++/13/system_error \
+  /usr/include/c++/13/thread \
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
@@ -2216,6 +2226,7 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o: /root/Ai_http_cp
   /root/Ai_http_cpp/AIApps/ChatServer/include/handlers/ChatHandler.h \
   /root/Ai_http_cpp/AIApps/ChatServer/include/session/ChatSessionManager.h \
   /root/Ai_http_cpp/AIApps/ChatServer/include/storage/UserRepository.h \
+  /root/Ai_http_cpp/HttpServer/include/concurrency/TaskExecutor.h \
   /root/Ai_http_cpp/HttpServer/include/http/HttpRequest.h \
   /root/Ai_http_cpp/HttpServer/include/http/HttpResponse.h \
   /root/Ai_http_cpp/HttpServer/include/http/HttpServer.h \
@@ -2309,6 +2320,7 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o: /root/Ai_http_cp
   /usr/include/c++/13/bits/cpp_type_traits.h \
   /usr/include/c++/13/bits/cxxabi_forced.h \
   /usr/include/c++/13/bits/cxxabi_init_exception.h \
+  /usr/include/c++/13/bits/deque.tcc \
   /usr/include/c++/13/bits/enable_special_members.h \
   /usr/include/c++/13/bits/erase_if.h \
   /usr/include/c++/13/bits/exception.h \
@@ -2348,10 +2360,12 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o: /root/Ai_http_cp
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
   /usr/include/c++/13/bits/std_mutex.h \
+  /usr/include/c++/13/bits/std_thread.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
   /usr/include/c++/13/bits/stl_construct.h \
+  /usr/include/c++/13/bits/stl_deque.h \
   /usr/include/c++/13/bits/stl_function.h \
   /usr/include/c++/13/bits/stl_heap.h \
   /usr/include/c++/13/bits/stl_iterator.h \
@@ -2360,6 +2374,7 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o: /root/Ai_http_cp
   /usr/include/c++/13/bits/stl_map.h \
   /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
+  /usr/include/c++/13/bits/stl_queue.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_relops.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
@@ -2371,6 +2386,7 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o: /root/Ai_http_cp
   /usr/include/c++/13/bits/streambuf_iterator.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
+  /usr/include/c++/13/bits/this_thread_sleep.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
   /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
@@ -2384,6 +2400,7 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o: /root/Ai_http_cp
   /usr/include/c++/13/chrono \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/condition_variable \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -2395,6 +2412,7 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o: /root/Ai_http_cp
   /usr/include/c++/13/cxxabi.h \
   /usr/include/c++/13/debug/assertions.h \
   /usr/include/c++/13/debug/debug.h \
+  /usr/include/c++/13/deque \
   /usr/include/c++/13/exception \
   /usr/include/c++/13/ext/aligned_buffer.h \
   /usr/include/c++/13/ext/alloc_traits.h \
@@ -2420,12 +2438,14 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o: /root/Ai_http_cp
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/queue \
   /usr/include/c++/13/ratio \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
   /usr/include/c++/13/system_error \
+  /usr/include/c++/13/thread \
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
@@ -3399,8 +3419,6 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /root/Ai_http_cpp/AIApps/ChatServer/src/storage/UserRepository.cpp:
 
-/usr/include/c++/13/condition_variable:
-
 /usr/include/boost/smart_ptr/scoped_ptr.hpp:
 
 /usr/include/boost/smart_ptr/detail/requires_cxx11.hpp:
@@ -3599,8 +3617,6 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/x86_64-linux-gnu/curl/websockets.h:
 
-/usr/include/x86_64-linux-gnu/curl/system.h:
-
 /usr/include/boost/smart_ptr/detail/operator_bool.hpp:
 
 /usr/include/x86_64-linux-gnu/curl/options.h:
@@ -3620,8 +3636,6 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 /usr/include/x86_64-linux-gnu/curl/easy.h:
 
 /usr/include/x86_64-linux-gnu/curl/curlver.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h:
 
 /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
 
@@ -3661,27 +3675,31 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/c++/13/tr1/beta_function.tcc:
 
-/usr/include/x86_64-linux-gnu/asm/posix_types.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/mmintrin.h:
+
+/usr/include/c++/13/tr1/bessel_function.tcc:
+
+/usr/include/c++/13/optional:
 
 /usr/include/c++/13/cwctype:
 
+/usr/include/c++/13/cstdarg:
+
+/usr/include/c++/13/cmath:
+
+/usr/include/c++/13/climits:
+
+/usr/include/c++/13/cassert:
+
+/usr/include/c++/13/bits/specfun.h:
+
 /usr/include/string.h:
-
-/usr/include/c++/13/cwchar:
-
-/usr/include/x86_64-linux-gnu/sys/select.h:
 
 /usr/include/stdlib.h:
 
 /usr/include/stdio.h:
 
 /usr/include/c++/13/bits/stl_iterator_base_types.h:
-
-/usr/include/openssl/evp.h:
-
-/usr/include/stdint.h:
-
-/usr/include/endian.h:
 
 /usr/include/sched.h:
 
@@ -3723,6 +3741,16 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
+/usr/include/openssl/evp.h:
+
+/usr/include/stdint.h:
+
+/usr/include/endian.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h:
+
+/usr/include/c++/13/queue:
+
 /usr/include/strings.h:
 
 /usr/include/c++/13/exception:
@@ -3743,9 +3771,7 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/c++/13/initializer_list:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/mmintrin.h:
-
-/usr/include/c++/13/tr1/bessel_function.tcc:
+/usr/include/c++/13/bits/std_thread.h:
 
 /usr/include/c++/13/functional:
 
@@ -3757,8 +3783,6 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/boost/json/detail/value_from.hpp:
 
-/usr/include/muduo/net/TcpConnection.h:
-
 /usr/include/muduo/net/Endian.h:
 
 /usr/include/boost/core/addressof.hpp:
@@ -3768,8 +3792,6 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
 
 /usr/include/c++/13/ext/alloc_traits.h:
-
-/usr/include/x86_64-linux-gnu/asm/bitsperlong.h:
 
 /usr/include/boost/json/impl/serializer.ipp:
 
@@ -3811,8 +3833,6 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/c++/13/bits/streambuf.tcc:
 
-/usr/include/c++/13/bits/specfun.h:
-
 /usr/include/c++/13/bits/stl_tree.h:
 
 /root/Ai_http_cpp/AIApps/ChatServer/src/handlers/StaticFileHandler.cpp:
@@ -3823,6 +3843,12 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/c++/13/bits/stl_raw_storage_iter.h:
 
+/usr/include/muduo/net/TcpConnection.h:
+
+/usr/include/c++/13/bits/stl_queue.h:
+
+/root/Ai_http_cpp/HttpServer/include/middleware/CorsMiddleware.h:
+
 /usr/include/c++/13/typeindex:
 
 /usr/include/c++/13/bits/stl_uninitialized.h:
@@ -3830,10 +3856,6 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 /usr/include/c++/13/bits/new_allocator.h:
 
 /usr/include/boost/container/uses_allocator.hpp:
-
-/usr/include/x86_64-linux-gnu/asm/sockios.h:
-
-/usr/include/muduo/base/Types.h:
 
 /usr/include/boost/json/parser.hpp:
 
@@ -3885,15 +3907,13 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/c++/13/bits/shared_ptr_base.h:
 
-/usr/include/c++/13/bits/shared_ptr.h:
-
-/usr/include/boost/type_traits/add_pointer.hpp:
-
-/usr/include/c++/13/cinttypes:
-
-/usr/include/boost/variant2/variant.hpp:
-
 /usr/include/boost/container/detail/type_traits.hpp:
+
+/usr/include/c++/13/bits/range_access.h:
+
+/usr/include/c++/13/bits/ptr_traits.h:
+
+/usr/include/linux/posix_types.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h:
 
@@ -3901,15 +3921,13 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
-/usr/include/unistd.h:
-
-/usr/include/boost/exception/exception.hpp:
-
 /usr/include/c++/13/bits/cpp_type_traits.h:
 
-/usr/include/c++/13/cassert:
-
 /usr/include/c++/13/bits/invoke.h:
+
+/usr/include/c++/13/ostream:
+
+/root/Ai_http_cpp/AIApps/ChatServer/include/auth/AuthHandler.h:
 
 /usr/include/c++/13/pstl/glue_memory_defs.h:
 
@@ -3935,8 +3953,6 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/c++/13/bits/stl_iterator.h:
 
-/root/Ai_http_cpp/HttpServer/include/middleware/CorsMiddleware.h:
-
 /usr/include/c++/13/limits:
 
 /root/Ai_http_cpp/AIApps/ChatServer/include/storage/DbConnectionPool.h:
@@ -3961,21 +3977,11 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/boost/mp11/detail/mp_plus.hpp:
 
-/usr/include/c++/13/ext/type_traits.h:
-
-/usr/include/x86_64-linux-gnu/bits/time64.h:
-
 /usr/include/boost/config/detail/posix_features.hpp:
-
-/usr/include/c++/13/optional:
 
 /usr/include/boost/type_traits/intrinsics.hpp:
 
 /usr/include/c++/13/bits/postypes.h:
-
-/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
-
-/usr/include/boost/move/detail/config_begin.hpp:
 
 /usr/include/c++/13/bits/istream.tcc:
 
@@ -3989,9 +3995,13 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/boost/container/detail/config_end.hpp:
 
-/usr/include/c++/13/bits/ptr_traits.h:
+/usr/include/boost/type_index/stl_type_index.hpp:
 
-/usr/include/linux/posix_types.h:
+/usr/include/boost/container/detail/mpl.hpp:
+
+/usr/include/boost/container/throw_exception.hpp:
+
+/usr/include/boost/version.hpp:
 
 /root/Ai_http_cpp/AIApps/ChatServer/include/storage/UserRepository.h:
 
@@ -4021,7 +4031,43 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/c++/13/bits/enable_special_members.h:
 
-/root/Ai_http_cpp/HttpServer/include/middleware/Middleware.h:
+/usr/include/c++/13/bits/shared_ptr.h:
+
+/usr/include/boost/type_traits/add_pointer.hpp:
+
+/usr/include/c++/13/cinttypes:
+
+/usr/include/boost/variant2/variant.hpp:
+
+/root/Ai_http_cpp/HttpServer/include/concurrency/TaskExecutor.h:
+
+/usr/include/x86_64-linux-gnu/curl/system.h:
+
+/usr/include/c++/13/bits/stl_deque.h:
+
+/usr/include/boost/type_traits/remove_cv.hpp:
+
+/usr/include/boost/mp11/detail/mp_is_value_list.hpp:
+
+/usr/include/c++/13/cctype:
+
+/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
+
+/usr/include/netinet/in.h:
+
+/usr/include/boost/type_traits/is_const.hpp:
+
+/usr/include/boost/json/detail/except.hpp:
+
+/usr/include/c++/13/pstl/pstl_config.h:
+
+/usr/include/c++/13/bits/stl_multimap.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
+
+/usr/include/boost/json/detail/stack.hpp:
 
 /usr/include/boost/container/new_allocator.hpp:
 
@@ -4048,24 +4094,6 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 /usr/include/boost/json/detail/charconv/detail/fast_float/ascii_number.hpp:
 
 /usr/include/boost/json/value_from.hpp:
-
-/usr/include/c++/13/cstdarg:
-
-/usr/include/c++/13/bits/range_access.h:
-
-/usr/include/boost/type_index/stl_type_index.hpp:
-
-/usr/include/boost/container/detail/mpl.hpp:
-
-/usr/include/boost/container/throw_exception.hpp:
-
-/usr/include/c++/13/ratio:
-
-/usr/include/boost/json/detail/charconv/detail/fast_float/decimal_to_binary.hpp:
-
-/usr/include/boost/type_index/type_index_facade.hpp:
-
-/usr/include/boost/version.hpp:
 
 /usr/include/boost/type_index.hpp:
 
@@ -4099,29 +4127,13 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/boost/describe/enumerators.hpp:
 
-/usr/include/stdc-predef.h:
-
-/usr/include/boost/type_traits/remove_extent.hpp:
-
-/usr/include/boost/type_traits/remove_cv.hpp:
-
-/usr/include/boost/mp11/detail/mp_is_value_list.hpp:
-
 /usr/include/boost/json/basic_parser_impl.hpp:
 
-/usr/include/boost/any/detail/placeholder.hpp:
+/usr/include/c++/13/deque:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
-/usr/include/c++/13/cctype:
-
-/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
-
-/usr/include/netinet/in.h:
-
-/usr/include/boost/type_traits/is_const.hpp:
-
-/usr/include/boost/json/detail/except.hpp:
+/usr/include/boost/any/detail/placeholder.hpp:
 
 /root/Ai_http_cpp/AIApps/ChatServer/include/ChatServer.h:
 
@@ -4129,7 +4141,21 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/c++/13/bits/stl_bvector.h:
 
-/usr/include/x86_64-linux-gnu/bits/byteswap.h:
+/usr/include/c++/13/ratio:
+
+/usr/include/boost/json/detail/charconv/detail/fast_float/decimal_to_binary.hpp:
+
+/usr/include/boost/type_index/type_index_facade.hpp:
+
+/root/Ai_http_cpp/HttpServer/include/middleware/Middleware.h:
+
+/usr/include/stdc-predef.h:
+
+/usr/include/boost/type_traits/remove_extent.hpp:
+
+/usr/include/c++/13/cwchar:
+
+/usr/include/x86_64-linux-gnu/sys/select.h:
 
 /usr/include/c++/13/bits/stl_list.h:
 
@@ -4138,10 +4164,6 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 /usr/include/c++/13/debug/debug.h:
 
 /usr/include/boost/mp11/algorithm.hpp:
-
-/usr/include/x86_64-linux-gnu/asm/posix_types_64.h:
-
-/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
 
 /usr/include/asm-generic/errno-base.h:
 
@@ -4181,6 +4203,8 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /root/Ai_http_cpp/HttpServer/include/middleware/RequestLogMiddleware.h:
 
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
 /usr/include/assert.h:
 
 /usr/include/boost/json/detail/charconv/detail/fast_float/fast_table.hpp:
@@ -4189,15 +4213,9 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/c++/13/backward/auto_ptr.h:
 
-/usr/include/c++/13/pstl/pstl_config.h:
+/usr/include/c++/13/ext/type_traits.h:
 
-/usr/include/c++/13/bits/stl_multimap.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
-
-/usr/include/boost/json/detail/stack.hpp:
+/usr/include/x86_64-linux-gnu/bits/time64.h:
 
 /usr/include/boost/type_traits/decay.hpp:
 
@@ -4247,15 +4265,19 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/boost/mp11/detail/mp_void.hpp:
 
+/usr/include/c++/13/condition_variable:
+
+/usr/include/wchar.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/root/Ai_http_cpp/AIApps/ChatServer/src/handlers/ChatHandler.cpp:
+
+/usr/include/boost/json/detail/utf8.hpp:
+
 /usr/include/x86_64-linux-gnu/openssl/configuration.h:
 
 /usr/include/boost/mp11/integer_sequence.hpp:
-
-/usr/include/boost/json/detail/impl/handler.ipp:
-
-/usr/include/x86_64-linux-gnu/asm/errno.h:
-
-/usr/include/boost/container/container_fwd.hpp:
 
 /usr/include/x86_64-linux-gnu/curl/curl.h:
 
@@ -4269,9 +4291,9 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/boost/system/errc.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
+/usr/include/c++/13/thread:
 
-/usr/include/c++/13/climits:
+/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h:
 
@@ -4313,6 +4335,8 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/boost/move/detail/config_end.hpp:
 
+/usr/include/c++/13/bits/this_thread_sleep.h:
+
 /usr/include/x86_64-linux-gnu/bits/waitstatus.h:
 
 /usr/include/c++/13/bits/exception_ptr.h:
@@ -4344,6 +4368,32 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 /usr/include/c++/13/bits/ostream_insert.h:
 
 /usr/include/boost/type_traits/detail/config.hpp:
+
+/usr/include/boost/exception/exception.hpp:
+
+/usr/include/unistd.h:
+
+/usr/include/x86_64-linux-gnu/asm/bitsperlong.h:
+
+/usr/include/boost/json/detail/impl/handler.ipp:
+
+/usr/include/x86_64-linux-gnu/asm/errno.h:
+
+/usr/include/boost/container/container_fwd.hpp:
+
+/usr/include/x86_64-linux-gnu/asm/posix_types.h:
+
+/usr/include/x86_64-linux-gnu/asm/posix_types_64.h:
+
+/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
+
+/usr/include/muduo/base/Types.h:
+
+/usr/include/x86_64-linux-gnu/asm/sockios.h:
+
+/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
+
+/usr/include/boost/move/detail/config_begin.hpp:
 
 /usr/include/openssl/rand.h:
 
@@ -4421,14 +4471,6 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/x86_64-linux-gnu/bits/timex.h:
 
-/usr/include/wchar.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
-
-/root/Ai_http_cpp/AIApps/ChatServer/src/handlers/ChatHandler.cpp:
-
-/usr/include/boost/json/detail/utf8.hpp:
-
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
 
 /usr/include/boost/json/detail/charconv/detail/parser.hpp:
@@ -4482,6 +4524,10 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 
 /usr/include/boost/move/detail/std_ns_begin.hpp:
+
+/usr/include/c++/13/ios:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
@@ -4577,9 +4623,9 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /root/Ai_http_cpp/AIApps/ChatServer/include/ai/AIClient.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
-
 /usr/include/boost/container/pmr/memory_resource.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
 /usr/include/boost/assert.hpp:
 
@@ -4609,9 +4655,9 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 
 /usr/include/boost/container/detail/is_pair.hpp:
 
-/usr/include/boost/any/fwd.hpp:
-
 /usr/include/boost/config.hpp:
+
+/usr/include/boost/any/fwd.hpp:
 
 /usr/include/boost/container/detail/placement_new.hpp:
 
@@ -4652,8 +4698,6 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 /usr/include/boost/describe/modifiers.hpp:
 
 /usr/include/boost/intrusive/detail/config_end.hpp:
-
-/usr/include/c++/13/cmath:
 
 /usr/include/openssl/bn.h:
 
@@ -4702,6 +4746,8 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 /usr/include/boost/mp11/detail/mp_is_list.hpp:
 
 /usr/include/boost/container_hash/is_range.hpp:
+
+/usr/include/c++/13/bits/deque.tcc:
 
 /usr/include/boost/json/detail/value.hpp:
 
@@ -4912,11 +4958,3 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h:
 
 /usr/include/c++/13/bits/ostream.tcc:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
-
-/usr/include/c++/13/ios:
-
-/root/Ai_http_cpp/AIApps/ChatServer/include/auth/AuthHandler.h:
-
-/usr/include/c++/13/ostream:

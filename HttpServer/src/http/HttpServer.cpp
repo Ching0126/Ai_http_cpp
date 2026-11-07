@@ -7,11 +7,17 @@
 #include <functional>
 #include <utility>
 #include <exception>
-
+#include <muduo/net/EventLoop.h>
+// Muduo 的 2 个 I/O 线程
+//     负责连接、收发数据、解析请求
+//               ↓ 提交任务
+// 你的 TaskExecutor 的 4 个业务线程
+//     负责中间件、路由和业务处理
 HttpServer::HttpServer(
     muduo::net::EventLoop* loop,
     unsigned short port
-):server_(
+):executor_(4,32)//4个工作线程，32个排队任务
+ ,server_(
     loop,
     muduo::net::InetAddress("127.0.0.1",port),
     "AiHttp"
@@ -34,6 +40,10 @@ HttpServer::HttpServer(
             std::placeholders::_3
         )
     );
+}
+
+HttpServer::~HttpServer() {
+    executor_.stop();
 }
 
 void HttpServer::addRoute(
@@ -111,28 +121,59 @@ void HttpServer::onMessage(
 
     // 请求解析完成后交给路由器。
     //const HttpResponse response = router_.route(context->request());
+     // 当前框架仍然是一个连接处理一个请求。
+    // 请求已经完整，停止读取后续数据。
+    conn->stopRead();
 
-    
-    // 如果业务处理抛出未处理的标准异常，默认返回 500。
-    HttpResponse response(
-        500,
-        "Internal Server Error",
-        R"({"error":"request failed"})"
+    // 请求属于连接上的 HttpContext。
+    // 工作线程异步执行，所以这里复制一份。
+    const HttpRequest request = context->request();
+
+    const bool accepted = executor_.trySubmit(//提交任务
+        [this, conn, request] {
+            HttpResponse response(
+                500,
+                "Internal Server Error",
+                R"({"error":"request failed"})"
+            );
+
+            try {
+                response = middlewareChain_.process(//中间件处理+路由
+                    request,
+                    [this](const HttpRequest& req) {
+                        return router_.route(req);
+                    }
+                );
+            } catch (...) {
+                // 保留默认的 500 响应。
+            }
+
+            const std::string data = response.serialize();
+
+            // 回到连接所属的 I/O 线程发送响应。
+            conn->getLoop()->queueInLoop(
+                [conn, data] {
+                    if (conn->connected()) {
+                        conn->send(data);
+                        conn->shutdown();
+                    }
+                }
+            );
+        }
     );
 
-    try {
-
-        response = middlewareChain_.process(
-            context->request(),
-            [this](const HttpRequest& request) {
-                return router_.route(request);
-            }
+    if (!accepted) {
+        // 等待队列已满或执行器正在停止。
+        sendResponse(
+            conn,
+            HttpResponse(
+                503,
+                "Service Unavailable",
+                R"({"error":"server busy"})"
+            )
         );
-    } catch (const std::exception&) {
-        // 保留上面构造的 500 响应。
     }
-
-    sendResponse(conn, response);
+    
 }
 
 void HttpServer::sendResponse(

@@ -36,6 +36,7 @@ add_library(http_framework STATIC
     HttpServer/src/middleware/MiddlewareChain.cpp
     HttpServer/src/middleware/RequestLogMiddleware.cpp
     HttpServer/src/middleware/CorsMiddleware.cpp
+    HttpServer/src/concurrency/TaskExecutor.cpp
 )
 
 target_include_directories(http_framework PUBLIC

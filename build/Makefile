@@ -358,6 +358,30 @@ AIApps/ChatServer/src/storage/UserRepository.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.s
 .PHONY : AIApps/ChatServer/src/storage/UserRepository.cpp.s
 
+HttpServer/src/concurrency/TaskExecutor.o: HttpServer/src/concurrency/TaskExecutor.cpp.o
+.PHONY : HttpServer/src/concurrency/TaskExecutor.o
+
+# target to build an object file
+HttpServer/src/concurrency/TaskExecutor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/http_framework.dir/build.make CMakeFiles/http_framework.dir/HttpServer/src/concurrency/TaskExecutor.cpp.o
+.PHONY : HttpServer/src/concurrency/TaskExecutor.cpp.o
+
+HttpServer/src/concurrency/TaskExecutor.i: HttpServer/src/concurrency/TaskExecutor.cpp.i
+.PHONY : HttpServer/src/concurrency/TaskExecutor.i
+
+# target to preprocess a source file
+HttpServer/src/concurrency/TaskExecutor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/http_framework.dir/build.make CMakeFiles/http_framework.dir/HttpServer/src/concurrency/TaskExecutor.cpp.i
+.PHONY : HttpServer/src/concurrency/TaskExecutor.cpp.i
+
+HttpServer/src/concurrency/TaskExecutor.s: HttpServer/src/concurrency/TaskExecutor.cpp.s
+.PHONY : HttpServer/src/concurrency/TaskExecutor.s
+
+# target to generate assembly for a file
+HttpServer/src/concurrency/TaskExecutor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/http_framework.dir/build.make CMakeFiles/http_framework.dir/HttpServer/src/concurrency/TaskExecutor.cpp.s
+.PHONY : HttpServer/src/concurrency/TaskExecutor.cpp.s
+
 HttpServer/src/http/HttpContext.o: HttpServer/src/http/HttpContext.cpp.o
 .PHONY : HttpServer/src/http/HttpContext.o
 
@@ -563,6 +587,9 @@ help:
 	@echo "... AIApps/ChatServer/src/storage/UserRepository.o"
 	@echo "... AIApps/ChatServer/src/storage/UserRepository.i"
 	@echo "... AIApps/ChatServer/src/storage/UserRepository.s"
+	@echo "... HttpServer/src/concurrency/TaskExecutor.o"
+	@echo "... HttpServer/src/concurrency/TaskExecutor.i"
+	@echo "... HttpServer/src/concurrency/TaskExecutor.s"
 	@echo "... HttpServer/src/http/HttpContext.o"
 	@echo "... HttpServer/src/http/HttpContext.i"
 	@echo "... HttpServer/src/http/HttpContext.s"

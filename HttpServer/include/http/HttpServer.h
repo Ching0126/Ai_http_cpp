@@ -4,6 +4,7 @@
 #include "router/Router.h"
 #include <muduo/net/TcpServer.h>
 #include <mutex>
+#include "concurrency/TaskExecutor.h"
 
 class HttpServer{
 public:
@@ -11,6 +12,8 @@ public:
         muduo::net::EventLoop* loop,
         unsigned short port
     );
+
+    ~HttpServer();
 
     void addRoute(
         const std::string& method,
@@ -39,6 +42,8 @@ private:
         const HttpResponse& response
     );
 
+    TaskExecutor executor_;
+    
     Router router_;
     MiddlewareChain middlewareChain_;
 
