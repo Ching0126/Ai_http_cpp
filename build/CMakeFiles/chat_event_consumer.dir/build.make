@@ -125,7 +125,6 @@ chat_event_consumer: CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/me
 chat_event_consumer: CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o
 chat_event_consumer: CMakeFiles/chat_event_consumer.dir/build.make
 chat_event_consumer: libchat_events.a
-chat_event_consumer: libchat_events.a
 chat_event_consumer: /usr/lib/x86_64-linux-gnu/libmysqlcppconn.so
 chat_event_consumer: /root/Ai_http_cpp/.deps/lib/libSimpleAmqpClient.so
 chat_event_consumer: CMakeFiles/chat_event_consumer.dir/link.txt

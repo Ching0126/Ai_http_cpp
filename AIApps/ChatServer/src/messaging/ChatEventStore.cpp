@@ -3,6 +3,9 @@
 
 #include <boost/json/src.hpp>
 
+#include <cppconn/datatype.h>
+#include <cppconn/exception.h>
+#include <cppconn/resultset.h>
 #include <cppconn/connection.h>
 #include <cppconn/prepared_statement.h>
 
@@ -63,47 +66,109 @@ bool validSessionId(const std::string& id){
 }
 }//namespace
 
-void ChatEventStore::save(const std::string& body)const{
+bool ChatEventStore::save(const std::string& body)const{
     if(body.size()>4096){//限制正文的大小
         throw InvalidChatEvent("event too large");
     }
 
     boost::system::error_code ec;
-
     const auto parsed = boost::json::parse(body,ec);
-
     if(ec||!parsed.is_object()){
         throw InvalidChatEvent("invalid JSON event");
     }
 
     const auto& object = parsed.as_object();
-
     const auto type = readString(object,"type");
-
     const auto username = readString(object,"username");
-
     const auto sessionId = readString(object,"sessionId");
-
     if(type != "chat.completed"||
         !validUsername(username)||
         !validSessionId(sessionId)){
         throw InvalidChatEvent("invalid chat event");
     }
+
+    const bool hasEventId = object.if_contains("eventId") !=nullptr;
+
+    std::string eventId;
+
+    if(hasEventId){
+        eventId = readString(object,"eventId");
+
+        const bool valid = std::all_of(eventId.begin(),eventId.end(),[](unsigned char c){
+        return (c>='0'&&c<='9'||c>='a'&&c<='f');
+        });
+
+        if(eventId.size()!=32 ||!valid){
+            throw InvalidChatEvent("invalid event id");
+        }
+    }
     //格式已经检查正确，可以写入数据库
     auto conn = DbConnectionPool::instance().acquire();
 
-    std::unique_ptr<sql::PreparedStatement> stmt(
+    try{
+        std::unique_ptr<sql::PreparedStatement> stmt(
         conn->prepareStatement(
             "INSERT INTO chat_event_logs "
-            "(event_type, username, session_id) "
-            "VALUES (?, ?, ?)"
-        )
-    );
+            "(event_type, username, session_id,event_id) "
+            "VALUES (?, ?, ?,?)"
+        ));
 
-    stmt->setString(1, type);
-    stmt->setString(2, username);
-    stmt->setString(3, sessionId);
+            stmt->setString(1, type);
+            stmt->setString(2, username);
+            stmt->setString(3, sessionId);
 
-    stmt->executeUpdate();
+             if (hasEventId) {
+            stmt->setString(4, eventId);
+            } else {
+                stmt->setNull(4,sql::DataType::CHAR);
+                }
+
+        stmt->executeUpdate();
+
+        return true;
+    }catch(const sql::SQLException& error){
+        // 1062 是 MySQL 的唯一键冲突。
+        if (
+            !hasEventId ||
+            error.getErrorCode() != 1062
+        ) {
+            throw;
+        }
+
+        // 查询已有事件，确认冲突确实来自相同事件。
+        std::unique_ptr<sql::PreparedStatement> query(
+            conn->prepareStatement(
+                "SELECT event_type, username, session_id "
+                "FROM chat_event_logs "
+                "WHERE event_id = ?"
+            )
+        );
+
+        query->setString(1, eventId);
+
+        std::unique_ptr<sql::ResultSet> rows(
+            query->executeQuery()
+        );
+
+        if (!rows->next()) {
+            // 没有找到这个 eventId，保留原数据库异常。
+            throw;
+        }
+
+        if (
+            std::string(rows->getString("event_type")) != type ||
+            std::string(rows->getString("username")) != username ||
+            std::string(rows->getString("session_id")) != sessionId
+        ) {
+            // 同一 ID 对应不同内容，不当作正常重复消息。
+            throw InvalidChatEvent(
+                "event id conflict"
+            );
+        }
+
+        // 已存在内容相同的事件，不再插入。
+        return false;
+    }
+    
 
 }

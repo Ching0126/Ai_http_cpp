@@ -3,12 +3,14 @@
 #include "messaging/ChatEventPublisher.h"
 
 #include <boost/json/src.hpp>
+#include <openssl/rand.h>
 
 #include <cstdlib>
 #include <exception>
 #include <string>
 #include <utility>
 #include <iostream>
+#include <stdexcept>
 
 namespace {
     //读取环境变量
@@ -17,6 +19,28 @@ std::string envOr(const char*name,const char* fallback){
 
     return value && *value ? value : fallback;
 }
+
+std::string makeEventId(){
+    unsigned char bytes[16];
+
+    if(RAND_bytes(bytes,sizeof bytes)!=1){
+        throw std::runtime_error("cannot generate event id");
+    }
+
+    constexpr char hex[]="0123456789abcdef";
+
+    std::string id;
+    id.reserve(32);
+
+
+    for (unsigned char byte : bytes) {
+        id += hex[byte >> 4];
+        id += hex[byte & 15];
+    }
+
+    return id;
+}
+
 /**
  * 从 JSON 对象中读取一个非空字符串字段。
  *
@@ -225,6 +249,7 @@ HttpResponse ChatHandler::handle(
         try {
             boost::json::object event;
 
+            event["eventId"] = makeEventId();
             event["type"] = "chat.completed";
             event["username"] = username;
             event["sessionId"] = sessionId;

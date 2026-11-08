@@ -68,9 +68,10 @@ int main(){
             continue;
         }
 
+       bool inserted = false;
         try {
-            // 先校验并写入数据库。
-            store.save(envelope->Message()->Body());
+            // 新事件返回 true；已经处理过返回 false。
+            inserted = store.save(envelope->Message()->Body());
         } catch (const InvalidChatEvent&) {
             // 错误格式不能靠重试修复。
             // false 表示不重新放回原队列。
@@ -84,7 +85,7 @@ int main(){
         // 只有写入成功后才确认消息。
         channel->BasicAck(envelope);
 
-        std::cout<< "chat event saved"<< std::endl;
+        std::cout<< (inserted? "chat event saved": "duplicate chat event ignored")<< std::endl;
     }
 
     } catch (const std::exception&) {

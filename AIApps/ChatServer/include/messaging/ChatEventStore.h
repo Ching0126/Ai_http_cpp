@@ -11,5 +11,5 @@ using std::runtime_error::runtime_error;//继承构造函数
 //校验并保存聊天事件
 class ChatEventStore{
 public:
-    void save(const std::string& body) const;
+    bool save(const std::string& body) const;
 };

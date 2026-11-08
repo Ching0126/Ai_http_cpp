@@ -2,5 +2,6 @@
 /root/Ai_http_cpp/build/CMakeFiles/chat_event_consumer.dir
 /root/Ai_http_cpp/build/CMakeFiles/http_framework.dir
 /root/Ai_http_cpp/build/CMakeFiles/ai_http_server.dir
+/root/Ai_http_cpp/build/CMakeFiles/replay_chat_event.dir
 /root/Ai_http_cpp/build/CMakeFiles/edit_cache.dir
 /root/Ai_http_cpp/build/CMakeFiles/rebuild_cache.dir

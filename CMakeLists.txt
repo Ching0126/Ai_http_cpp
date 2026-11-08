@@ -143,3 +143,11 @@ target_compile_definitions(ai_http_server PRIVATE
     CHAT_RESOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/AIApps/ChatServer/resource"
 )
 
+# 用于验证重复事件去重的工具。
+add_executable(replay_chat_event
+    AIApps/ChatServer/tools/replay_chat_event.cpp
+)
+
+target_link_libraries(replay_chat_event PRIVATE
+    chat_events
+)

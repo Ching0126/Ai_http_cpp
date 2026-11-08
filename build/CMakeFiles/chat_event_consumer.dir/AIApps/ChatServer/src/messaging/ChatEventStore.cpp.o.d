@@ -533,17 +533,17 @@ CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStor
  /usr/include/boost/json/detail/charconv/detail/compute_float64.hpp \
  /usr/include/boost/json/detail/charconv/detail/significand_tables.hpp \
  /usr/include/boost/json/detail/charconv/detail/emulated128.hpp \
- /usr/include/boost/core/bit.hpp /usr/include/cppconn/connection.h \
- /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
- /usr/include/c++/13/bits/stl_map.h \
- /usr/include/c++/13/bits/stl_multimap.h \
- /usr/include/cppconn/build_config.h /usr/include/cppconn/warning.h \
- /usr/include/cppconn/sqlstring.h /usr/include/c++/13/iostream \
- /usr/include/cppconn/variant.h /usr/include/c++/13/list \
- /usr/include/c++/13/bits/stl_list.h /usr/include/c++/13/bits/list.tcc \
+ /usr/include/boost/core/bit.hpp /usr/include/cppconn/datatype.h \
+ /usr/include/cppconn/exception.h /usr/include/cppconn/build_config.h \
+ /usr/include/cppconn/resultset.h /usr/include/cppconn/config.h \
+ /usr/include/c++/13/list /usr/include/c++/13/bits/stl_list.h \
+ /usr/include/c++/13/bits/list.tcc /usr/include/c++/13/map \
+ /usr/include/c++/13/bits/stl_tree.h /usr/include/c++/13/bits/stl_map.h \
+ /usr/include/c++/13/bits/stl_multimap.h /usr/include/c++/13/iostream \
+ /usr/include/cppconn/sqlstring.h \
+ /usr/include/cppconn/resultset_metadata.h \
+ /usr/include/cppconn/datatype.h /usr/include/cppconn/connection.h \
+ /usr/include/cppconn/warning.h /usr/include/cppconn/variant.h \
  /usr/include/cppconn/exception.h \
  /usr/include/cppconn/prepared_statement.h \
- /usr/include/cppconn/statement.h /usr/include/cppconn/config.h \
- /usr/include/cppconn/resultset.h \
- /usr/include/cppconn/resultset_metadata.h \
- /usr/include/cppconn/datatype.h
+ /usr/include/cppconn/statement.h /usr/include/cppconn/resultset.h

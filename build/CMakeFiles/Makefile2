@@ -67,6 +67,7 @@ all: CMakeFiles/chat_events.dir/all
 all: CMakeFiles/chat_event_consumer.dir/all
 all: CMakeFiles/http_framework.dir/all
 all: CMakeFiles/ai_http_server.dir/all
+all: CMakeFiles/replay_chat_event.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -78,6 +79,7 @@ clean: CMakeFiles/chat_events.dir/clean
 clean: CMakeFiles/chat_event_consumer.dir/clean
 clean: CMakeFiles/http_framework.dir/clean
 clean: CMakeFiles/ai_http_server.dir/clean
+clean: CMakeFiles/replay_chat_event.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -184,6 +186,32 @@ ai_http_server: CMakeFiles/ai_http_server.dir/rule
 CMakeFiles/ai_http_server.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/clean
 .PHONY : CMakeFiles/ai_http_server.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/replay_chat_event.dir
+
+# All Build rule for target.
+CMakeFiles/replay_chat_event.dir/all: CMakeFiles/chat_events.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_chat_event.dir/build.make CMakeFiles/replay_chat_event.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_chat_event.dir/build.make CMakeFiles/replay_chat_event.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=26,27 "Built target replay_chat_event"
+.PHONY : CMakeFiles/replay_chat_event.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/replay_chat_event.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Ai_http_cpp/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/replay_chat_event.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Ai_http_cpp/build/CMakeFiles 0
+.PHONY : CMakeFiles/replay_chat_event.dir/rule
+
+# Convenience name for target.
+replay_chat_event: CMakeFiles/replay_chat_event.dir/rule
+.PHONY : replay_chat_event
+
+# clean rule for target.
+CMakeFiles/replay_chat_event.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_chat_event.dir/build.make CMakeFiles/replay_chat_event.dir/clean
+.PHONY : CMakeFiles/replay_chat_event.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

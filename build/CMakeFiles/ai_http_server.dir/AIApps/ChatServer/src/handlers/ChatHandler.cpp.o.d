@@ -536,4 +536,20 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o: 
  /usr/include/boost/json/detail/charconv/detail/compute_float64.hpp \
  /usr/include/boost/json/detail/charconv/detail/significand_tables.hpp \
  /usr/include/boost/json/detail/charconv/detail/emulated128.hpp \
- /usr/include/boost/core/bit.hpp /usr/include/c++/13/iostream
+ /usr/include/boost/core/bit.hpp /usr/include/openssl/rand.h \
+ /usr/include/openssl/macros.h \
+ /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
+ /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+ /usr/include/openssl/opensslv.h /usr/include/openssl/types.h \
+ /usr/include/openssl/e_os2.h /usr/include/openssl/safestack.h \
+ /usr/include/openssl/stack.h /usr/include/openssl/randerr.h \
+ /usr/include/openssl/symhacks.h /usr/include/openssl/cryptoerr_legacy.h \
+ /usr/include/openssl/evp.h /usr/include/openssl/core.h \
+ /usr/include/openssl/core_dispatch.h /usr/include/openssl/bio.h \
+ /usr/include/openssl/crypto.h /usr/include/openssl/cryptoerr.h \
+ /usr/include/openssl/bioerr.h /usr/include/openssl/evperr.h \
+ /usr/include/openssl/params.h /usr/include/openssl/bn.h \
+ /usr/include/openssl/bnerr.h /usr/include/openssl/objects.h \
+ /usr/include/openssl/obj_mac.h /usr/include/openssl/asn1.h \
+ /usr/include/openssl/asn1err.h /usr/include/openssl/objectserr.h \
+ /usr/include/c++/13/iostream

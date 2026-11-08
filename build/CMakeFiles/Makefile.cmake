@@ -60,4 +60,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/chat_event_consumer.dir/DependInfo.cmake"
   "CMakeFiles/http_framework.dir/DependInfo.cmake"
   "CMakeFiles/ai_http_server.dir/DependInfo.cmake"
+  "CMakeFiles/replay_chat_event.dir/DependInfo.cmake"
   )
