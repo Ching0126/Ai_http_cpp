@@ -117,6 +117,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named chat_events
+
+# Build rule for target.
+chat_events: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 chat_events
+.PHONY : chat_events
+
+# fast build rule for target.
+chat_events/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_events.dir/build.make CMakeFiles/chat_events.dir/build
+.PHONY : chat_events/fast
+
+#=============================================================================
+# Target rules for targets named chat_event_consumer
+
+# Build rule for target.
+chat_event_consumer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 chat_event_consumer
+.PHONY : chat_event_consumer
+
+# fast build rule for target.
+chat_event_consumer/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_event_consumer.dir/build.make CMakeFiles/chat_event_consumer.dir/build
+.PHONY : chat_event_consumer/fast
+
+#=============================================================================
 # Target rules for targets named http_framework
 
 # Build rule for target.
@@ -286,6 +312,30 @@ AIApps/ChatServer/src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.s
 .PHONY : AIApps/ChatServer/src/main.cpp.s
 
+AIApps/ChatServer/src/messaging/ChatEventPublisher.o: AIApps/ChatServer/src/messaging/ChatEventPublisher.cpp.o
+.PHONY : AIApps/ChatServer/src/messaging/ChatEventPublisher.o
+
+# target to build an object file
+AIApps/ChatServer/src/messaging/ChatEventPublisher.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_events.dir/build.make CMakeFiles/chat_events.dir/AIApps/ChatServer/src/messaging/ChatEventPublisher.cpp.o
+.PHONY : AIApps/ChatServer/src/messaging/ChatEventPublisher.cpp.o
+
+AIApps/ChatServer/src/messaging/ChatEventPublisher.i: AIApps/ChatServer/src/messaging/ChatEventPublisher.cpp.i
+.PHONY : AIApps/ChatServer/src/messaging/ChatEventPublisher.i
+
+# target to preprocess a source file
+AIApps/ChatServer/src/messaging/ChatEventPublisher.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_events.dir/build.make CMakeFiles/chat_events.dir/AIApps/ChatServer/src/messaging/ChatEventPublisher.cpp.i
+.PHONY : AIApps/ChatServer/src/messaging/ChatEventPublisher.cpp.i
+
+AIApps/ChatServer/src/messaging/ChatEventPublisher.s: AIApps/ChatServer/src/messaging/ChatEventPublisher.cpp.s
+.PHONY : AIApps/ChatServer/src/messaging/ChatEventPublisher.s
+
+# target to generate assembly for a file
+AIApps/ChatServer/src/messaging/ChatEventPublisher.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_events.dir/build.make CMakeFiles/chat_events.dir/AIApps/ChatServer/src/messaging/ChatEventPublisher.cpp.s
+.PHONY : AIApps/ChatServer/src/messaging/ChatEventPublisher.cpp.s
+
 AIApps/ChatServer/src/session/ChatSessionManager.o: AIApps/ChatServer/src/session/ChatSessionManager.cpp.o
 .PHONY : AIApps/ChatServer/src/session/ChatSessionManager.o
 
@@ -357,6 +407,30 @@ AIApps/ChatServer/src/storage/UserRepository.s: AIApps/ChatServer/src/storage/Us
 AIApps/ChatServer/src/storage/UserRepository.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.s
 .PHONY : AIApps/ChatServer/src/storage/UserRepository.cpp.s
+
+AIApps/ChatServer/tools/chat_event_consumer.o: AIApps/ChatServer/tools/chat_event_consumer.cpp.o
+.PHONY : AIApps/ChatServer/tools/chat_event_consumer.o
+
+# target to build an object file
+AIApps/ChatServer/tools/chat_event_consumer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_event_consumer.dir/build.make CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/tools/chat_event_consumer.cpp.o
+.PHONY : AIApps/ChatServer/tools/chat_event_consumer.cpp.o
+
+AIApps/ChatServer/tools/chat_event_consumer.i: AIApps/ChatServer/tools/chat_event_consumer.cpp.i
+.PHONY : AIApps/ChatServer/tools/chat_event_consumer.i
+
+# target to preprocess a source file
+AIApps/ChatServer/tools/chat_event_consumer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_event_consumer.dir/build.make CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/tools/chat_event_consumer.cpp.i
+.PHONY : AIApps/ChatServer/tools/chat_event_consumer.cpp.i
+
+AIApps/ChatServer/tools/chat_event_consumer.s: AIApps/ChatServer/tools/chat_event_consumer.cpp.s
+.PHONY : AIApps/ChatServer/tools/chat_event_consumer.s
+
+# target to generate assembly for a file
+AIApps/ChatServer/tools/chat_event_consumer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_event_consumer.dir/build.make CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/tools/chat_event_consumer.cpp.s
+.PHONY : AIApps/ChatServer/tools/chat_event_consumer.cpp.s
 
 HttpServer/src/concurrency/TaskExecutor.o: HttpServer/src/concurrency/TaskExecutor.cpp.o
 .PHONY : HttpServer/src/concurrency/TaskExecutor.o
@@ -559,6 +633,8 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ai_http_server"
+	@echo "... chat_event_consumer"
+	@echo "... chat_events"
 	@echo "... http_framework"
 	@echo "... AIApps/ChatServer/src/ChatServer.o"
 	@echo "... AIApps/ChatServer/src/ChatServer.i"
@@ -578,6 +654,9 @@ help:
 	@echo "... AIApps/ChatServer/src/main.o"
 	@echo "... AIApps/ChatServer/src/main.i"
 	@echo "... AIApps/ChatServer/src/main.s"
+	@echo "... AIApps/ChatServer/src/messaging/ChatEventPublisher.o"
+	@echo "... AIApps/ChatServer/src/messaging/ChatEventPublisher.i"
+	@echo "... AIApps/ChatServer/src/messaging/ChatEventPublisher.s"
 	@echo "... AIApps/ChatServer/src/session/ChatSessionManager.o"
 	@echo "... AIApps/ChatServer/src/session/ChatSessionManager.i"
 	@echo "... AIApps/ChatServer/src/session/ChatSessionManager.s"
@@ -587,6 +666,9 @@ help:
 	@echo "... AIApps/ChatServer/src/storage/UserRepository.o"
 	@echo "... AIApps/ChatServer/src/storage/UserRepository.i"
 	@echo "... AIApps/ChatServer/src/storage/UserRepository.s"
+	@echo "... AIApps/ChatServer/tools/chat_event_consumer.o"
+	@echo "... AIApps/ChatServer/tools/chat_event_consumer.i"
+	@echo "... AIApps/ChatServer/tools/chat_event_consumer.s"
 	@echo "... HttpServer/src/concurrency/TaskExecutor.o"
 	@echo "... HttpServer/src/concurrency/TaskExecutor.i"
 	@echo "... HttpServer/src/concurrency/TaskExecutor.s"

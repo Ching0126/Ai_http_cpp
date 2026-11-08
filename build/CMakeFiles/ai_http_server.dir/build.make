@@ -221,11 +221,13 @@ ai_http_server: CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/User
 ai_http_server: CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o
 ai_http_server: CMakeFiles/ai_http_server.dir/build.make
 ai_http_server: libhttp_framework.a
+ai_http_server: libchat_events.a
 ai_http_server: /usr/lib/x86_64-linux-gnu/libcurl.so
 ai_http_server: /usr/lib/x86_64-linux-gnu/libcrypto.so
 ai_http_server: /usr/lib/x86_64-linux-gnu/libmysqlcppconn.so
 ai_http_server: /usr/local/lib/libmuduo_net.a
 ai_http_server: /usr/local/lib/libmuduo_base.a
+ai_http_server: /root/Ai_http_cpp/.deps/lib/libSimpleAmqpClient.so
 ai_http_server: CMakeFiles/ai_http_server.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable ai_http_server"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ai_http_server.dir/link.txt --verbose=$(VERBOSE)

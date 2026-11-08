@@ -1,5 +1,6 @@
 #include "handlers/ChatHandler.h"
 #include "ai/AIClient.h"
+#include "messaging/ChatEventPublisher.h"
 
 #include <boost/json/src.hpp>
 
@@ -7,6 +8,7 @@
 #include <exception>
 #include <string>
 #include <utility>
+#include <iostream>
 
 namespace {
     //读取环境变量
@@ -216,6 +218,27 @@ HttpResponse ChatHandler::handle(
 
      if (!sessions_.save(sessionId, username, pending)) {
         return missingSession();
+    }
+
+    // 聊天保存成功后，按配置尝试发布事件。
+    if (ChatEventPublisher::enabled()) {
+        try {
+            boost::json::object event;
+
+            event["type"] = "chat.completed";
+            event["username"] = username;
+            event["sessionId"] = sessionId;
+
+            ChatEventPublisher::publish(
+                boost::json::serialize(event)
+            );
+        } catch (const std::exception&) {
+            // 本批采用尽力发布：
+            // 聊天记录已保存，事件失败不改变聊天响应。
+            std::clog
+                << "[chat-event] publish failed"
+                << std::endl;
+        }
     }
 
     return response;

@@ -1398,6 +1398,7 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o: 
   /root/Ai_http_cpp/AIApps/ChatServer/include/ai/AIClient.h \
   /root/Ai_http_cpp/AIApps/ChatServer/include/ai/ChatMessage.h \
   /root/Ai_http_cpp/AIApps/ChatServer/include/handlers/ChatHandler.h \
+  /root/Ai_http_cpp/AIApps/ChatServer/include/messaging/ChatEventPublisher.h \
   /root/Ai_http_cpp/AIApps/ChatServer/include/session/ChatSessionManager.h \
   /root/Ai_http_cpp/HttpServer/include/http/HttpRequest.h \
   /root/Ai_http_cpp/HttpServer/include/http/HttpResponse.h \
@@ -1833,6 +1834,7 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o: 
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/ios \
   /usr/include/c++/13/iosfwd \
+  /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/iterator \
   /usr/include/c++/13/limits \
@@ -3578,6 +3580,8 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o
 /usr/include/boost/align/detail/align.hpp:
 
 /usr/include/boost/align/align.hpp:
+
+/root/Ai_http_cpp/AIApps/ChatServer/include/messaging/ChatEventPublisher.h:
 
 /usr/include/x86_64-linux-gnu/openssl/opensslconf.h:
 

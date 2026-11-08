@@ -237,6 +237,15 @@ PKG_CONFIG_ARGN:STRING=
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
+//Path to a file.
+SIMPLE_AMQP_INCLUDE_DIR:PATH=/root/Ai_http_cpp/.deps/include
+
+//Path to a library.
+SIMPLE_AMQP_LIBRARY:FILEPATH=/root/Ai_http_cpp/.deps/lib/libSimpleAmqpClient.so
+
+//SimpleAmqpClient installation prefix
+SIMPLE_AMQP_ROOT:PATH=/root/Ai_http_cpp/.deps
+
 //Value Computed by CMake
 ai_http_cpp_BINARY_DIR:STATIC=/root/Ai_http_cpp/build
 

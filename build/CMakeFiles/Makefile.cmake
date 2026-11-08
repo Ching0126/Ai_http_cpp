@@ -56,6 +56,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/chat_events.dir/DependInfo.cmake"
+  "CMakeFiles/chat_event_consumer.dir/DependInfo.cmake"
   "CMakeFiles/http_framework.dir/DependInfo.cmake"
   "CMakeFiles/ai_http_server.dir/DependInfo.cmake"
   )

@@ -143,6 +143,7 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o: 
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
  /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
  /root/Ai_http_cpp/AIApps/ChatServer/include/ai/AIClient.h \
+ /root/Ai_http_cpp/AIApps/ChatServer/include/messaging/ChatEventPublisher.h \
  /usr/include/boost/json/src.hpp /usr/include/boost/json.hpp \
  /usr/include/boost/json/detail/config.hpp /usr/include/boost/config.hpp \
  /usr/include/boost/config/user.hpp \
@@ -535,4 +536,4 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o: 
  /usr/include/boost/json/detail/charconv/detail/compute_float64.hpp \
  /usr/include/boost/json/detail/charconv/detail/significand_tables.hpp \
  /usr/include/boost/json/detail/charconv/detail/emulated128.hpp \
- /usr/include/boost/core/bit.hpp
+ /usr/include/boost/core/bit.hpp /usr/include/c++/13/iostream

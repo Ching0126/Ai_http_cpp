@@ -8,6 +8,33 @@ find_package(Boost 1.75 REQUIRED)
 find_package(CURL REQUIRED)
 find_package(OpenSSL REQUIRED)
 
+set(
+    SIMPLE_AMQP_ROOT
+    "${CMAKE_CURRENT_SOURCE_DIR}/.deps"
+    CACHE PATH
+    "SimpleAmqpClient installation prefix"
+)
+
+# 兼容之前配置过但值为空的构建目录。
+if(SIMPLE_AMQP_ROOT STREQUAL "")
+    set(SIMPLE_AMQP_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/.deps" CACHE PATH
+        "SimpleAmqpClient installation prefix" FORCE)
+endif()
+
+find_path(
+    SIMPLE_AMQP_INCLUDE_DIR
+    SimpleAmqpClient/SimpleAmqpClient.h
+    HINTS "${SIMPLE_AMQP_ROOT}/include"
+    REQUIRED
+)
+
+find_library(
+    SIMPLE_AMQP_LIBRARY
+    NAMES SimpleAmqpClient
+    HINTS "${SIMPLE_AMQP_ROOT}/lib"
+    REQUIRED
+)
+
 
 find_path(MUDUO_INCLUDE_DIR muduo/net/TcpServer.h REQUIRED)
 
@@ -26,6 +53,30 @@ find_library(
     mysqlcppconn
     REQUIRED
 )
+
+# 聊天事件发布器。
+add_library(chat_events STATIC
+    AIApps/ChatServer/src/messaging/ChatEventPublisher.cpp
+)
+
+target_include_directories(chat_events PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/AIApps/ChatServer/include
+    ${SIMPLE_AMQP_INCLUDE_DIR}
+)
+
+target_link_libraries(chat_events PUBLIC
+    ${SIMPLE_AMQP_LIBRARY}
+)
+
+# 独立消费者程序。
+add_executable(chat_event_consumer
+    AIApps/ChatServer/tools/chat_event_consumer.cpp
+)
+
+target_link_libraries(chat_event_consumer PRIVATE
+    chat_events
+)
+
 
 # 框架单独编译成库；PUBLIC 表示使用该库的目标也需要这些依赖。
 add_library(http_framework STATIC
@@ -73,6 +124,7 @@ target_include_directories(ai_http_server PRIVATE
 # 链接库文件
 target_link_libraries(ai_http_server PRIVATE
     http_framework
+    chat_events
     CURL::libcurl
     OpenSSL::Crypto
     ${MYSQLCPP_LIBRARY}

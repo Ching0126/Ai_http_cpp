@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DCHAT_RESOURCE_DIR=\"/root/Ai_http_cpp/AIApps/ChatServer/resource\"
 
-CXX_INCLUDES = -I/root/Ai_http_cpp/AIApps/ChatServer/include -I/root/Ai_http_cpp/HttpServer/include
+CXX_INCLUDES = -I/root/Ai_http_cpp/AIApps/ChatServer/include -I/root/Ai_http_cpp/HttpServer/include -I/root/Ai_http_cpp/.deps/include
 
 CXX_FLAGS = -std=gnu++17
 

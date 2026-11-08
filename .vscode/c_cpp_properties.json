@@ -4,7 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/AIApps/ChatServer/include"
+                "${workspaceFolder}/AIApps/ChatServer/include",
+                "${workspaceFolder}/.deps/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

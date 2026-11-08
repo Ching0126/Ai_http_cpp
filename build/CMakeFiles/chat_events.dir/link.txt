@@ -1,0 +1,2 @@
+/usr/bin/ar qc libchat_events.a CMakeFiles/chat_events.dir/AIApps/ChatServer/src/messaging/ChatEventPublisher.cpp.o
+/usr/bin/ranlib libchat_events.a
