@@ -906,4 +906,5 @@ CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/tools/chat_event_consumer.c
  /usr/include/boost/detail/basic_pointerbuf.hpp \
  /root/Ai_http_cpp/.deps/include/SimpleAmqpClient/MessageReturnedException.h \
  /root/Ai_http_cpp/.deps/include/SimpleAmqpClient/Version.h \
+ /root/Ai_http_cpp/AIApps/ChatServer/include/messaging/ChatEventStore.h \
  /usr/include/c++/13/iostream

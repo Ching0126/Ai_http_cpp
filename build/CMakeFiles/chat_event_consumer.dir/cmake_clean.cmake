@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.o"
+  "CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.o.d"
+  "CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o"
+  "CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o.d"
   "CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/tools/chat_event_consumer.cpp.o"
   "CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/tools/chat_event_consumer.cpp.o.d"
   "chat_event_consumer"

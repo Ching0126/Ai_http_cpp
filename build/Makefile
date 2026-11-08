@@ -336,6 +336,30 @@ AIApps/ChatServer/src/messaging/ChatEventPublisher.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_events.dir/build.make CMakeFiles/chat_events.dir/AIApps/ChatServer/src/messaging/ChatEventPublisher.cpp.s
 .PHONY : AIApps/ChatServer/src/messaging/ChatEventPublisher.cpp.s
 
+AIApps/ChatServer/src/messaging/ChatEventStore.o: AIApps/ChatServer/src/messaging/ChatEventStore.cpp.o
+.PHONY : AIApps/ChatServer/src/messaging/ChatEventStore.o
+
+# target to build an object file
+AIApps/ChatServer/src/messaging/ChatEventStore.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_event_consumer.dir/build.make CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.o
+.PHONY : AIApps/ChatServer/src/messaging/ChatEventStore.cpp.o
+
+AIApps/ChatServer/src/messaging/ChatEventStore.i: AIApps/ChatServer/src/messaging/ChatEventStore.cpp.i
+.PHONY : AIApps/ChatServer/src/messaging/ChatEventStore.i
+
+# target to preprocess a source file
+AIApps/ChatServer/src/messaging/ChatEventStore.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_event_consumer.dir/build.make CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.i
+.PHONY : AIApps/ChatServer/src/messaging/ChatEventStore.cpp.i
+
+AIApps/ChatServer/src/messaging/ChatEventStore.s: AIApps/ChatServer/src/messaging/ChatEventStore.cpp.s
+.PHONY : AIApps/ChatServer/src/messaging/ChatEventStore.s
+
+# target to generate assembly for a file
+AIApps/ChatServer/src/messaging/ChatEventStore.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_event_consumer.dir/build.make CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.s
+.PHONY : AIApps/ChatServer/src/messaging/ChatEventStore.cpp.s
+
 AIApps/ChatServer/src/session/ChatSessionManager.o: AIApps/ChatServer/src/session/ChatSessionManager.cpp.o
 .PHONY : AIApps/ChatServer/src/session/ChatSessionManager.o
 
@@ -365,6 +389,7 @@ AIApps/ChatServer/src/storage/DbConnectionPool.o: AIApps/ChatServer/src/storage/
 
 # target to build an object file
 AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_event_consumer.dir/build.make CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o
 .PHONY : AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o
 
@@ -373,6 +398,7 @@ AIApps/ChatServer/src/storage/DbConnectionPool.i: AIApps/ChatServer/src/storage/
 
 # target to preprocess a source file
 AIApps/ChatServer/src/storage/DbConnectionPool.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_event_consumer.dir/build.make CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.i
 .PHONY : AIApps/ChatServer/src/storage/DbConnectionPool.cpp.i
 
@@ -381,6 +407,7 @@ AIApps/ChatServer/src/storage/DbConnectionPool.s: AIApps/ChatServer/src/storage/
 
 # target to generate assembly for a file
 AIApps/ChatServer/src/storage/DbConnectionPool.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_event_consumer.dir/build.make CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.s
 .PHONY : AIApps/ChatServer/src/storage/DbConnectionPool.cpp.s
 
@@ -657,6 +684,9 @@ help:
 	@echo "... AIApps/ChatServer/src/messaging/ChatEventPublisher.o"
 	@echo "... AIApps/ChatServer/src/messaging/ChatEventPublisher.i"
 	@echo "... AIApps/ChatServer/src/messaging/ChatEventPublisher.s"
+	@echo "... AIApps/ChatServer/src/messaging/ChatEventStore.o"
+	@echo "... AIApps/ChatServer/src/messaging/ChatEventStore.i"
+	@echo "... AIApps/ChatServer/src/messaging/ChatEventStore.s"
 	@echo "... AIApps/ChatServer/src/session/ChatSessionManager.o"
 	@echo "... AIApps/ChatServer/src/session/ChatSessionManager.i"
 	@echo "... AIApps/ChatServer/src/session/ChatSessionManager.s"

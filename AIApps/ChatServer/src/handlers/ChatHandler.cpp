@@ -221,7 +221,7 @@ HttpResponse ChatHandler::handle(
     }
 
     // 聊天保存成功后，按配置尝试发布事件。
-    if (ChatEventPublisher::enabled()) {
+    if (ChatEventPublisher::enabled()) {//是否启动发布事件？
         try {
             boost::json::object event;
 
@@ -229,15 +229,11 @@ HttpResponse ChatHandler::handle(
             event["username"] = username;
             event["sessionId"] = sessionId;
 
-            ChatEventPublisher::publish(
-                boost::json::serialize(event)
-            );
+            ChatEventPublisher::publish(boost::json::serialize(event));
         } catch (const std::exception&) {
             // 本批采用尽力发布：
             // 聊天记录已保存，事件失败不改变聊天响应。
-            std::clog
-                << "[chat-event] publish failed"
-                << std::endl;
+            std::clog<< "[chat-event] publish failed"<< std::endl;
         }
     }
 

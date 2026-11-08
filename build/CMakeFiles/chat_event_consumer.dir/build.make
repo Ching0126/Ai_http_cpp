@@ -83,19 +83,53 @@ CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/tools/chat_event_consumer.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/tools/chat_event_consumer.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/Ai_http_cpp/AIApps/ChatServer/tools/chat_event_consumer.cpp -o CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/tools/chat_event_consumer.cpp.s
 
+CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.o: CMakeFiles/chat_event_consumer.dir/flags.make
+CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.o: /root/Ai_http_cpp/AIApps/ChatServer/src/messaging/ChatEventStore.cpp
+CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.o: CMakeFiles/chat_event_consumer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.o -MF CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.o.d -o CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.o -c /root/Ai_http_cpp/AIApps/ChatServer/src/messaging/ChatEventStore.cpp
+
+CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/Ai_http_cpp/AIApps/ChatServer/src/messaging/ChatEventStore.cpp > CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.i
+
+CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/Ai_http_cpp/AIApps/ChatServer/src/messaging/ChatEventStore.cpp -o CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.s
+
+CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o: CMakeFiles/chat_event_consumer.dir/flags.make
+CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o: /root/Ai_http_cpp/AIApps/ChatServer/src/storage/DbConnectionPool.cpp
+CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o: CMakeFiles/chat_event_consumer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o -MF CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o.d -o CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o -c /root/Ai_http_cpp/AIApps/ChatServer/src/storage/DbConnectionPool.cpp
+
+CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/Ai_http_cpp/AIApps/ChatServer/src/storage/DbConnectionPool.cpp > CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.i
+
+CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/Ai_http_cpp/AIApps/ChatServer/src/storage/DbConnectionPool.cpp -o CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.s
+
 # Object files for target chat_event_consumer
 chat_event_consumer_OBJECTS = \
-"CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/tools/chat_event_consumer.cpp.o"
+"CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/tools/chat_event_consumer.cpp.o" \
+"CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.o" \
+"CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o"
 
 # External object files for target chat_event_consumer
 chat_event_consumer_EXTERNAL_OBJECTS =
 
 chat_event_consumer: CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/tools/chat_event_consumer.cpp.o
+chat_event_consumer: CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.o
+chat_event_consumer: CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o
 chat_event_consumer: CMakeFiles/chat_event_consumer.dir/build.make
 chat_event_consumer: libchat_events.a
+chat_event_consumer: libchat_events.a
+chat_event_consumer: /usr/lib/x86_64-linux-gnu/libmysqlcppconn.so
 chat_event_consumer: /root/Ai_http_cpp/.deps/lib/libSimpleAmqpClient.so
 chat_event_consumer: CMakeFiles/chat_event_consumer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable chat_event_consumer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable chat_event_consumer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/chat_event_consumer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

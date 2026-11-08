@@ -71,10 +71,19 @@ target_link_libraries(chat_events PUBLIC
 # 独立消费者程序。
 add_executable(chat_event_consumer
     AIApps/ChatServer/tools/chat_event_consumer.cpp
+    AIApps/ChatServer/src/messaging/ChatEventStore.cpp
+    AIApps/ChatServer/src/storage/DbConnectionPool.cpp
+)
+
+target_include_directories(chat_event_consumer PRIVATE
+    ${MYSQLCPP_INCLUDE_DIR}
+    ${Boost_INCLUDE_DIRS}
 )
 
 target_link_libraries(chat_event_consumer PRIVATE
-    chat_events
+     chat_events
+    ${MYSQLCPP_LIBRARY}
+    Threads::Threads
 )
 
 

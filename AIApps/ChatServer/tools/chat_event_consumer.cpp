@@ -1,4 +1,5 @@
 #include <SimpleAmqpClient/SimpleAmqpClient.h>
+#include <messaging/ChatEventStore.h>
 
 #include <cstdlib>
 #include <exception>
@@ -41,43 +42,57 @@ int mqPort() {
 
 int main(){
     try{
+        //准备连接配置，登录RabbitMQ
         AmqpClient::Channel::OpenOpts options;
-
         options.host = envOr("AI_MQ_HOST","127.0.0.1");
-
         options.port = mqPort();
-
         options.vhost = envOr("AI_MQ_VHOST","/");
-
         options.auth = AmqpClient::Channel::OpenOpts::BasicAuth(envOr("AI_MQ_USER","guest"),envOr("AI_MQ_PASSWORD", "guest"));
 
+        //确定队列，进行连接
         const auto queue = envOr("AI_MQ_QUEUE","ai_http_chat_events_v1");
-
         auto channel = AmqpClient::Channel::Open(options);
-
         channel->DeclareQueue(queue,false,true,false,false);
 
+        //注册自己为消费者，：我要从 queue 这个队列消费消息。
         const auto tag = channel->BasicConsume(queue,"",true,false,false,1);
 
         std::cout<<"Waiting for chat events on"<<queue<<std::endl;
+        
+        const ChatEventStore store;
 
-        for(;;){
-            AmqpClient::Envelope::ptr_t envelope;
+        for (;;) {
+        AmqpClient::Envelope::ptr_t envelope;
 
-            if(!channel->BasicConsumeMessage(tag,envelope,1000)){
-                continue;
-            }
-
-            std::cout<<envelope->Message()->Body()<<std::endl;
-
-            if(!std::cout){
-                throw std::runtime_error("cannot write event output");
-            }
-
-            channel->BasicAck(envelope);
+        if (!channel->BasicConsumeMessage(tag,envelope,1000)) {
+            continue;
         }
-    }catch(const std::exception&){
-        std::cerr<<"chat event consumer failed"<<std::endl;
+
+        try {
+            // 先校验并写入数据库。
+            store.save(envelope->Message()->Body());
+        } catch (const InvalidChatEvent&) {
+            // 错误格式不能靠重试修复。
+            // false 表示不重新放回原队列。
+            channel->BasicReject(envelope,false);
+
+            std::cerr<< "invalid chat event discarded"<< std::endl;
+
+            continue;
+        }
+
+        // 只有写入成功后才确认消息。
+        channel->BasicAck(envelope);
+
+        std::cout<< "chat event saved"<< std::endl;
+    }
+
+    } catch (const std::exception&) {
+        std::cerr
+            << "chat event consumer failed; "
+            << "unacknowledged messages may be redelivered"
+            << std::endl;
+
         return 1;
     }
 }

@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/root/Ai_http_cpp/AIApps/ChatServer/src/messaging/ChatEventStore.cpp" "CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.o" "gcc" "CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/messaging/ChatEventStore.cpp.o.d"
+  "/root/Ai_http_cpp/AIApps/ChatServer/src/storage/DbConnectionPool.cpp" "CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o" "gcc" "CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o.d"
   "/root/Ai_http_cpp/AIApps/ChatServer/tools/chat_event_consumer.cpp" "CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/tools/chat_event_consumer.cpp.o" "gcc" "CMakeFiles/chat_event_consumer.dir/AIApps/ChatServer/tools/chat_event_consumer.cpp.o.d"
   )
 
