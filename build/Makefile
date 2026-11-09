@@ -277,6 +277,30 @@ AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp.s
 .PHONY : AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp.s
 
+AIApps/ChatServer/src/ai/ModelSettingsStore.o: AIApps/ChatServer/src/ai/ModelSettingsStore.cpp.o
+.PHONY : AIApps/ChatServer/src/ai/ModelSettingsStore.o
+
+# target to build an object file
+AIApps/ChatServer/src/ai/ModelSettingsStore.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/ModelSettingsStore.cpp.o
+.PHONY : AIApps/ChatServer/src/ai/ModelSettingsStore.cpp.o
+
+AIApps/ChatServer/src/ai/ModelSettingsStore.i: AIApps/ChatServer/src/ai/ModelSettingsStore.cpp.i
+.PHONY : AIApps/ChatServer/src/ai/ModelSettingsStore.i
+
+# target to preprocess a source file
+AIApps/ChatServer/src/ai/ModelSettingsStore.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/ModelSettingsStore.cpp.i
+.PHONY : AIApps/ChatServer/src/ai/ModelSettingsStore.cpp.i
+
+AIApps/ChatServer/src/ai/ModelSettingsStore.s: AIApps/ChatServer/src/ai/ModelSettingsStore.cpp.s
+.PHONY : AIApps/ChatServer/src/ai/ModelSettingsStore.s
+
+# target to generate assembly for a file
+AIApps/ChatServer/src/ai/ModelSettingsStore.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/ModelSettingsStore.cpp.s
+.PHONY : AIApps/ChatServer/src/ai/ModelSettingsStore.cpp.s
+
 AIApps/ChatServer/src/auth/AuthHandler.o: AIApps/ChatServer/src/auth/AuthHandler.cpp.o
 .PHONY : AIApps/ChatServer/src/auth/AuthHandler.o
 
@@ -495,6 +519,30 @@ AIApps/ChatServer/src/storage/UserRepository.s: AIApps/ChatServer/src/storage/Us
 AIApps/ChatServer/src/storage/UserRepository.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.s
 .PHONY : AIApps/ChatServer/src/storage/UserRepository.cpp.s
+
+AIApps/ChatServer/src/tools/ToolRegistry.o: AIApps/ChatServer/src/tools/ToolRegistry.cpp.o
+.PHONY : AIApps/ChatServer/src/tools/ToolRegistry.o
+
+# target to build an object file
+AIApps/ChatServer/src/tools/ToolRegistry.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/tools/ToolRegistry.cpp.o
+.PHONY : AIApps/ChatServer/src/tools/ToolRegistry.cpp.o
+
+AIApps/ChatServer/src/tools/ToolRegistry.i: AIApps/ChatServer/src/tools/ToolRegistry.cpp.i
+.PHONY : AIApps/ChatServer/src/tools/ToolRegistry.i
+
+# target to preprocess a source file
+AIApps/ChatServer/src/tools/ToolRegistry.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/tools/ToolRegistry.cpp.i
+.PHONY : AIApps/ChatServer/src/tools/ToolRegistry.cpp.i
+
+AIApps/ChatServer/src/tools/ToolRegistry.s: AIApps/ChatServer/src/tools/ToolRegistry.cpp.s
+.PHONY : AIApps/ChatServer/src/tools/ToolRegistry.s
+
+# target to generate assembly for a file
+AIApps/ChatServer/src/tools/ToolRegistry.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/tools/ToolRegistry.cpp.s
+.PHONY : AIApps/ChatServer/src/tools/ToolRegistry.cpp.s
 
 AIApps/ChatServer/tools/chat_event_consumer.o: AIApps/ChatServer/tools/chat_event_consumer.cpp.o
 .PHONY : AIApps/ChatServer/tools/chat_event_consumer.o
@@ -761,6 +809,9 @@ help:
 	@echo "... AIApps/ChatServer/src/ai/ChatStrategyFactory.o"
 	@echo "... AIApps/ChatServer/src/ai/ChatStrategyFactory.i"
 	@echo "... AIApps/ChatServer/src/ai/ChatStrategyFactory.s"
+	@echo "... AIApps/ChatServer/src/ai/ModelSettingsStore.o"
+	@echo "... AIApps/ChatServer/src/ai/ModelSettingsStore.i"
+	@echo "... AIApps/ChatServer/src/ai/ModelSettingsStore.s"
 	@echo "... AIApps/ChatServer/src/auth/AuthHandler.o"
 	@echo "... AIApps/ChatServer/src/auth/AuthHandler.i"
 	@echo "... AIApps/ChatServer/src/auth/AuthHandler.s"
@@ -788,6 +839,9 @@ help:
 	@echo "... AIApps/ChatServer/src/storage/UserRepository.o"
 	@echo "... AIApps/ChatServer/src/storage/UserRepository.i"
 	@echo "... AIApps/ChatServer/src/storage/UserRepository.s"
+	@echo "... AIApps/ChatServer/src/tools/ToolRegistry.o"
+	@echo "... AIApps/ChatServer/src/tools/ToolRegistry.i"
+	@echo "... AIApps/ChatServer/src/tools/ToolRegistry.s"
 	@echo "... AIApps/ChatServer/tools/chat_event_consumer.o"
 	@echo "... AIApps/ChatServer/tools/chat_event_consumer.i"
 	@echo "... AIApps/ChatServer/tools/chat_event_consumer.s"

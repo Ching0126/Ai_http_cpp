@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/ChatStrategy.cpp.o.d"
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp.o"
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp.o.d"
+  "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/ModelSettingsStore.cpp.o"
+  "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/ModelSettingsStore.cpp.o.d"
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/auth/AuthHandler.cpp.o"
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/auth/AuthHandler.cpp.o.d"
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o"
@@ -21,6 +23,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o.d"
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o"
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o.d"
+  "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/tools/ToolRegistry.cpp.o"
+  "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/tools/ToolRegistry.cpp.o.d"
   "ai_http_server"
   "ai_http_server.pdb"
 )

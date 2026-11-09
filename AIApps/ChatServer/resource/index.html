@@ -23,6 +23,18 @@
 
   <section id="chat" hidden>
     <p>当前用户：<strong id="currentUser"></strong> <button id="logout">退出</button></p>
+    <div class="model-settings">
+      <label for="modelMode">对话模型</label>
+      <select id="modelMode" disabled>
+        <option value="default">跟随服务默认</option>
+        <option value="mock">模拟模型</option>
+        <option value="deepseek">DeepSeek</option>
+      </select>
+      <button id="saveModel" type="button" disabled>保存</button>
+      <button id="refreshModel" type="button" disabled>刷新</button>
+      <p id="modelStatus" role="status">正在读取模型设置…</p>
+      <small>设置适用于当前用户的所有会话。</small>
+    </div>
     <button id="createSession">新建会话</button>
     <label>当前会话 <select id="sessions"><option value="">请选择会话</option></select></label>
     <div id="messages" aria-live="polite"></div>
@@ -55,13 +67,65 @@ const $ = id => document.getElementById(id);
 
 //把提示文字显示到页面上
 const notice = message => { $('notice').textContent = message; };
-//notice('登录成功');在页面上显示提示
+// 用于区分前后两次登录，避免过期请求更新当前用户的界面。
+let authVersion = 0;
+
+// 重置模型控件，避免退出或切换账号后显示上一个用户的设置。
+function resetModelSettings() {
+  $('modelMode').value = 'default';
+  $('modelMode').disabled = true;
+  $('saveModel').disabled = true;
+  $('refreshModel').disabled = true;
+  $('modelStatus').textContent = '';
+}
+
+// 根据服务端返回值展示当前选择和实际生效的模式。
+function renderModelSettings(settings) {
+  const labels = {mock: '模拟模型', deepseek: 'DeepSeek'};
+  if (!settings || !['user', 'default'].includes(settings.source) ||
+      typeof settings.mode !== 'string' ||
+      (settings.source === 'user' && !['mock', 'deepseek'].includes(settings.mode))) {
+    throw new Error('模型设置响应不正确');
+  }
+  $('modelMode').value = settings.source === 'default' ? 'default' : settings.mode;
+  const mode = labels[settings.mode] || `未知模式（${settings.mode}）`;
+  const source = settings.source === 'default' ? '服务默认' : '个人选择';
+  $('modelStatus').textContent = `当前生效：${mode}（${source}）`;
+}
+
+// 登录后或用户主动刷新时，读取服务端的设置。
+async function loadModelSettings() {
+  if ($('chat').hidden) return;
+  const version = authVersion;
+  $('modelMode').disabled = true;
+  $('saveModel').disabled = true;
+  $('refreshModel').disabled = true;
+  $('modelStatus').textContent = '正在读取模型设置…';
+  try {
+    const settings = await api('/model/settings');
+    if (version !== authVersion) return;
+    renderModelSettings(settings);
+    $('modelMode').disabled = false;
+    $('saveModel').disabled = false;
+  } catch (error) {
+    if (version !== authVersion) return;
+    $('modelStatus').textContent = `读取模型设置失败：${error.message}`;
+  } finally {
+    if (version === authVersion) $('refreshModel').disabled = false;
+  }
+}
+
+// 登录成功后显示聊天界面。
 function showUser(username) {
+  ++authVersion;
+  resetModelSettings();
   $('auth').hidden = true; $('chat').hidden = false; $('currentUser').textContent = username;
 }
 
 //显示登陆后的界面
 function showLogin() {
+  ++authVersion;
+  resetModelSettings();
   //显示登录区域
   $('auth').hidden = false; 
   $('chat').hidden = true; 
@@ -108,7 +172,7 @@ $('authForm').onsubmit = async event => {
     showUser(user.username);
     $('password').value = '';//在此查询当前用户
 
-    await loadSessions(); notice('登录成功');
+    await loadSessions(); await loadModelSettings(); notice('登录成功');
   } catch (error) { notice(error.message); }
 };
 
@@ -116,6 +180,33 @@ $('logout').onclick = async () => {
   try { await api('/logout', {}); showLogin(); notice('已退出'); }
   catch (error) { notice(error.message); }
 };
+
+// 保存个人模型选择；服务端返回的是保存后实际生效的状态。
+$('saveModel').onclick = async () => {
+  const version = authVersion;
+  const mode = $('modelMode').value;
+  $('modelMode').disabled = true;
+  $('saveModel').disabled = true;
+  $('refreshModel').disabled = true;
+  $('modelStatus').textContent = '正在保存模型设置…';
+  try {
+    const settings = await api('/model/settings', {mode});
+    if (version !== authVersion) return;
+    renderModelSettings(settings);
+    notice('模型设置已保存');
+  } catch (error) {
+    if (version !== authVersion) return;
+    $('modelStatus').textContent = `保存模型设置失败：${error.message}`;
+  } finally {
+    if (version === authVersion) {
+      $('modelMode').disabled = false;
+      $('saveModel').disabled = false;
+      $('refreshModel').disabled = false;
+    }
+  }
+};
+
+$('refreshModel').onclick = loadModelSettings;
 
 $('createSession').onclick = async () => {
   try { const result = await api('/chat/sessions', {}); //返回会话id
@@ -146,7 +237,8 @@ $('chatForm').onsubmit = async event => {
 (async () => {
   try { const user = await api('/auth/me'); 
   showUser(user.username); 
-  await loadSessions(); 
+  await loadSessions();
+  await loadModelSettings();
   }
   catch { showLogin(); }
 })();

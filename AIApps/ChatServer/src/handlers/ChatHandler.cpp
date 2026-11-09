@@ -105,6 +105,67 @@ HttpResponse missingSession() {
 //   -H 'Content-Type: application/json' \
 //   -d '{"question":"什么是 HTTP？"}'
 
+
+/**
+ * 查询当前用户生效的模型模式。
+ *
+ * 没有个人设置时，使用环境变量 AI_MODE；
+ * 环境变量未设置时默认使用 mock。
+ */
+HttpResponse ChatHandler::getModelSettings(
+    const HttpRequest&,
+    const std::string& username
+) {
+    std::string mode;
+
+    const bool personal = modelSettings_.find(username, mode);
+
+    if (!personal) {
+        mode = envOr("AI_MODE", "mock");
+    }
+
+    boost::json::object result;
+
+    result["mode"] = mode;
+    result["source"] = personal? "user": "default";
+
+    return HttpResponse(
+        200,
+        "OK",
+        boost::json::serialize(result)
+    );
+}
+
+/**
+ * 设置当前用户的模型模式。
+ *
+ * 正文支持：
+ * {"mode":"mock"}
+ * {"mode":"deepseek"}
+ * {"mode":"default"}  // 删除个人设置，恢复服务默认
+ */
+HttpResponse ChatHandler::setModelSettings(const HttpRequest& request,const std::string& username) {
+    boost::system::error_code ec;
+
+    const auto data = boost::json::parse(request.body,ec);
+
+    std::string mode;
+
+    if (ec ||!data.is_object() ||!stringField(data.as_object(), "mode", mode) ||
+        (mode != "default" &&mode != "mock" &&mode != "deepseek")) {
+        return invalidBody();
+    }
+
+    if (mode == "default") {
+        modelSettings_.clear(username);
+    } else {
+        modelSettings_.set(username, mode);
+    }
+
+    // 返回更新后生效的设置。
+    return getModelSettings(request, username);
+}
+
 HttpResponse ChatHandler::createSession(const HttpRequest& request,const std::string& username){//创建会话
     try{
         const auto id = sessions_.create(username);
@@ -187,24 +248,47 @@ HttpResponse ChatHandler::handle(
     pending.push_back({"user",text});
 
     std::string answer;
-    try{
-        const auto strategy = ChatStrategyFactory::create(envOr("AI_MODE","mock"));
+    
+    if(text=="/time"){
+        try{
+            answer = "当前服务时间： "+ tools_.invoke("get_time",{});
+        }catch (const std::exception&) {
+            return HttpResponse(
+                503,
+                "Service Unavailable",
+                R"({"error":"tool unavailable"})"
+            );
+        }
+    } else {
+        // 其他输入继续使用用户选择的模型策略。
+        try {
+            std::string mode;
 
-        answer = strategy->ask(pending);
-    }catch(const AIConfigError& error){
-        boost::json::object body;
-        body["error"] = error.what();
-        return HttpResponse(
-            503,
-            "Service Unavailable",
-            boost::json::serialize(body)
-        );
-    }catch(const AIRequestError&){
-        return HttpResponse(
-            502,
-            "Bad Gateway",
-            R"({"error":"AI request failed"})"
-        );
+            if (!modelSettings_.find(username, mode)) {
+                mode = envOr("AI_MODE", "mock");
+            }
+
+            const auto strategy =
+                ChatStrategyFactory::create(mode);
+
+            answer = strategy->ask(pending);
+        } catch (const AIConfigError& error) {
+            boost::json::object body;
+
+            body["error"] = error.what();
+
+            return HttpResponse(
+                503,
+                "Service Unavailable",
+                boost::json::serialize(body)
+            );
+        } catch (const AIRequestError&) {
+            return HttpResponse(
+                502,
+                "Bad Gateway",
+                R"({"error":"AI request failed"})"
+            );
+        }
     }
 
     pending.push_back({"assistant",answer});

@@ -2,6 +2,7 @@
 #include "handlers/StaticFileHandler.h"
 #include "middleware/RequestLogMiddleware.h"
 #include "middleware/CorsMiddleware.h"
+#include "ai/ModelSettingsStore.h"
 
 #include <cstdlib>
 #include <memory>
@@ -47,7 +48,29 @@ ChatServer::ChatServer(
         return stylesheet.handle(request);
     }
 );
-    
+     // 查询当前登录用户的模型模式。
+    httpServer_.addRoute(
+        "GET",
+        "/model/settings",
+        [this](const HttpRequest& request) {
+            return guarded(
+                request,
+                &ChatHandler::getModelSettings
+            );
+        }
+    );
+
+    // 修改当前登录用户的模型模式。
+    httpServer_.addRoute(
+        "POST",
+        "/model/settings",
+        [this](const HttpRequest& request) {
+            return guarded(
+                request,
+                &ChatHandler::setModelSettings
+            );
+        }
+    );
     // 注册用户。
     httpServer_.addRoute(
         "POST",
@@ -171,6 +194,12 @@ HttpResponse ChatServer::guarded(
     std::lock_guard<std::mutex> lock(chatMutex_);
     try {
         return (chatHandler_.*action)(request, username);
+    }catch (const ModelSettingsError&) {
+        return HttpResponse(
+            503,
+            "Service Unavailable",
+            R"({"error":"model settings unavailable"})"
+        );
     } catch (const ChatStorageError&) {
         return HttpResponse(
             503,

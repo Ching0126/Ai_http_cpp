@@ -143,62 +143,10 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o: \
  /usr/include/c++/13/exception /usr/include/c++/13/bits/exception_ptr.h \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
  /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
- /root/Ai_http_cpp/HttpServer/include/http/HttpServer.h \
- /root/Ai_http_cpp/HttpServer/include/middleware/MiddlewareChain.h \
- /root/Ai_http_cpp/HttpServer/include/middleware/Middleware.h \
- /usr/include/c++/13/functional /usr/include/c++/13/bits/std_function.h \
- /usr/include/c++/13/array /usr/include/c++/13/compare \
- /usr/include/c++/13/bits/stl_algo.h \
- /usr/include/c++/13/bits/algorithmfwd.h \
- /usr/include/c++/13/bits/stl_heap.h \
- /usr/include/c++/13/bits/uniform_int_dist.h \
- /usr/include/c++/13/bits/stl_tempbuf.h /usr/include/c++/13/memory \
- /usr/include/c++/13/bits/stl_raw_storage_iter.h \
- /usr/include/c++/13/bits/align.h /usr/include/c++/13/bits/unique_ptr.h \
- /usr/include/c++/13/bits/shared_ptr.h \
- /usr/include/c++/13/bits/shared_ptr_base.h \
- /usr/include/c++/13/bits/allocated_ptr.h \
- /usr/include/c++/13/ext/atomicity.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h \
- /usr/include/pthread.h /usr/include/sched.h \
- /usr/include/x86_64-linux-gnu/bits/sched.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
- /usr/include/x86_64-linux-gnu/bits/cpu-set.h /usr/include/time.h \
- /usr/include/x86_64-linux-gnu/bits/time.h \
- /usr/include/x86_64-linux-gnu/bits/timex.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
- /usr/include/x86_64-linux-gnu/bits/setjmp.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
- /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
- /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
- /usr/include/c++/13/ext/concurrence.h \
- /usr/include/c++/13/bits/shared_ptr_atomic.h \
- /usr/include/c++/13/bits/atomic_base.h \
- /usr/include/c++/13/bits/atomic_lockfree_defines.h \
- /usr/include/c++/13/backward/auto_ptr.h \
- /usr/include/c++/13/pstl/glue_memory_defs.h \
- /usr/include/c++/13/pstl/execution_defs.h \
- /root/Ai_http_cpp/HttpServer/include/router/Router.h \
- /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h \
- /usr/include/muduo/net/TcpServer.h /usr/include/muduo/base/Atomic.h \
- /usr/include/muduo/base/noncopyable.h /usr/include/muduo/base/Types.h \
- /usr/include/string.h /usr/include/strings.h /usr/include/assert.h \
- /usr/include/muduo/net/TcpConnection.h \
- /usr/include/muduo/base/StringPiece.h /usr/include/muduo/net/Callbacks.h \
- /usr/include/muduo/base/Timestamp.h /usr/include/muduo/base/copyable.h \
- /usr/include/boost/operators.hpp /usr/include/c++/13/iterator \
- /usr/include/c++/13/bits/stream_iterator.h \
- /usr/include/c++/13/bits/streambuf_iterator.h \
- /usr/include/c++/13/streambuf /usr/include/c++/13/bits/ios_base.h \
- /usr/include/c++/13/bits/locale_classes.h \
- /usr/include/c++/13/bits/locale_classes.tcc \
- /usr/include/c++/13/system_error \
- /usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h \
- /usr/include/c++/13/bits/streambuf.tcc /usr/include/boost/config.hpp \
- /usr/include/boost/config/user.hpp \
+ /root/Ai_http_cpp/AIApps/ChatServer/include/ai/ModelSettingsStore.h \
+ /root/Ai_http_cpp/AIApps/ChatServer/include/tools/ToolRegistry.h \
+ /usr/include/boost/json.hpp /usr/include/boost/json/detail/config.hpp \
+ /usr/include/boost/config.hpp /usr/include/boost/config/user.hpp \
  /usr/include/boost/config/detail/select_compiler_config.hpp \
  /usr/include/boost/config/compiler/gcc.hpp \
  /usr/include/boost/config/detail/select_stdlib_config.hpp \
@@ -217,11 +165,280 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o: \
  /usr/include/boost/config/detail/suffix.hpp \
  /usr/include/boost/config/helper_macros.hpp \
  /usr/include/boost/config/detail/cxx_composite.hpp \
- /usr/include/boost/detail/workaround.hpp \
- /usr/include/boost/config/workaround.hpp \
- /usr/include/boost/core/addressof.hpp /usr/include/muduo/net/Buffer.h \
- /usr/include/muduo/net/Endian.h /usr/include/c++/13/algorithm \
+ /usr/include/boost/assert.hpp /usr/include/assert.h \
+ /usr/include/boost/throw_exception.hpp \
+ /usr/include/boost/exception/exception.hpp \
+ /usr/include/boost/assert/source_location.hpp \
+ /usr/include/boost/current_function.hpp \
+ /usr/include/boost/config/workaround.hpp /usr/include/boost/cstdint.hpp \
+ /usr/include/c++/13/cstring /usr/include/string.h /usr/include/strings.h \
+ /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h \
+ /usr/include/boost/config/auto_link.hpp \
+ /usr/include/boost/json/array.hpp /usr/include/boost/json/kind.hpp \
+ /usr/include/boost/json/string_view.hpp \
+ /usr/include/boost/core/detail/string_view.hpp \
+ /usr/include/boost/core/enable_if.hpp \
+ /usr/include/boost/core/detail/is_same.hpp /usr/include/c++/13/algorithm \
+ /usr/include/c++/13/bits/stl_algo.h \
+ /usr/include/c++/13/bits/algorithmfwd.h \
+ /usr/include/c++/13/bits/stl_heap.h \
+ /usr/include/c++/13/bits/uniform_int_dist.h \
+ /usr/include/c++/13/bits/stl_tempbuf.h \
  /usr/include/c++/13/pstl/glue_algorithm_defs.h \
+ /usr/include/c++/13/pstl/execution_defs.h /usr/include/c++/13/climits \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/uio_lim.h /usr/include/c++/13/ios \
+ /usr/include/c++/13/bits/ios_base.h /usr/include/c++/13/ext/atomicity.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
+ /usr/include/x86_64-linux-gnu/bits/cpu-set.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
+ /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+ /usr/include/c++/13/bits/locale_classes.h \
+ /usr/include/c++/13/bits/locale_classes.tcc \
+ /usr/include/c++/13/system_error \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h \
+ /usr/include/c++/13/streambuf /usr/include/c++/13/bits/streambuf.tcc \
+ /usr/include/c++/13/bits/basic_ios.h \
+ /usr/include/c++/13/bits/locale_facets.h /usr/include/c++/13/cwctype \
+ /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
+ /usr/include/c++/13/bits/streambuf_iterator.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h \
+ /usr/include/c++/13/bits/locale_facets.tcc \
+ /usr/include/c++/13/bits/basic_ios.tcc \
+ /usr/include/boost/json/pilfer.hpp \
+ /usr/include/boost/json/storage_ptr.hpp \
+ /usr/include/boost/json/memory_resource.hpp \
+ /usr/include/boost/container/pmr/memory_resource.hpp \
+ /usr/include/boost/container/detail/config_begin.hpp \
+ /usr/include/boost/container/detail/workaround.hpp \
+ /usr/include/boost/container/container_fwd.hpp \
+ /usr/include/boost/container/detail/std_fwd.hpp \
+ /usr/include/boost/move/detail/std_ns_begin.hpp \
+ /usr/include/boost/move/detail/std_ns_end.hpp \
+ /usr/include/boost/move/detail/type_traits.hpp \
+ /usr/include/boost/move/detail/config_begin.hpp \
+ /usr/include/boost/move/detail/workaround.hpp \
+ /usr/include/boost/move/detail/meta_utils.hpp \
+ /usr/include/boost/move/detail/meta_utils_core.hpp \
+ /usr/include/boost/move/detail/addressof.hpp \
+ /usr/include/boost/move/detail/config_end.hpp \
+ /usr/include/c++/13/cassert \
+ /usr/include/boost/container/detail/placement_new.hpp \
+ /usr/include/boost/container/detail/config_end.hpp \
+ /usr/include/boost/container/pmr/polymorphic_allocator.hpp \
+ /usr/include/boost/move/utility_core.hpp \
+ /usr/include/boost/move/core.hpp \
+ /usr/include/boost/container/detail/dispatch_uses_allocator.hpp \
+ /usr/include/boost/container/allocator_traits.hpp \
+ /usr/include/boost/container/detail/mpl.hpp \
+ /usr/include/boost/intrusive/detail/mpl.hpp \
+ /usr/include/boost/intrusive/detail/config_begin.hpp \
+ /usr/include/boost/intrusive/detail/config_end.hpp \
+ /usr/include/boost/container/detail/type_traits.hpp \
+ /usr/include/boost/intrusive/pointer_traits.hpp \
+ /usr/include/boost/intrusive/detail/workaround.hpp \
+ /usr/include/boost/intrusive/pointer_rebind.hpp \
+ /usr/include/boost/move/detail/pointer_element.hpp \
+ /usr/include/boost/static_assert.hpp \
+ /usr/include/boost/detail/workaround.hpp \
+ /usr/include/boost/intrusive/detail/has_member_function_callable_with.hpp \
+ /usr/include/boost/move/detail/fwd_macros.hpp \
+ /usr/include/boost/container/uses_allocator.hpp \
+ /usr/include/boost/container/uses_allocator_fwd.hpp \
+ /usr/include/boost/container/detail/addressof.hpp \
+ /usr/include/boost/container/detail/is_pair.hpp \
+ /usr/include/boost/container/detail/variadic_templates_tools.hpp \
+ /usr/include/boost/container/new_allocator.hpp \
+ /usr/include/boost/container/throw_exception.hpp \
+ /usr/include/boost/container/pmr/global_resource.hpp \
+ /usr/include/boost/container/detail/auto_link.hpp \
+ /usr/include/boost/json/detail/shared_resource.hpp \
+ /usr/include/c++/13/atomic /usr/include/c++/13/bits/atomic_base.h \
+ /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+ /usr/include/boost/json/detail/default_resource.hpp \
+ /usr/include/boost/json/detail/array.hpp /usr/include/c++/13/iterator \
+ /usr/include/c++/13/bits/stream_iterator.h \
+ /usr/include/boost/json/value.hpp /usr/include/boost/json/object.hpp \
+ /usr/include/boost/json/detail/object.hpp \
+ /usr/include/boost/json/detail/value.hpp /usr/include/c++/13/limits \
+ /usr/include/boost/json/set_pointer_options.hpp \
+ /usr/include/boost/json/string.hpp \
+ /usr/include/boost/json/detail/digest.hpp \
+ /usr/include/boost/json/detail/except.hpp \
+ /usr/include/boost/json/error.hpp \
+ /usr/include/boost/json/system_error.hpp /usr/include/boost/json/fwd.hpp \
+ /usr/include/boost/system/error_code.hpp \
+ /usr/include/boost/system/detail/error_code.hpp \
+ /usr/include/boost/system/is_error_code_enum.hpp \
+ /usr/include/boost/system/detail/error_category.hpp \
+ /usr/include/boost/system/detail/config.hpp \
+ /usr/include/boost/system/detail/requires_cxx11.hpp \
+ /usr/include/boost/config/pragma_message.hpp \
+ /usr/include/c++/13/functional /usr/include/c++/13/bits/std_function.h \
+ /usr/include/c++/13/array /usr/include/c++/13/compare \
+ /usr/include/boost/system/detail/error_condition.hpp \
+ /usr/include/boost/system/detail/generic_category.hpp \
+ /usr/include/boost/system/detail/generic_category_message.hpp \
+ /usr/include/boost/system/detail/enable_if.hpp \
+ /usr/include/boost/system/detail/is_same.hpp \
+ /usr/include/boost/system/detail/errc.hpp \
+ /usr/include/boost/system/is_error_condition_enum.hpp \
+ /usr/include/boost/system/detail/cerrno.hpp \
+ /usr/include/boost/system/detail/append_int.hpp \
+ /usr/include/boost/system/detail/snprintf.hpp \
+ /usr/include/c++/13/cstdarg \
+ /usr/include/boost/system/detail/system_category.hpp \
+ /usr/include/boost/system/detail/system_category_impl.hpp \
+ /usr/include/boost/system/detail/system_category_message.hpp \
+ /usr/include/boost/system/api_config.hpp \
+ /usr/include/boost/system/detail/interop_category.hpp \
+ /usr/include/boost/system/detail/std_category.hpp \
+ /usr/include/c++/13/ostream /usr/include/c++/13/bits/ostream.tcc \
+ /usr/include/boost/system/error_category.hpp \
+ /usr/include/boost/system/detail/error_category_impl.hpp \
+ /usr/include/boost/system/detail/std_category_impl.hpp \
+ /usr/include/boost/system/detail/mutex.hpp /usr/include/c++/13/mutex \
+ /usr/include/c++/13/bits/chrono.h /usr/include/c++/13/ratio \
+ /usr/include/c++/13/ctime /usr/include/c++/13/bits/parse_numbers.h \
+ /usr/include/c++/13/bits/std_mutex.h \
+ /usr/include/c++/13/bits/unique_lock.h \
+ /usr/include/boost/system/error_condition.hpp \
+ /usr/include/boost/system/errc.hpp \
+ /usr/include/boost/system/generic_category.hpp \
+ /usr/include/boost/system/system_category.hpp \
+ /usr/include/boost/system/detail/throws.hpp \
+ /usr/include/boost/system/result.hpp \
+ /usr/include/boost/system/system_error.hpp \
+ /usr/include/boost/variant2/variant.hpp /usr/include/boost/mp11.hpp \
+ /usr/include/boost/mp11/list.hpp /usr/include/boost/mp11/integral.hpp \
+ /usr/include/boost/mp11/version.hpp \
+ /usr/include/boost/mp11/detail/mp_value.hpp \
+ /usr/include/boost/mp11/detail/config.hpp \
+ /usr/include/boost/mp11/detail/mp_list.hpp \
+ /usr/include/boost/mp11/detail/mp_list_v.hpp \
+ /usr/include/boost/mp11/detail/mp_is_list.hpp \
+ /usr/include/boost/mp11/detail/mp_is_value_list.hpp \
+ /usr/include/boost/mp11/detail/mp_front.hpp \
+ /usr/include/boost/mp11/detail/mp_rename.hpp \
+ /usr/include/boost/mp11/detail/mp_defer.hpp \
+ /usr/include/boost/mp11/detail/mp_append.hpp \
+ /usr/include/boost/mp11/detail/mp_count.hpp \
+ /usr/include/boost/mp11/detail/mp_plus.hpp \
+ /usr/include/boost/mp11/utility.hpp \
+ /usr/include/boost/mp11/detail/mp_fold.hpp \
+ /usr/include/boost/mp11/algorithm.hpp /usr/include/boost/mp11/set.hpp \
+ /usr/include/boost/mp11/function.hpp \
+ /usr/include/boost/mp11/detail/mp_min_element.hpp \
+ /usr/include/boost/mp11/detail/mp_void.hpp \
+ /usr/include/boost/mp11/detail/mp_copy_if.hpp \
+ /usr/include/boost/mp11/detail/mp_remove_if.hpp \
+ /usr/include/boost/mp11/detail/mp_map_find.hpp \
+ /usr/include/boost/mp11/detail/mp_with_index.hpp \
+ /usr/include/boost/mp11/integer_sequence.hpp \
+ /usr/include/boost/mp11/map.hpp /usr/include/boost/mp11/bind.hpp \
+ /usr/include/boost/mp11/tuple.hpp /usr/include/boost/json/impl/error.hpp \
+ /usr/include/boost/json/detail/string_impl.hpp \
+ /usr/include/boost/json/impl/string.hpp \
+ /usr/include/boost/json/value_ref.hpp \
+ /usr/include/boost/json/detail/impl/array.hpp \
+ /usr/include/boost/json/impl/array.hpp \
+ /usr/include/boost/json/impl/object.hpp /usr/include/c++/13/cmath \
+ /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+ /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+ /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+ /usr/include/c++/13/bits/specfun.h /usr/include/c++/13/tr1/gamma.tcc \
+ /usr/include/c++/13/tr1/special_function_util.h \
+ /usr/include/c++/13/tr1/bessel_function.tcc \
+ /usr/include/c++/13/tr1/beta_function.tcc \
+ /usr/include/c++/13/tr1/ell_integral.tcc \
+ /usr/include/c++/13/tr1/exp_integral.tcc \
+ /usr/include/c++/13/tr1/hypergeometric.tcc \
+ /usr/include/c++/13/tr1/legendre_function.tcc \
+ /usr/include/c++/13/tr1/modified_bessel_func.tcc \
+ /usr/include/c++/13/tr1/poly_hermite.tcc \
+ /usr/include/c++/13/tr1/poly_laguerre.tcc \
+ /usr/include/c++/13/tr1/riemann_zeta.tcc \
+ /usr/include/boost/json/impl/value.hpp \
+ /usr/include/boost/json/impl/value_ref.hpp \
+ /usr/include/boost/json/basic_parser.hpp \
+ /usr/include/boost/json/parse_options.hpp \
+ /usr/include/boost/json/detail/stack.hpp \
+ /usr/include/boost/json/detail/stream.hpp \
+ /usr/include/boost/json/detail/utf8.hpp \
+ /usr/include/boost/json/detail/sbo_buffer.hpp \
+ /usr/include/boost/json/conversion.hpp \
+ /usr/include/boost/json/impl/conversion.hpp \
+ /usr/include/boost/describe/enumerators.hpp \
+ /usr/include/boost/describe/detail/void_t.hpp \
+ /usr/include/boost/describe/detail/config.hpp \
+ /usr/include/boost/describe/members.hpp \
+ /usr/include/boost/describe/modifiers.hpp \
+ /usr/include/boost/describe/bases.hpp \
+ /usr/include/boost/describe/detail/cx_streq.hpp \
+ /usr/include/c++/13/variant \
+ /usr/include/boost/json/monotonic_resource.hpp \
+ /usr/include/boost/json/null_resource.hpp \
+ /usr/include/boost/json/parse.hpp /usr/include/boost/json/parser.hpp \
+ /usr/include/boost/json/detail/handler.hpp \
+ /usr/include/boost/json/value_stack.hpp \
+ /usr/include/boost/json/serialize.hpp \
+ /usr/include/boost/json/serialize_options.hpp \
+ /usr/include/boost/json/serializer.hpp \
+ /usr/include/boost/json/detail/format.hpp \
+ /usr/include/boost/json/static_resource.hpp \
+ /usr/include/boost/json/stream_parser.hpp \
+ /usr/include/boost/json/value_from.hpp \
+ /usr/include/boost/json/detail/value_from.hpp \
+ /usr/include/boost/describe/enum_to_string.hpp \
+ /usr/include/c++/13/optional /usr/include/boost/json/value_to.hpp \
+ /usr/include/boost/json/detail/value_to.hpp \
+ /usr/include/boost/describe/enum_from_string.hpp \
+ /usr/include/boost/json/visit.hpp /usr/include/boost/json/impl/visit.hpp \
+ /root/Ai_http_cpp/HttpServer/include/http/HttpServer.h \
+ /root/Ai_http_cpp/HttpServer/include/middleware/MiddlewareChain.h \
+ /root/Ai_http_cpp/HttpServer/include/middleware/Middleware.h \
+ /usr/include/c++/13/memory \
+ /usr/include/c++/13/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/13/bits/align.h /usr/include/c++/13/bits/unique_ptr.h \
+ /usr/include/c++/13/bits/shared_ptr.h \
+ /usr/include/c++/13/bits/shared_ptr_base.h \
+ /usr/include/c++/13/bits/allocated_ptr.h \
+ /usr/include/c++/13/ext/concurrence.h \
+ /usr/include/c++/13/bits/shared_ptr_atomic.h \
+ /usr/include/c++/13/backward/auto_ptr.h \
+ /usr/include/c++/13/pstl/glue_memory_defs.h \
+ /root/Ai_http_cpp/HttpServer/include/router/Router.h \
+ /usr/include/muduo/net/TcpServer.h /usr/include/muduo/base/Atomic.h \
+ /usr/include/muduo/base/noncopyable.h /usr/include/muduo/base/Types.h \
+ /usr/include/muduo/net/TcpConnection.h \
+ /usr/include/muduo/base/StringPiece.h /usr/include/muduo/net/Callbacks.h \
+ /usr/include/muduo/base/Timestamp.h /usr/include/muduo/base/copyable.h \
+ /usr/include/boost/operators.hpp /usr/include/boost/core/addressof.hpp \
+ /usr/include/muduo/net/Buffer.h /usr/include/muduo/net/Endian.h \
  /usr/include/muduo/net/InetAddress.h /usr/include/netinet/in.h \
  /usr/include/x86_64-linux-gnu/sys/socket.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
@@ -241,7 +458,6 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
  /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/boost/any.hpp \
  /usr/include/boost/any/bad_any_cast.hpp /usr/include/boost/any/fwd.hpp \
- /usr/include/boost/config/pragma_message.hpp \
  /usr/include/boost/type_traits/alignment_of.hpp \
  /usr/include/boost/type_traits/intrinsics.hpp \
  /usr/include/boost/type_traits/detail/config.hpp \
@@ -252,11 +468,6 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o: \
  /usr/include/boost/type_index/stl_type_index.hpp \
  /usr/include/boost/type_index/type_index_facade.hpp \
  /usr/include/boost/container_hash/hash_fwd.hpp \
- /usr/include/c++/13/cstring /usr/include/boost/static_assert.hpp \
- /usr/include/boost/throw_exception.hpp \
- /usr/include/boost/exception/exception.hpp \
- /usr/include/boost/assert/source_location.hpp \
- /usr/include/boost/current_function.hpp /usr/include/boost/cstdint.hpp \
  /usr/include/boost/core/demangle.hpp /usr/include/c++/13/cxxabi.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/cxxabi_tweaks.h \
  /usr/include/boost/type_traits/conditional.hpp \
@@ -275,13 +486,7 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o: \
  /usr/include/boost/type_traits/remove_extent.hpp \
  /usr/include/boost/type_traits/add_pointer.hpp \
  /usr/include/boost/type_traits/add_reference.hpp \
- /usr/include/boost/core/enable_if.hpp \
- /usr/include/boost/type_traits/is_same.hpp /usr/include/c++/13/mutex \
- /usr/include/c++/13/bits/chrono.h /usr/include/c++/13/ratio \
- /usr/include/c++/13/limits /usr/include/c++/13/ctime \
- /usr/include/c++/13/bits/parse_numbers.h \
- /usr/include/c++/13/bits/std_mutex.h \
- /usr/include/c++/13/bits/unique_lock.h \
+ /usr/include/boost/type_traits/is_same.hpp \
  /root/Ai_http_cpp/HttpServer/include/concurrency/TaskExecutor.h \
  /usr/include/c++/13/condition_variable /usr/include/c++/13/queue \
  /usr/include/c++/13/deque /usr/include/c++/13/bits/stl_deque.h \
@@ -291,19 +496,11 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o: \
  /root/Ai_http_cpp/AIApps/ChatServer/include/auth/AuthHandler.h \
  /root/Ai_http_cpp/AIApps/ChatServer/include/storage/UserRepository.h \
  /usr/include/c++/13/chrono /usr/include/muduo/net/EventLoop.h \
- /usr/include/c++/13/atomic /usr/include/muduo/base/Mutex.h \
- /usr/include/muduo/base/CurrentThread.h /usr/include/muduo/net/TimerId.h \
+ /usr/include/muduo/base/Mutex.h /usr/include/muduo/base/CurrentThread.h \
+ /usr/include/muduo/net/TimerId.h \
  /usr/include/x86_64-linux-gnu/curl/curl.h \
  /usr/include/x86_64-linux-gnu/curl/curlver.h \
  /usr/include/x86_64-linux-gnu/curl/system.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
- /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
- /usr/include/x86_64-linux-gnu/bits/local_lim.h \
- /usr/include/linux/limits.h \
- /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
- /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
- /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
  /usr/include/x86_64-linux-gnu/sys/time.h \
  /usr/include/x86_64-linux-gnu/curl/easy.h \
  /usr/include/x86_64-linux-gnu/curl/multi.h \
@@ -313,13 +510,5 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/curl/header.h \
  /usr/include/x86_64-linux-gnu/curl/websockets.h \
  /usr/include/x86_64-linux-gnu/curl/mprintf.h \
- /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
- /usr/include/c++/13/ios /usr/include/c++/13/bits/basic_ios.h \
- /usr/include/c++/13/bits/locale_facets.h /usr/include/c++/13/cwctype \
- /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h \
- /usr/include/c++/13/bits/locale_facets.tcc \
- /usr/include/c++/13/bits/basic_ios.tcc \
- /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
+ /usr/include/c++/13/iostream /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc
