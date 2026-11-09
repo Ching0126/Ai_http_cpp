@@ -82,7 +82,7 @@ int main(){
             continue;
         }
 
-        // 只有写入成功后才确认消息。
+        // 只有写入成功后才确认消息,重复时间也需要确认，不然就会一直投递
         channel->BasicAck(envelope);
 
         std::cout<< (inserted? "chat event saved": "duplicate chat event ignored")<< std::endl;

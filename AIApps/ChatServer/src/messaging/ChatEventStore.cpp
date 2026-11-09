@@ -70,7 +70,7 @@ bool ChatEventStore::save(const std::string& body)const{
     if(body.size()>4096){//限制正文的大小
         throw InvalidChatEvent("event too large");
     }
-
+    //转json
     boost::system::error_code ec;
     const auto parsed = boost::json::parse(body,ec);
     if(ec||!parsed.is_object()){
@@ -81,9 +81,7 @@ bool ChatEventStore::save(const std::string& body)const{
     const auto type = readString(object,"type");
     const auto username = readString(object,"username");
     const auto sessionId = readString(object,"sessionId");
-    if(type != "chat.completed"||
-        !validUsername(username)||
-        !validSessionId(sessionId)){
+    if(type != "chat.completed"||!validUsername(username)||!validSessionId(sessionId)){
         throw InvalidChatEvent("invalid chat event");
     }
 

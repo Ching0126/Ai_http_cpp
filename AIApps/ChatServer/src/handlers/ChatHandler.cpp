@@ -1,5 +1,5 @@
 #include "handlers/ChatHandler.h"
-#include "ai/AIClient.h"
+#include "ai//ChatStrategyFactory.h"
 #include "messaging/ChatEventPublisher.h"
 
 #include <boost/json/src.hpp>
@@ -20,7 +20,7 @@ std::string envOr(const char*name,const char* fallback){
     return value && *value ? value : fallback;
 }
 
-std::string makeEventId(){
+std::string makeEventId(){//eventid随机生成函数
     unsigned char bytes[16];
 
     if(RAND_bytes(bytes,sizeof bytes)!=1){
@@ -186,44 +186,24 @@ HttpResponse ChatHandler::handle(
 
     pending.push_back({"user",text});
 
-    const auto mode = envOr("AI_MODE","mock");
-
     std::string answer;
-
-    if(mode == "mock"){
-        answer = "[模拟ai]收到你的信息"+text
-                +"此前消息数："+std::to_string(session->messages.size());
-    }else if (mode == "deepseek"){
-        const auto key = envOr("DEEPSEEK_API_KEY","");
-
-        if(key.empty()){
-            return HttpResponse(
-                503,
-                "Service Unavailable",
-                R"({"error":"API key is not configured"})"
-            );
-    }
-
-    const auto url = envOr("DEEPSEEK_API_URL","https://api.deepseek.com/chat/completions");
-
-    const auto model = envOr("DEEPSEEK_MODEL","deepseek-flash");
-
     try{
-        AIClient client(key,url,model);
+        const auto strategy = ChatStrategyFactory::create(envOr("AI_MODE","mock"));
 
-        answer = client.ask(pending);
-    }catch(const std::exception&){
+        answer = strategy->ask(pending);
+    }catch(const AIConfigError& error){
+        boost::json::object body;
+        body["error"] = error.what();
+        return HttpResponse(
+            503,
+            "Service Unavailable",
+            boost::json::serialize(body)
+        );
+    }catch(const AIRequestError&){
         return HttpResponse(
             502,
             "Bad Gateway",
             R"({"error":"AI request failed"})"
-        );
-    }
-    }else{//mode什么都不是
-        return HttpResponse(
-            503,
-            "Service Unavailable",
-            R"({"error":"invalid AI_MODE"})"
         );
     }
 

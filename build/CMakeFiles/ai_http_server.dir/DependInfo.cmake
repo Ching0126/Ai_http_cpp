@@ -10,6 +10,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/root/Ai_http_cpp/AIApps/ChatServer/src/ChatServer.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ChatServer.cpp.o.d"
   "/root/Ai_http_cpp/AIApps/ChatServer/src/ai/AIClient.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.o.d"
+  "/root/Ai_http_cpp/AIApps/ChatServer/src/ai/ChatStrategy.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/ChatStrategy.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/ChatStrategy.cpp.o.d"
+  "/root/Ai_http_cpp/AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp.o.d"
   "/root/Ai_http_cpp/AIApps/ChatServer/src/auth/AuthHandler.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/auth/AuthHandler.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/auth/AuthHandler.cpp.o.d"
   "/root/Ai_http_cpp/AIApps/ChatServer/src/handlers/ChatHandler.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/ChatHandler.cpp.o.d"
   "/root/Ai_http_cpp/AIApps/ChatServer/src/handlers/StaticFileHandler.cpp" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.o" "gcc" "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/handlers/StaticFileHandler.cpp.o.d"

@@ -12,10 +12,7 @@
  */
 int main(int argc, char* argv[]) {
     if (argc != 2) {
-        std::cerr
-            << "usage: replay_chat_event "
-            << "<32-lowercase-hex-id>"
-            << std::endl;
+        std::cerr<< "usage: replay_chat_event "<< "<32-lowercase-hex-id>"<< std::endl;
 
         return 1;
     }
@@ -33,9 +30,7 @@ int main(int argc, char* argv[]) {
     );
 
     if (id.size() != 32 || !valid) {
-        std::cerr
-            << "invalid event id"
-            << std::endl;
+        std::cerr<< "invalid event id"<< std::endl;
 
         return 1;
     }
@@ -51,13 +46,9 @@ int main(int argc, char* argv[]) {
         ChatEventPublisher::publish(event);
         ChatEventPublisher::publish(event);
 
-        std::cout
-            << "same event sent twice"
-            << std::endl;
+        std::cout<< "same event sent twice"<< std::endl;
     } catch (const std::exception&) {
-        std::cerr
-            << "event replay failed"
-            << std::endl;
+        std::cerr<< "event replay failed"<< std::endl;
 
         return 1;
     }

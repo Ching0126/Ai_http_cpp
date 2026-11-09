@@ -229,6 +229,54 @@ AIApps/ChatServer/src/ai/AIClient.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.s
 .PHONY : AIApps/ChatServer/src/ai/AIClient.cpp.s
 
+AIApps/ChatServer/src/ai/ChatStrategy.o: AIApps/ChatServer/src/ai/ChatStrategy.cpp.o
+.PHONY : AIApps/ChatServer/src/ai/ChatStrategy.o
+
+# target to build an object file
+AIApps/ChatServer/src/ai/ChatStrategy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/ChatStrategy.cpp.o
+.PHONY : AIApps/ChatServer/src/ai/ChatStrategy.cpp.o
+
+AIApps/ChatServer/src/ai/ChatStrategy.i: AIApps/ChatServer/src/ai/ChatStrategy.cpp.i
+.PHONY : AIApps/ChatServer/src/ai/ChatStrategy.i
+
+# target to preprocess a source file
+AIApps/ChatServer/src/ai/ChatStrategy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/ChatStrategy.cpp.i
+.PHONY : AIApps/ChatServer/src/ai/ChatStrategy.cpp.i
+
+AIApps/ChatServer/src/ai/ChatStrategy.s: AIApps/ChatServer/src/ai/ChatStrategy.cpp.s
+.PHONY : AIApps/ChatServer/src/ai/ChatStrategy.s
+
+# target to generate assembly for a file
+AIApps/ChatServer/src/ai/ChatStrategy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/ChatStrategy.cpp.s
+.PHONY : AIApps/ChatServer/src/ai/ChatStrategy.cpp.s
+
+AIApps/ChatServer/src/ai/ChatStrategyFactory.o: AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp.o
+.PHONY : AIApps/ChatServer/src/ai/ChatStrategyFactory.o
+
+# target to build an object file
+AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp.o
+.PHONY : AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp.o
+
+AIApps/ChatServer/src/ai/ChatStrategyFactory.i: AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp.i
+.PHONY : AIApps/ChatServer/src/ai/ChatStrategyFactory.i
+
+# target to preprocess a source file
+AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp.i
+.PHONY : AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp.i
+
+AIApps/ChatServer/src/ai/ChatStrategyFactory.s: AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp.s
+.PHONY : AIApps/ChatServer/src/ai/ChatStrategyFactory.s
+
+# target to generate assembly for a file
+AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp.s
+.PHONY : AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp.s
+
 AIApps/ChatServer/src/auth/AuthHandler.o: AIApps/ChatServer/src/auth/AuthHandler.cpp.o
 .PHONY : AIApps/ChatServer/src/auth/AuthHandler.o
 
@@ -707,6 +755,12 @@ help:
 	@echo "... AIApps/ChatServer/src/ai/AIClient.o"
 	@echo "... AIApps/ChatServer/src/ai/AIClient.i"
 	@echo "... AIApps/ChatServer/src/ai/AIClient.s"
+	@echo "... AIApps/ChatServer/src/ai/ChatStrategy.o"
+	@echo "... AIApps/ChatServer/src/ai/ChatStrategy.i"
+	@echo "... AIApps/ChatServer/src/ai/ChatStrategy.s"
+	@echo "... AIApps/ChatServer/src/ai/ChatStrategyFactory.o"
+	@echo "... AIApps/ChatServer/src/ai/ChatStrategyFactory.i"
+	@echo "... AIApps/ChatServer/src/ai/ChatStrategyFactory.s"
 	@echo "... AIApps/ChatServer/src/auth/AuthHandler.o"
 	@echo "... AIApps/ChatServer/src/auth/AuthHandler.i"
 	@echo "... AIApps/ChatServer/src/auth/AuthHandler.s"
