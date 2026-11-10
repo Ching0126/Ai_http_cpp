@@ -271,7 +271,7 @@ HttpResponse ChatHandler::handle(
             const auto strategy =
                 ChatStrategyFactory::create(mode);
 
-            answer = strategy->ask(pending);
+            answer = strategy->ask(pending,tools_);
         } catch (const AIConfigError& error) {
             boost::json::object body;
 

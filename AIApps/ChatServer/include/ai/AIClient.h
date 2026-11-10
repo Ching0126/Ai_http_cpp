@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ai/ChatMessage.h"
+#include "tools/ToolRegistry.h"
 
 #include <vector>
 #include <string>
@@ -13,7 +14,7 @@ public:
         std::string model
     );
 
-    std::string ask(const std::vector<ChatMessage>& history) const;
+    std::string ask(const std::vector<ChatMessage>& history,const ToolRegistry& tools) const;
 private:
     std::string key_;
     std::string url_;

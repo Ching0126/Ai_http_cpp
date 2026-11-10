@@ -23,6 +23,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/DbConnectionPool.cpp.o.d"
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o"
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.o.d"
+  "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/tools/McpWebSearch.cpp.o"
+  "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/tools/McpWebSearch.cpp.o.d"
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/tools/ToolRegistry.cpp.o"
   "CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/tools/ToolRegistry.cpp.o.d"
   "ai_http_server"

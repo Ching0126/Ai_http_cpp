@@ -122,6 +122,7 @@ add_executable(ai_http_server
     AIApps/ChatServer/src/ai/ChatStrategyFactory.cpp
     AIApps/ChatServer/src/ai/ModelSettingsStore.cpp
     AIApps/ChatServer/src/tools/ToolRegistry.cpp
+    AIApps/ChatServer/src/tools/McpWebSearch.cpp
     AIApps/ChatServer/src/session/ChatSessionManager.cpp
     AIApps/ChatServer/src/auth/AuthHandler.cpp
     AIApps/ChatServer/src/handlers/StaticFileHandler.cpp

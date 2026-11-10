@@ -117,12 +117,9 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.o: \
  /usr/include/c++/13/bits/memory_resource.h /usr/include/c++/13/cstddef \
  /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
- /usr/include/c++/13/vector /usr/include/c++/13/bits/stl_uninitialized.h \
- /usr/include/c++/13/bits/stl_vector.h \
- /usr/include/c++/13/bits/stl_bvector.h \
- /usr/include/c++/13/bits/vector.tcc /usr/include/boost/json.hpp \
- /usr/include/boost/json/detail/config.hpp /usr/include/boost/config.hpp \
- /usr/include/boost/config/user.hpp \
+ /root/Ai_http_cpp/AIApps/ChatServer/include/tools/ToolRegistry.h \
+ /usr/include/boost/json.hpp /usr/include/boost/json/detail/config.hpp \
+ /usr/include/boost/config.hpp /usr/include/boost/config/user.hpp \
  /usr/include/boost/config/detail/select_compiler_config.hpp \
  /usr/include/boost/config/compiler/gcc.hpp \
  /usr/include/boost/config/detail/select_stdlib_config.hpp \
@@ -283,7 +280,11 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.o: \
  /usr/include/c++/13/ext/aligned_buffer.h \
  /usr/include/c++/13/bits/enable_special_members.h \
  /usr/include/c++/13/bits/node_handle.h \
- /usr/include/c++/13/bits/erase_if.h /usr/include/c++/13/array \
+ /usr/include/c++/13/bits/erase_if.h /usr/include/c++/13/vector \
+ /usr/include/c++/13/bits/stl_uninitialized.h \
+ /usr/include/c++/13/bits/stl_vector.h \
+ /usr/include/c++/13/bits/stl_bvector.h \
+ /usr/include/c++/13/bits/vector.tcc /usr/include/c++/13/array \
  /usr/include/c++/13/compare \
  /usr/include/boost/system/detail/error_condition.hpp \
  /usr/include/boost/system/detail/generic_category.hpp \
@@ -409,6 +410,10 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.o: \
  /usr/include/boost/json/detail/value_to.hpp \
  /usr/include/boost/describe/enum_from_string.hpp \
  /usr/include/boost/json/visit.hpp /usr/include/boost/json/impl/visit.hpp \
+ /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
+ /usr/include/c++/13/bits/stl_map.h \
+ /usr/include/c++/13/bits/stl_multimap.h \
+ /root/Ai_http_cpp/AIApps/ChatServer/include/tools/McpWebSearch.h \
  /usr/include/x86_64-linux-gnu/curl/curl.h \
  /usr/include/x86_64-linux-gnu/curl/curlver.h \
  /usr/include/x86_64-linux-gnu/curl/system.h \
@@ -445,4 +450,6 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/ai/AIClient.cpp.o: \
  /usr/include/c++/13/ext/concurrence.h \
  /usr/include/c++/13/bits/shared_ptr_atomic.h \
  /usr/include/c++/13/backward/auto_ptr.h \
- /usr/include/c++/13/pstl/glue_memory_defs.h
+ /usr/include/c++/13/pstl/glue_memory_defs.h /usr/include/c++/13/set \
+ /usr/include/c++/13/bits/stl_set.h \
+ /usr/include/c++/13/bits/stl_multiset.h

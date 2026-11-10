@@ -89,7 +89,7 @@ clean: CMakeFiles/replay_chat_event.dir/clean
 CMakeFiles/chat_events.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_events.dir/build.make CMakeFiles/chat_events.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_events.dir/build.make CMakeFiles/chat_events.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=19,20 "Built target chat_events"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=20,21 "Built target chat_events"
 .PHONY : CMakeFiles/chat_events.dir/all
 
 # Build rule for subdir invocation for target.
@@ -115,7 +115,7 @@ CMakeFiles/chat_events.dir/clean:
 CMakeFiles/chat_event_consumer.dir/all: CMakeFiles/chat_events.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_event_consumer.dir/build.make CMakeFiles/chat_event_consumer.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/chat_event_consumer.dir/build.make CMakeFiles/chat_event_consumer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=15,16,17,18 "Built target chat_event_consumer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=16,17,18,19 "Built target chat_event_consumer"
 .PHONY : CMakeFiles/chat_event_consumer.dir/all
 
 # Build rule for subdir invocation for target.
@@ -141,7 +141,7 @@ CMakeFiles/chat_event_consumer.dir/clean:
 CMakeFiles/http_framework.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/http_framework.dir/build.make CMakeFiles/http_framework.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/http_framework.dir/build.make CMakeFiles/http_framework.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=21,22,23,24,25,26,27,28,29 "Built target http_framework"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=22,23,24,25,26,27,28,29,30 "Built target http_framework"
 .PHONY : CMakeFiles/http_framework.dir/all
 
 # Build rule for subdir invocation for target.
@@ -168,12 +168,12 @@ CMakeFiles/ai_http_server.dir/all: CMakeFiles/chat_events.dir/all
 CMakeFiles/ai_http_server.dir/all: CMakeFiles/http_framework.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14 "Built target ai_http_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 "Built target ai_http_server"
 .PHONY : CMakeFiles/ai_http_server.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ai_http_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/Ai_http_cpp/build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/Ai_http_cpp/build/CMakeFiles 26
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ai_http_server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/Ai_http_cpp/build/CMakeFiles 0
 .PHONY : CMakeFiles/ai_http_server.dir/rule
@@ -194,7 +194,7 @@ CMakeFiles/ai_http_server.dir/clean:
 CMakeFiles/replay_chat_event.dir/all: CMakeFiles/chat_events.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_chat_event.dir/build.make CMakeFiles/replay_chat_event.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/replay_chat_event.dir/build.make CMakeFiles/replay_chat_event.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=30,31 "Built target replay_chat_event"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/root/Ai_http_cpp/build/CMakeFiles --progress-num=31,32 "Built target replay_chat_event"
 .PHONY : CMakeFiles/replay_chat_event.dir/all
 
 # Build rule for subdir invocation for target.

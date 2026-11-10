@@ -520,6 +520,30 @@ AIApps/ChatServer/src/storage/UserRepository.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/storage/UserRepository.cpp.s
 .PHONY : AIApps/ChatServer/src/storage/UserRepository.cpp.s
 
+AIApps/ChatServer/src/tools/McpWebSearch.o: AIApps/ChatServer/src/tools/McpWebSearch.cpp.o
+.PHONY : AIApps/ChatServer/src/tools/McpWebSearch.o
+
+# target to build an object file
+AIApps/ChatServer/src/tools/McpWebSearch.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/tools/McpWebSearch.cpp.o
+.PHONY : AIApps/ChatServer/src/tools/McpWebSearch.cpp.o
+
+AIApps/ChatServer/src/tools/McpWebSearch.i: AIApps/ChatServer/src/tools/McpWebSearch.cpp.i
+.PHONY : AIApps/ChatServer/src/tools/McpWebSearch.i
+
+# target to preprocess a source file
+AIApps/ChatServer/src/tools/McpWebSearch.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/tools/McpWebSearch.cpp.i
+.PHONY : AIApps/ChatServer/src/tools/McpWebSearch.cpp.i
+
+AIApps/ChatServer/src/tools/McpWebSearch.s: AIApps/ChatServer/src/tools/McpWebSearch.cpp.s
+.PHONY : AIApps/ChatServer/src/tools/McpWebSearch.s
+
+# target to generate assembly for a file
+AIApps/ChatServer/src/tools/McpWebSearch.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_http_server.dir/build.make CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/tools/McpWebSearch.cpp.s
+.PHONY : AIApps/ChatServer/src/tools/McpWebSearch.cpp.s
+
 AIApps/ChatServer/src/tools/ToolRegistry.o: AIApps/ChatServer/src/tools/ToolRegistry.cpp.o
 .PHONY : AIApps/ChatServer/src/tools/ToolRegistry.o
 
@@ -839,6 +863,9 @@ help:
 	@echo "... AIApps/ChatServer/src/storage/UserRepository.o"
 	@echo "... AIApps/ChatServer/src/storage/UserRepository.i"
 	@echo "... AIApps/ChatServer/src/storage/UserRepository.s"
+	@echo "... AIApps/ChatServer/src/tools/McpWebSearch.o"
+	@echo "... AIApps/ChatServer/src/tools/McpWebSearch.i"
+	@echo "... AIApps/ChatServer/src/tools/McpWebSearch.s"
 	@echo "... AIApps/ChatServer/src/tools/ToolRegistry.o"
 	@echo "... AIApps/ChatServer/src/tools/ToolRegistry.i"
 	@echo "... AIApps/ChatServer/src/tools/ToolRegistry.s"

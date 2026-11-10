@@ -409,4 +409,5 @@ CMakeFiles/ai_http_server.dir/AIApps/ChatServer/src/tools/ToolRegistry.cpp.o: \
  /usr/include/boost/json/visit.hpp /usr/include/boost/json/impl/visit.hpp \
  /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
  /usr/include/c++/13/bits/stl_map.h \
- /usr/include/c++/13/bits/stl_multimap.h
+ /usr/include/c++/13/bits/stl_multimap.h \
+ /root/Ai_http_cpp/AIApps/ChatServer/include/tools/McpWebSearch.h

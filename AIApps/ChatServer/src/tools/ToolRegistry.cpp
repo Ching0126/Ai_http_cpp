@@ -1,4 +1,5 @@
 #include "tools/ToolRegistry.h"
+#include "tools/McpWebSearch.h"
 
 #include <ctime>
 #include <stdexcept>
@@ -7,15 +8,15 @@
 namespace{
 
 std::string getTime(const boost::json::object& args){
-    if(!args.empty()){
+    if(!args.empty()){//不接受参数，如果接受了参数，就报错
         throw std::invalid_argument("get_time tasks no arguments");
     }
 
-    const std::time_t now = std::time(nullptr);
+    const std::time_t now = std::time(nullptr);//获取当前时间
 
     std::tm local{};
 
-    if(now==static_cast<std::time_t>(-1)||!localtime_r(&now,&local)){
+    if(now==static_cast<std::time_t>(-1)||!localtime_r(&now,&local)){//localtime_r 将结果写到当前函数自己的 local 中。
         throw std::runtime_error("cannot read local time");
     }
 
@@ -32,6 +33,11 @@ std::string getTime(const boost::json::object& args){
 
 ToolRegistry::ToolRegistry(){
     registerTool("get_time",getTime);
+
+     // 配置了阿里云 MCP 地址和密钥时，才注册搜索工具。
+    if (mcpSearchConfigured()) {
+        registerTool("web_search", mcpWebSearch);
+    }
 }
 
 void ToolRegistry::registerTool(const std::string& name,Tool tool){
